@@ -142,7 +142,7 @@
             this.TestFTPconnectionbtn.TabIndex = 0;
             this.TestFTPconnectionbtn.Text = "Test connection";
             this.TestFTPconnectionbtn.UseVisualStyleBackColor = true;
-            this.TestFTPconnectionbtn.Click += new System.EventHandler(this.button2_Click);
+            this.TestFTPconnectionbtn.Click += new System.EventHandler(this.TestFTPconnectionbtn_Click);
             // 
             // pictureBox1
             // 
