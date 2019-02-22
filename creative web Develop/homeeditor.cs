@@ -28,6 +28,7 @@ namespace creative_web_Develop
         }
         private void homeeditor_Load(object sender, EventArgs e)
         {
+            
             groupBox1.Hide();
             groupBox2.Hide();
             if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/"))
@@ -87,6 +88,11 @@ namespace creative_web_Develop
         {
             groupBox1.Hide();
             groupBox2.Show();
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

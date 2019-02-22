@@ -62,8 +62,11 @@ namespace creative_web_Develop
 
         private void Applysettings_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.host = textBox1.Text;
+            Properties.Settings.Default.username = textBox2.Text;
+            Properties.Settings.Default.password = textBox3.Text;
+            Properties.Settings.Default.port = numericUpDown1.Value.ToString();
 
-        
         }
     }
 }

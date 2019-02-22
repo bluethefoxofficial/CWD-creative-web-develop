@@ -179,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 478);
+            this.ClientSize = new System.Drawing.Size(371, 466);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Applysettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
