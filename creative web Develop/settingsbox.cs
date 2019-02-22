@@ -59,5 +59,10 @@ namespace creative_web_Develop
         {
 
         }
+
+        private void Applysettings_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
