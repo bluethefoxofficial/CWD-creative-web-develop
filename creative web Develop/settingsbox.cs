@@ -30,27 +30,32 @@ namespace creative_web_Develop
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void TestFTPconnectionbtn_Click(object sender, EventArgs e)
         {
-            label4.Text = "status: Connecting";
+            Status.Text = "status: Connecting";
             pictureBox1.BackColor = Color.Orange; 
-            FtpWebRequest requestDir = (FtpWebRequest)FtpWebRequest.Create(@"ftp://" + textBox1.Text + ":" + numericUpDown1.Value);
+            FtpWebRequest requestDir = (FtpWebRequest)FtpWebRequest.Create("ftp://" + textBox1.Text + ":" + numericUpDown1.Value);
             requestDir.Credentials = new NetworkCredential(textBox2.Text, textBox3.Text);
 
             try
             {
                 WebResponse response = requestDir.GetResponse();
-                label4.Text = "connection successfull";
+                Status.Text = "connection successfull";
                 pictureBox1.BackColor = Color.Green;
             }
             catch (Exception)
             {
-                label4.Text = "connection unsuccessfull";
+                Status.Text = "connection unsuccessfull";
                 pictureBox1.BackColor = Color.Red;
             }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
