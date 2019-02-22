@@ -19,7 +19,20 @@ namespace creative_web_Develop
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            timer1.Start();
             lblversion.Text = ProductVersion;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Opacity += 1;
+            if(Opacity == 100)
+            {
+                timer1.Stop();
+                Application.Run(new homeeditor());
+                this.Close();
+            }
         }
     }
 }

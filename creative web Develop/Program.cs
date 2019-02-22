@@ -16,7 +16,7 @@ namespace creative_web_Develop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new homeeditor());
+            Application.Run(new Form1());
         }
     }
 }
