@@ -61,13 +61,25 @@ namespace creative_web_Develop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string port {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal port {
             get {
-                return ((string)(this["port"]));
+                return ((decimal)(this["port"]));
             }
             set {
                 this["port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string folder {
+            get {
+                return ((string)(this["folder"]));
+            }
+            set {
+                this["folder"] = value;
             }
         }
     }

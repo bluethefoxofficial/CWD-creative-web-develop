@@ -13,11 +13,12 @@ namespace creative_web_Develop
 {
     public partial class homeeditor : Form
     {
+        List<string> listFiles = new List<string>();
         public homeeditor()
         {
             InitializeComponent();
         }
-        public void DisplayFolder(string folderPath)
+        public void DisplayFolder(string folderPath) //irrelevent
         {
             string[] files = System.IO.Directory.GetFiles(folderPath);
 
@@ -64,9 +65,14 @@ namespace creative_web_Develop
             groupBox2.Hide();
             groupBox1.Show();
 
-            string[] fileEntries = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/");
-            foreach (string fileName in fileEntries)
-                listView1.Items.Add(fileName);
+            listView1.Items.Clear();
+            foreach (string item in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/"))
+            {
+                imageList2.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                FileInfo fi = new FileInfo(item);
+                listFiles.Add(fi.FullName);
+                listView1.Items.Add(fi.Name, imageList2.Images.Count - 1);
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,7 +98,7 @@ namespace creative_web_Develop
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

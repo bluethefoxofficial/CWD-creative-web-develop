@@ -25,14 +25,14 @@ namespace creative_web_Develop
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-            Opacity += 1;
-            if(Opacity == 100)
-            {
+        {    
                 timer1.Stop();
-                Application.Run(new homeeditor());
-                this.Close();
-            }
+
+            this.Hide();
+            var Maineditor = new homeeditor();
+            Maineditor.Closed += (s, args) => this.Close();
+            Maineditor.Show();
+
         }
     }
 }

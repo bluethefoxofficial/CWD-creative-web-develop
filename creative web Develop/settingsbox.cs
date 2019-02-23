@@ -20,7 +20,10 @@ namespace creative_web_Develop
 
         private void settingsbox_Load(object sender, EventArgs e)
         {
-
+            textBox1.Text = Properties.Settings.Default.host;
+            textBox2.Text = Properties.Settings.Default.username;
+            textBox3.Text = Properties.Settings.Default.password;
+            numericUpDown1.Value = Properties.Settings.Default.port;
         }
         private void Form1_HelpButtonClicked(Object sender, CancelEventArgs e)
 
@@ -65,7 +68,7 @@ namespace creative_web_Develop
             Properties.Settings.Default.host = textBox1.Text;
             Properties.Settings.Default.username = textBox2.Text;
             Properties.Settings.Default.password = textBox3.Text;
-            Properties.Settings.Default.port = numericUpDown1.Value.ToString();
+            Properties.Settings.Default.port = numericUpDown1.Value;
 
         }
     }

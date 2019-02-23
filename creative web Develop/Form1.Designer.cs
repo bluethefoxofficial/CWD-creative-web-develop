@@ -38,7 +38,7 @@
             this.lblversion.AutoSize = true;
             this.lblversion.BackColor = System.Drawing.Color.Transparent;
             this.lblversion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblversion.Location = new System.Drawing.Point(554, 389);
+            this.lblversion.Location = new System.Drawing.Point(554, 391);
             this.lblversion.Name = "lblversion";
             this.lblversion.Size = new System.Drawing.Size(52, 17);
             this.lblversion.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 10;
+            this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
@@ -54,11 +54,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::creative_web_Develop.Properties.Resources.cwd_splash;
-            this.ClientSize = new System.Drawing.Size(607, 407);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(607, 408);
             this.Controls.Add(this.lblversion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
-            this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CDEVWEB";
             this.Load += new System.EventHandler(this.Form1_Load);

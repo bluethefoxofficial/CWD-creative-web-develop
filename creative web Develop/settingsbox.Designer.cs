@@ -94,9 +94,9 @@
             this.Status.AutoSize = true;
             this.Status.Location = new System.Drawing.Point(54, 222);
             this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(97, 17);
+            this.Status.Size = new System.Drawing.Size(109, 17);
             this.Status.TabIndex = 2;
-            this.Status.Text = "status: waiting";
+            this.Status.Text = "status: waiting...";
             // 
             // groupBox2
             // 
