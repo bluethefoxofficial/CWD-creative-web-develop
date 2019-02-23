@@ -105,11 +105,9 @@ namespace creative_web_Develop
         {
             if (textBox1.Text != "")
             {
-                using (StreamWriter file = File.CreateText(@"D:\path.txt"))
+                using (StreamWriter file = File.CreateText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + textBox1.Text + ".cwp"))
                 {
-                    JsonSerializer serializer = new JsonSerializer();
-                    //serialize object directly into file stream
-                    serializer.Serialize(file, _data);
+                   
                 }
             }
             else
