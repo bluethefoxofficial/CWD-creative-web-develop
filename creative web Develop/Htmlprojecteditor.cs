@@ -22,6 +22,15 @@ namespace creative_web_Develop
         private void Htmlprojecteditor_Load(object sender, EventArgs e)
         {
             listView1.Items.Clear();
+            //dark theme
+            if(Properties.Settings.Default.darktheme == true)
+            {
+                richTextBox1.BackColor = Color.DarkSlateGray;
+                richTextBox1.ForeColor = Color.White;
+                menuStrip1.BackColor = Color.LightSlateGray;
+                menuStrip1.ForeColor = Color.White;
+            }
+            //loads project files in the project explorer
             foreach(string item in Directory.GetFiles(Properties.Settings.Default.folder))
             {
                 imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
@@ -51,6 +60,21 @@ namespace creative_web_Develop
         }
 
         private void closeProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cMDToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

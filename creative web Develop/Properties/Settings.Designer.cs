@@ -82,5 +82,29 @@ namespace creative_web_Develop.Properties {
                 this["folder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool splashscreen {
+            get {
+                return ((bool)(this["splashscreen"]));
+            }
+            set {
+                this["splashscreen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool darktheme {
+            get {
+                return ((bool)(this["darktheme"]));
+            }
+            set {
+                this["darktheme"] = value;
+            }
+        }
     }
 }

@@ -20,10 +20,44 @@ namespace creative_web_Develop
 
         private void settingsbox_Load(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.darktheme == true)
+            {
+                checkBox1.BackColor = Color.Transparent;
+                checkBox2.BackColor = Color.Transparent;
+                checkBox1.ForeColor = Color.White;
+                checkBox2.ForeColor = Color.White;
+                groupBox1.BackColor = Color.Black;
+                groupBox2.BackColor = Color.Black;
+                groupBox3.BackColor = Color.Black;
+                groupBox1.ForeColor = Color.White;
+                groupBox2.ForeColor = Color.White;
+                groupBox3.ForeColor = Color.White;
+                BackColor = Color.Black;
+                ForeColor = Color.White;
+                label1.ForeColor = Color.White;
+                label2.ForeColor = Color.White;
+                label3.ForeColor = Color.White;
+            }
             textBox1.Text = Properties.Settings.Default.host;
             textBox2.Text = Properties.Settings.Default.username;
             textBox3.Text = Properties.Settings.Default.password;
             numericUpDown1.Value = Properties.Settings.Default.port;
+            if(Properties.Settings.Default.splashscreen == true)
+            {
+                checkBox2.Checked = true;
+            }
+            else
+            {
+                checkBox2.Checked = false;
+            }
+            if (Properties.Settings.Default.darktheme == true)
+            {
+                checkBox1.Checked = true;
+            }
+            else
+            {
+                checkBox1.Checked = false;
+            }
         }
         private void Form1_HelpButtonClicked(Object sender, CancelEventArgs e)
 
@@ -36,20 +70,27 @@ namespace creative_web_Develop
         private void TestFTPconnectionbtn_Click(object sender, EventArgs e)
         {
             Status.Text = "status: Connecting";
-            pictureBox1.BackColor = Color.Orange; 
-            FtpWebRequest requestDir = (FtpWebRequest)FtpWebRequest.Create("ftp://" + textBox1.Text + ":" + numericUpDown1.Value);
-            requestDir.Credentials = new NetworkCredential(textBox2.Text, textBox3.Text);
-
+            pictureBox1.BackColor = Color.Orange;
             try
             {
-                WebResponse response = requestDir.GetResponse();
-                Status.Text = "connection successfull";
-                pictureBox1.BackColor = Color.Green;
+                FtpWebRequest requestDir = (FtpWebRequest)FtpWebRequest.Create("ftp://" + textBox1.Text + ":" + numericUpDown1.Value);
+                requestDir.Credentials = new NetworkCredential(textBox2.Text, textBox3.Text);
+
+                try
+                {
+                    WebResponse response = requestDir.GetResponse();
+                    Status.Text = "connection successfull";
+                    pictureBox1.BackColor = Color.Green;
+                }
+                catch (Exception)
+                {
+                    Status.Text = "connection unsuccessfull";
+                    pictureBox1.BackColor = Color.Red;
+                }
             }
-            catch (Exception)
+            catch
             {
-                Status.Text = "connection unsuccessfull";
-                pictureBox1.BackColor = Color.Red;
+                MessageBox.Show("connection was unsuccessfull because you didnt place any details relating to either Credentials or hostname");
             }
         }
 
@@ -69,7 +110,25 @@ namespace creative_web_Develop
             Properties.Settings.Default.username = textBox2.Text;
             Properties.Settings.Default.password = textBox3.Text;
             Properties.Settings.Default.port = numericUpDown1.Value;
-
+            if (checkBox1.Checked == true)
+            {
+                Properties.Settings.Default.darktheme = true;
+            }
+            else
+            {
+                Properties.Settings.Default.darktheme = false;
+            }
+            if (checkBox2.Checked == true)
+            {
+                Properties.Settings.Default.splashscreen = true;
+            }
+            else
+            {
+                Properties.Settings.Default.splashscreen = false;
+            }
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
+            this.Close();
         }
     }
 }

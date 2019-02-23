@@ -19,9 +19,21 @@ namespace creative_web_Develop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            timer1.Start();
+           
             lblversion.Text = ProductVersion;
+            if (Properties.Settings.Default.splashscreen == true)
+            {
+             
+            }
+            else
+            {
+                timer1.Stop();
+                this.Hide();
+                var Maineditor = new homeeditor();
+                Maineditor.Closed += (s, args) => this.Close();
+                Maineditor.Show();
+            }
+            timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

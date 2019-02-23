@@ -57,6 +57,7 @@
             this.label1.Size = new System.Drawing.Size(190, 75);
             this.label1.TabIndex = 3;
             this.label1.Text = "CWD";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -69,6 +70,7 @@
             this.label2.Size = new System.Drawing.Size(221, 46);
             this.label2.TabIndex = 4;
             this.label2.Text = "Developers";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -81,6 +83,7 @@
             this.label3.Size = new System.Drawing.Size(164, 31);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nexite Itachi";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -92,6 +95,7 @@
             this.label4.Size = new System.Drawing.Size(131, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "(C) creative software 2019";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -104,6 +108,7 @@
             this.label5.Size = new System.Drawing.Size(227, 31);
             this.label5.TabIndex = 7;
             this.label5.Text = "Kessan robertson";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -116,6 +121,7 @@
             this.label6.Size = new System.Drawing.Size(429, 46);
             this.label6.TabIndex = 8;
             this.label6.Text = "splash screen designer";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -128,6 +134,7 @@
             this.label7.Size = new System.Drawing.Size(164, 31);
             this.label7.TabIndex = 9;
             this.label7.Text = "Nexite Itachi";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -140,6 +147,7 @@
             this.label8.Size = new System.Drawing.Size(441, 35);
             this.label8.TabIndex = 11;
             this.label8.Text = "creative software logo designer";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -152,6 +160,7 @@
             this.label9.Size = new System.Drawing.Size(227, 31);
             this.label9.TabIndex = 12;
             this.label9.Text = "Kessan robertson";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // pictureBox3
             // 
@@ -164,6 +173,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
             // 
@@ -174,6 +184,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(452, 616);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -204,12 +215,13 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "about";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "about";
+            this.Load += new System.EventHandler(this.about_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
