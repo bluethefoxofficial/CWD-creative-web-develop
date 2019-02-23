@@ -30,7 +30,21 @@ namespace creative_web_Develop
         }
         private void homeeditor_Load(object sender, EventArgs e)
         {
-            
+            if(Properties.Settings.Default.darktheme == true)
+            {
+                BackColor = Color.Black;
+                ForeColor = Color.White;
+                tabPage1.BackColor = Color.Black;
+                listView1.BackColor = Color.DarkGray;
+                listView1.ForeColor = Color.White;
+                listView2.BackColor = Color.DarkGray;
+                listView2.ForeColor = Color.White;
+                menuStrip1.BackColor = Color.Black;
+                menuStrip1.ForeColor = Color.White;
+                groupBox1.ForeColor = Color.White;
+                groupBox2.ForeColor = Color.White;
+
+            }
             groupBox1.Hide();
             groupBox2.Hide();
             if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/"))
@@ -112,7 +126,11 @@ namespace creative_web_Develop
                 int intselectedindex = listView2.SelectedIndices[0];
                 System.IO.File.WriteAllText(Environment.GetFolderPath( Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text, "{'folder':'" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + textBox1.Text + "_files" + "','type':'" + listView2.Items[intselectedindex].Text + "'}");
                 System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text + "_files");
-                
+                TabPage tp = new TabPage();
+                Htmlprojecteditor hpe = new Htmlprojecteditor(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text);
+                tp.Controls.Add(hpe);
+                hpe.Dock = DockStyle.Fill;
+                tabControl1.TabPages.Add(tp);
             }
             else
             {
