@@ -36,6 +36,9 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,6 +76,12 @@
     <Compile Include="Htmlprojecteditor.Designer.cs">
       <DependentUpon>Htmlprojecteditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="newhtml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newhtml.Designer.cs">
+      <DependentUpon>newhtml.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="settingsbox.cs">
@@ -98,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Htmlprojecteditor.resx">
       <DependentUpon>Htmlprojecteditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newhtml.resx">
+      <DependentUpon>newhtml.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
