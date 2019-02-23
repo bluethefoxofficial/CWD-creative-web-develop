@@ -187,5 +187,15 @@ namespace creative_web_Develop
                 toolStripStatusLabel1.Text = "current file: " + currentfile;
             }
         }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Copy();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Paste();
+        }
     }
 }
