@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -68,8 +69,9 @@ namespace creative_web_Develop
             listView1.Items.Clear();
             foreach (string item in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/"))
             {
-                imageList2.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+    
                 FileInfo fi = new FileInfo(item);
+                imageList2.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
                 listFiles.Add(fi.FullName);
                 listView1.Items.Add(fi.Name, imageList2.Images.Count - 1);
             }
@@ -98,17 +100,19 @@ namespace creative_web_Develop
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            
+            int intselectedindex = listView1.SelectedIndices[0];
+           // listView2.Items[intselectedindex].Text;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
             {
-                using (StreamWriter file = File.CreateText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + textBox1.Text + ".cwp"))
-                {
-                   
-                }
+             
+                int intselectedindex = listView2.SelectedIndices[0];
+                System.IO.File.WriteAllText(Environment.GetFolderPath( Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text, "{'folder':'" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + textBox1.Text + "_files" + "','type':'" + listView2.Items[intselectedindex].Text + "'}");
+                System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text + "_files");
+                
             }
             else
             {
