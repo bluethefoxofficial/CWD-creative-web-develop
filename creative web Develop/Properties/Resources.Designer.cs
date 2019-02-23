@@ -63,6 +63,16 @@ namespace creative_web_Develop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cs_logo_2018_204x204 {
+            get {
+                object obj = ResourceManager.GetObject("cs-logo-2018-204x204", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cwd_splash {
             get {
                 object obj = ResourceManager.GetObject("cwd splash", resourceCulture);

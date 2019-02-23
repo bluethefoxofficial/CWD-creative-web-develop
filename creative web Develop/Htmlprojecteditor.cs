@@ -25,7 +25,34 @@ namespace creative_web_Develop
             foreach(string item in Directory.GetFiles(Properties.Settings.Default.folder))
             {
                 imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+
+                listView1.Items.Clear();
+
+                    FileInfo fi = new FileInfo(item);
+                    projectfiles.Add(fi.FullName);
+                    listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);   
             }
+            richTextBox1.Text = System.IO.File.ReadAllText(Properties.Settings.Default.folder + "");
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void noToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void yesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void closeProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

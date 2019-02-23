@@ -185,9 +185,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "settingsbox";
+            this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "settingsbox";
+            this.Text = "Settings";
             this.Load += new System.EventHandler(this.settingsbox_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

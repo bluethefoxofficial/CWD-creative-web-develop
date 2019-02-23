@@ -119,10 +119,10 @@
             listViewItem6,
             listViewItem7,
             listViewItem8});
-            this.listView2.Location = new System.Drawing.Point(25, 32);
+            this.listView2.Location = new System.Drawing.Point(6, 21);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(1555, 370);
+            this.listView2.Size = new System.Drawing.Size(1595, 410);
             this.listView2.SmallImageList = this.imageList1;
             this.listView2.StateImageList = this.imageList1;
             this.listView2.TabIndex = 3;
@@ -175,10 +175,13 @@
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Location = new System.Drawing.Point(28, 37);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1121, 467);
+            this.listView1.Size = new System.Drawing.Size(1530, 596);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -257,6 +260,7 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // imageList1
             // 
@@ -280,8 +284,8 @@
             this.ClientSize = new System.Drawing.Size(1708, 858);
             this.Controls.Add(this.tabControl1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "homeeditor";
-            this.Text = "homeeditor";
+            this.Name = "Home";
+            this.Text = "Home";
             this.Load += new System.EventHandler(this.homeeditor_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

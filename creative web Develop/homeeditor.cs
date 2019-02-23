@@ -103,7 +103,24 @@ namespace creative_web_Develop
 
         private void button3_Click(object sender, EventArgs e)
         {
-           
+            if (textBox1.Text != "")
+            {
+                using (StreamWriter file = File.CreateText(@"D:\path.txt"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    //serialize object directly into file stream
+                    serializer.Serialize(file, _data);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please give your project a name.");
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new about().ShowDialog();
         }
     }
 }
