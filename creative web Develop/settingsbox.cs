@@ -58,6 +58,7 @@ namespace creative_web_Develop
             {
                 checkBox1.Checked = false;
             }
+            
         }
         private void Form1_HelpButtonClicked(Object sender, CancelEventArgs e)
 
@@ -125,6 +126,10 @@ namespace creative_web_Develop
             else
             {
                 Properties.Settings.Default.splashscreen = false;
+            }
+            if(checkBox3.Checked == true)
+            {
+                Application.Restart();
             }
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();

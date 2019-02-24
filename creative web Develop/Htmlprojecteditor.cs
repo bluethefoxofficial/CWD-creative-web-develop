@@ -40,8 +40,9 @@ namespace creative_web_Develop
 
         private void Htmlprojecteditor_Load(object sender, EventArgs e)
         {
+            richTextBox1.AutoCompleteBrackets = true;
            
-           
+        
             // Create a browser component
             chromeBrowser = new ChromiumWebBrowser("about:blank");
             splitContainer2.Panel2.Controls.Add(chromeBrowser);
@@ -222,13 +223,14 @@ namespace creative_web_Develop
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            File.WriteAllText(currentfile, richTextBox1.Text);
             chromeBrowser.ShowDevTools();
             chromeBrowser.Load(currentfile);
         }
 
         private void startWithoutDevToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            File.WriteAllText(currentfile, richTextBox1.Text);
             chromeBrowser.Load(currentfile);
         }
 
@@ -256,7 +258,71 @@ namespace creative_web_Develop
 
         private void richTextBox1_Load(object sender, EventArgs e)
         {
+           
+        }
+        
+        private void documentmapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (documentMap1.Visible == false)
+            {
+                documentMap1.Visible = true;
+            }
+            else
+            {
+                documentMap1.Visible = false;
+            }
+        }
 
+        private void htmlToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "<html>\n\n</html>";
+            
+        }
+
+        private void headToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "  <head>\n \n </head>";
+        }
+
+        private void bodyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "  <body>\n    \n</body>";
+        }
+
+        private void pToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "<p></p>";
+        }
+
+        private void imgToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "<img src=''></img>";
+        }
+
+        private void formToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "<form>\n\n</form>";
+        }
+
+        private void brToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "<br/>";
+        }
+
+        private void scriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "<script>\n\n</script>";
+        }
+
+        private void divToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectedText += "<div>\n</div>";
+        }
+
+        private void startWithinBrowserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText(currentfile, richTextBox1.Text);
+            System.Diagnostics.Process.Start(currentfile);
         }
     }
 }
