@@ -1,4 +1,6 @@
 ﻿
+using CefSharp;
+using CefSharp.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +32,9 @@ namespace creative_web_Develop
         }
         private void homeeditor_Load(object sender, EventArgs e)
         {
+            CefSettings settings = new CefSettings();
+            // Initialize cef with the provided settings
+            Cef.Initialize(settings);
             if (Properties.Settings.Default.darktheme == true)
             {
                 BackColor = Color.Black;
@@ -191,6 +196,7 @@ namespace creative_web_Develop
 
         private void closeProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab.Controls.Clear();
             tabControl1.TabPages.Remove(tabControl1.SelectedTab);
         }
 
@@ -211,6 +217,41 @@ namespace creative_web_Develop
                     listFiles.Add(fi.FullName);
                     listView1.Items.Add(fi.Name, imageList2.Images.Count - 1);
                 }
+            }
+        }
+
+        private void debugAndPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new settingsbox().ShowDialog();
+        }
+
+        private void softDeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("are you sure you want to soft delete this project. soft delete delets the file directing the IDE to the folder but doesnt delete the folder. So you can find it in your file manager, and move the files to another project or delete it in the file manager.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+            {
+
+                int intselectedindex = listView1.SelectedIndices[0];
+                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + listView1.Items[intselectedindex].Text);
+                listView1.Items.Clear();
+                foreach (string item in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/"))
+                {
+
+                    FileInfo fi = new FileInfo(item);
+                    imageList2.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                    listFiles.Add(fi.FullName);
+                    listView1.Items.Add(fi.Name, imageList2.Images.Count - 1);
+                }
+                MessageBox.Show("soft delete was successfull");
             }
         }
     }

@@ -5,10 +5,13 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using CefSharp;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic;
+using CefSharp.WinForms;
 
 namespace creative_web_Develop
 {
@@ -16,7 +19,7 @@ namespace creative_web_Develop
     {
         public string projectFolder;
         public string currentfile;
-
+        public ChromiumWebBrowser chromeBrowser;
         List<string> projectfiles = new List<string>();
         [Description("This is to direct this element to where the project is located."), Category("Data")]
         public string folderlocation
@@ -32,10 +35,17 @@ namespace creative_web_Develop
         public Htmlprojecteditor()
         {
             InitializeComponent();
+          
         }
 
         private void Htmlprojecteditor_Load(object sender, EventArgs e)
         {
+           
+           
+            // Create a browser component
+            chromeBrowser = new ChromiumWebBrowser("about:blank");
+            splitContainer2.Panel2.Controls.Add(chromeBrowser);
+            chromeBrowser.Show();
             listView1.Items.Clear();
             //dark theme
             if (Properties.Settings.Default.darktheme == true)
@@ -43,10 +53,17 @@ namespace creative_web_Develop
                 BackColor = Color.Black;
                 groupBox1.BackColor = Color.Black;
                 groupBox1.ForeColor = Color.White;
-                richTextBox1.BackColor = Color.DarkSlateGray;
+                richTextBox1.BackColor = Color.Black;
                 richTextBox1.ForeColor = Color.White;
                 menuStrip1.BackColor = Color.LightSlateGray;
                 menuStrip1.ForeColor = Color.White;
+                chromeBrowser.BackColor = Color.Black;
+                chromeBrowser.ForeColor = Color.Black; 
+                listView1.BackColor = Color.Black;
+                listView1.ForeColor = Color.White;
+                splitContainer1.BackColor = Color.Black;
+                splitContainer2.BackColor = Color.Black;
+
             }
             //loads project files in the project explorer
             listView1.Items.Clear();
@@ -196,6 +213,50 @@ namespace creative_web_Develop
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.Paste();
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chromeBrowser.ShowDevTools();
+            chromeBrowser.Load(currentfile);
+        }
+
+        private void startWithoutDevToolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            chromeBrowser.Load(currentfile);
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("are you sure you want to delete this file", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                int intselectedindex = listView1.SelectedIndices[0];
+
+                File.Delete(projectFolder + "/" + listView1.Items[intselectedindex].Text);
+                listView1.Items.Clear();
+                foreach (string item in Directory.GetFiles(projectFolder))
+                {
+
+                    imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+
+
+
+                    FileInfo fi = new FileInfo(item);
+                    projectfiles.Add(fi.FullName);
+                    listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+                }
+            }
+        }
+
+        private void richTextBox1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
