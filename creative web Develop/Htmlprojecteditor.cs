@@ -238,23 +238,31 @@ namespace creative_web_Develop
         {
             if (MessageBox.Show("are you sure you want to delete this file", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                int intselectedindex = listView1.SelectedIndices[0];
-
-                File.Delete(projectFolder + "/" + listView1.Items[intselectedindex].Text);
-                listView1.Items.Clear();
-                foreach (string item in Directory.GetFiles(projectFolder))
+                try
                 {
+                    int intselectedindex = listView1.SelectedIndices[0];
 
-                    imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                    File.Delete(projectFolder + "/" + listView1.Items[intselectedindex].Text);
+                    listView1.Items.Clear();
+                    foreach (string item in Directory.GetFiles(projectFolder))
+                    {
+
+                        imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
 
 
 
-                    FileInfo fi = new FileInfo(item);
-                    projectfiles.Add(fi.FullName);
-                    listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+                        FileInfo fi = new FileInfo(item);
+                        projectfiles.Add(fi.FullName);
+                        listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+                    }
                 }
-            }
-        }
+                catch
+                {
+                    MessageBox.Show("please select a file you want to delete");
+                }
+              }
+          }
+      
 
         private void richTextBox1_Load(object sender, EventArgs e)
         {
