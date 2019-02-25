@@ -82,6 +82,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutocompleteMenu">
+      <HintPath>..\..\..\..\Desktop\AutocompleteMenuDemo\AutocompleteMenu.dll</HintPath>
+    </Reference>
     <Reference Include="FastColoredTextBox">
       <HintPath>..\..\..\..\Desktop\FastColoredTextBox.dll</HintPath>
     </Reference>
@@ -133,6 +136,12 @@
     </Compile>
     <Compile Include="image viewer.Designer.cs">
       <DependentUpon>image viewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="imagepreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="imagepreview.Designer.cs">
+      <DependentUpon>imagepreview.cs</DependentUpon>
     </Compile>
     <Compile Include="newhtml.cs">
       <SubType>Form</SubType>

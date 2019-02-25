@@ -12,9 +12,47 @@ namespace creative_web_Develop
 {
     public partial class image_viewer : Form
     {
-        public image_viewer()
+        string ip;
+        public image_viewer(string imagepath)
         {
             InitializeComponent();
+            ip = imagepath;
+        }
+
+        private void image_viewer_Load(object sender, EventArgs e)
+        {
+            pictureBox1.ImageLocation = ip;
+            Text = this.Size.Width + "x" + this.Size.Height;
+            timeBeginPeriod(timerAccuracy);
+            
+        }
+
+        private void image_viewer_SizeChanged(object sender, EventArgs e)
+        {
+            Text = this.Size.Width + "x" + this.Size.Height;
+        }
+        // Pinvoke:
+        private const int timerAccuracy = 10;
+        [System.Runtime.InteropServices.DllImport("winmm.dll")]
+        private static extern int timeBeginPeriod(int msec);
+        [System.Runtime.InteropServices.DllImport("winmm.dll")]
+        public static extern int timeEndPeriod(int msec);
+
+        private void image_viewer_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+
+        }
+
+        private void image_viewer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timeEndPeriod(timerAccuracy);
+            
+        }
+
+        private void image_viewer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timeEndPeriod(timerAccuracy);
         }
     }
+
 }

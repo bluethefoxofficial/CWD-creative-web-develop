@@ -162,7 +162,7 @@ namespace creative_web_Develop
         private void htmlToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            string x = Interaction.InputBox("new html document", "name of file", "nothing", 10, 10);
+            string x = Interaction.InputBox("new html document", "name of file", "", 10, 10);
                 File.WriteAllText(projectFolder + "/" + x + ".html", " < !DOCTYPE html >\n < html >\n < head >\n </ head > \n </ html > ");
             listView1.Items.Clear();
             foreach (string item in Directory.GetFiles(projectFolder))
@@ -197,13 +197,81 @@ namespace creative_web_Develop
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            int intselectedindex = listView1.SelectedIndices[0];
-            if (MessageBox.Show("are you sure you want to close the current file and open a new file new file: " + listView1.Items[intselectedindex].Text, "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            try
             {
-                richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/" + listView1.Items[intselectedindex].Text);
-                currentfile = projectFolder + "/" +  listView1.Items[intselectedindex].Text;
-                toolStripStatusLabel1.Text = "current file: " + currentfile;
+                int intselectedindex = listView1.SelectedIndices[0];
+                if (MessageBox.Show("are you sure you want to close the current file and open a new file new file: " + listView1.Items[intselectedindex].Text, "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                   
+                    currentfile = projectFolder + "/" + listView1.Items[intselectedindex].Text;
+                    FileInfo fi = new FileInfo(currentfile);
+                    if (fi.Extension == ".jpg")
+                    {
+                        richTextBox1.Enabled = false;
+                        debugToolStripMenuItem.Enabled = false;
+                        image_viewer iv = new image_viewer(currentfile);
+                        richTextBox1.Text = "please select a new file to open";
+                        toolStripStatusLabel1.Text = "current file: " + currentfile;
+
+                        iv.ShowDialog();
+
+                    }
+                    else if (fi.Extension == ".gif")
+                    {
+                        richTextBox1.Enabled = false;
+                        debugToolStripMenuItem.Enabled = false;
+                        image_viewer iv = new image_viewer(currentfile);
+                        richTextBox1.Text = "please select a new file to open";
+                        toolStripStatusLabel1.Text = "current file: " + currentfile;
+                        iv.ShowDialog();
+
+                    }
+                    else if (fi.Extension == ".png")
+                    {
+                        richTextBox1.Enabled = false;
+                        debugToolStripMenuItem.Enabled = false;
+                        image_viewer iv = new image_viewer(currentfile);
+                        richTextBox1.Text = "please select a new file to open";
+                        toolStripStatusLabel1.Text = "current file: " + currentfile;
+                        iv.ShowDialog();
+
+                    }
+                    else if (fi.Extension == ".css")
+                    {
+                        richTextBox1.Language = FastColoredTextBoxNS.Language.Custom;
+                        debugToolStripMenuItem.Enabled = false;
+                        richTextBox1.Enabled = true;
+                        toolStripStatusLabel1.Text = "current file: " + currentfile;
+                        richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/" + listView1.Items[intselectedindex].Text);
+                    }
+                    else if (fi.Extension == ".js")
+                    {
+                        richTextBox1.Language = FastColoredTextBoxNS.Language.JS;
+                        debugToolStripMenuItem.Enabled = false;
+                        richTextBox1.Enabled = true;
+                        toolStripStatusLabel1.Text = "current file: " + currentfile;
+                        richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/" + listView1.Items[intselectedindex].Text);
+                    }
+
+                    else if(fi.Extension == ".html")
+                    {
+                        richTextBox1.Language = FastColoredTextBoxNS.Language.HTML;
+                        debugToolStripMenuItem.Enabled = true;
+                        richTextBox1.Enabled = true;
+
+                        toolStripStatusLabel1.Text = "current file: " + currentfile;
+                        richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/" + listView1.Items[intselectedindex].Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("sorry cant open that type of file");
+                    }
+                }
             }
+            catch
+            {
+                MessageBox.Show("please select a file");
+           }
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -331,6 +399,92 @@ namespace creative_web_Develop
         {
             File.WriteAllText(currentfile, richTextBox1.Text);
             System.Diagnostics.Process.Start(currentfile);
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cssToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string x = Interaction.InputBox("new css file", "name of file", "", 10, 10);
+            File.WriteAllText(projectFolder + "/" + x + ".css", "");
+            listView1.Items.Clear();
+            foreach (string item in Directory.GetFiles(projectFolder))
+            {
+
+                imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+
+
+
+                FileInfo fi = new FileInfo(item);
+                projectfiles.Add(fi.FullName);
+                listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+            }
+        }
+
+        private void jsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string x = Interaction.InputBox("new javascript file", "name of file", "", 10, 10);
+            File.WriteAllText(projectFolder + "/" + x + ".js", "");
+            listView1.Items.Clear();
+            foreach (string item in Directory.GetFiles(projectFolder))
+            {
+
+                imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+
+
+
+                FileInfo fi = new FileInfo(item);
+                projectfiles.Add(fi.FullName);
+                listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+            }
+        }
+
+        private void listView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Delete)
+            {
+                if (MessageBox.Show("are you sure you want to delete this file", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int intselectedindex = listView1.SelectedIndices[0];
+
+                        File.Delete(projectFolder + "/" + listView1.Items[intselectedindex].Text);
+                        listView1.Items.Clear();
+                        foreach (string item in Directory.GetFiles(projectFolder))
+                        {
+
+                            imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+
+
+
+                            FileInfo fi = new FileInfo(item);
+                            projectfiles.Add(fi.FullName);
+                            listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("please select a file you want to delete");
+                    }
+                }
+            }
+        }
+
+        private void documentMap1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Control && e.KeyCode == Keys.S)
+            {
+                File.WriteAllText(currentfile, richTextBox1.Text);
+            }
         }
     }
 }

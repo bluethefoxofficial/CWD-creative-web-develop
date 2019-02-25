@@ -52,6 +52,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "image_viewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.image_viewer_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.image_viewer_FormClosed);
+            this.Load += new System.EventHandler(this.image_viewer_Load);
+            this.SizeChanged += new System.EventHandler(this.image_viewer_SizeChanged);
+            this.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.image_viewer_GiveFeedback);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
