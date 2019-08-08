@@ -32,7 +32,7 @@ namespace creative_web_Develop
             Text = this.Size.Width + "x" + this.Size.Height;
         }
         // Pinvoke:
-        private const int timerAccuracy = 10;
+        private const int timerAccuracy = 1;
         [System.Runtime.InteropServices.DllImport("winmm.dll")]
         private static extern int timeBeginPeriod(int msec);
         [System.Runtime.InteropServices.DllImport("winmm.dll")]

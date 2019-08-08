@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(image_viewer));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new PictureBoxDoubleBuffer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private PictureBoxDoubleBuffer pictureBox1;
     }
 }

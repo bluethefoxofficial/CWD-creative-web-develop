@@ -17,6 +17,7 @@ namespace creative_web_Develop
 {
     public partial class Htmlprojecteditor : UserControl
     {
+        private const MessageBoxButtons oK = MessageBoxButtons.OK;
         public string projectFolder;
         public string currentfile;
         public ChromiumWebBrowser chromeBrowser;
@@ -67,20 +68,28 @@ namespace creative_web_Develop
 
             }
             //loads project files in the project explorer
-            listView1.Items.Clear();
-            foreach (string item in Directory.GetFiles(projectFolder))
+            try
             {
-                imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                listView1.Items.Clear();
+                foreach (string item in Directory.GetFiles(projectFolder))
+                {
+                    imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
 
-               
 
-                FileInfo fi = new FileInfo(item);
-                projectfiles.Add(fi.FullName);
-                listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+
+                    FileInfo fi = new FileInfo(item);
+                    projectfiles.Add(fi.FullName);
+                    listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+                }
+                richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/index.html");
+                currentfile = projectFolder + "/index.html";
+                toolStripStatusLabel1.Text = "current file: " + currentfile;
             }
-            richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/index.html");
-            currentfile = projectFolder + "/index.html";
-            toolStripStatusLabel1.Text = "current file: " + currentfile;
+            catch
+            {
+                MessageBox.Show("ERROR", "no project detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Restart();
+            }
         }
     
 
@@ -227,6 +236,16 @@ namespace creative_web_Develop
 
                     }
                     else if (fi.Extension == ".png")
+                    {
+                        richTextBox1.Enabled = false;
+                        debugToolStripMenuItem.Enabled = false;
+                        image_viewer iv = new image_viewer(currentfile);
+                        richTextBox1.Text = "please select a new file to open";
+                        toolStripStatusLabel1.Text = "current file: " + currentfile;
+                        iv.ShowDialog();
+
+                    }
+                    else if (fi.Extension == ".jpg")
                     {
                         richTextBox1.Enabled = false;
                         debugToolStripMenuItem.Enabled = false;
@@ -485,6 +504,11 @@ namespace creative_web_Develop
             {
                 File.WriteAllText(currentfile, richTextBox1.Text);
             }
+            else
+            {
+                
+            }
+            
         }
 
         private void insertCodeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -541,6 +565,22 @@ namespace creative_web_Develop
         private void buttonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox1.SelectedText += "<button class=''>Button</button>";
+        }
+
+        private void RefreshToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            foreach (string item in Directory.GetFiles(projectFolder))
+            {
+
+                imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+
+
+
+                FileInfo fi = new FileInfo(item);
+                projectfiles.Add(fi.FullName);
+                listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+            }
         }
     }
 }
