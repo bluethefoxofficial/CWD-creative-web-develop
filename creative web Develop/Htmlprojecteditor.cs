@@ -689,5 +689,11 @@ namespace creative_web_Develop
                 ftpFileRead(textBox1.Text);
             }
         }
+
+
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
