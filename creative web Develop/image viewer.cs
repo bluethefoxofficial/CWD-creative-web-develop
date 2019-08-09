@@ -21,6 +21,9 @@ namespace creative_web_Develop
 
         private void image_viewer_Load(object sender, EventArgs e)
         {
+            System.Drawing.Image img = System.Drawing.Image.FromFile(ip);
+            Height = img.Height;
+            Width = img.Width;
             pictureBox1.ImageLocation = ip;
             Text = this.Size.Width + "x" + this.Size.Height;
             timeBeginPeriod(timerAccuracy);

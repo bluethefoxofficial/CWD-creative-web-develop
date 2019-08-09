@@ -17,7 +17,21 @@ namespace creative_web_Develop
         {
             InitializeComponent();
         }
-
+        private bool isValidConnection(string url, string user, string password)
+        {
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(url);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                request.Credentials = new NetworkCredential(user, password);
+                request.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                return false;
+            }
+            return true;
+        }
         private void settingsbox_Load(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.darktheme == true)
@@ -41,7 +55,7 @@ namespace creative_web_Develop
             textBox1.Text = Properties.Settings.Default.host;
             textBox2.Text = Properties.Settings.Default.username;
             textBox3.Text = Properties.Settings.Default.password;
-            numericUpDown1.Value = Properties.Settings.Default.port;
+            
             if(Properties.Settings.Default.splashscreen == true)
             {
                 checkBox2.Checked = true;
@@ -70,28 +84,30 @@ namespace creative_web_Develop
 
         private void TestFTPconnectionbtn_Click(object sender, EventArgs e)
         {
+            Uri uri = new Uri("ftp://" + textBox1.Text);
             Status.Text = "status: Connecting";
             pictureBox1.BackColor = Color.Orange;
+            timer1.Start();
+            FtpWebRequest requestDir = (FtpWebRequest)FtpWebRequest.Create(uri);
+            requestDir.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+            requestDir.Credentials = new NetworkCredential(textBox2.Text, textBox3.Text);
             try
             {
-                FtpWebRequest requestDir = (FtpWebRequest)FtpWebRequest.Create("ftp://" + textBox1.Text + ":" + numericUpDown1.Value);
-                requestDir.Credentials = new NetworkCredential(textBox2.Text, textBox3.Text);
+                timer1.Stop();
+                WebResponse response = requestDir.GetResponse();
+                Status.Text = "status: Connection successfull";
+                pictureBox1.BackColor = Color.Green;
+                MessageBox.Show("connection established");
 
-                try
-                {
-                    WebResponse response = requestDir.GetResponse();
-                    Status.Text = "connection successfull";
-                    pictureBox1.BackColor = Color.Green;
-                }
-                catch (Exception)
-                {
-                    Status.Text = "connection unsuccessfull";
-                    pictureBox1.BackColor = Color.Red;
-                }
+
             }
-            catch
+            catch (WebException ex)
             {
-                MessageBox.Show("connection was unsuccessfull because you didnt place any details relating to either Credentials or hostname");
+                timer1.Stop();
+
+                Status.Text = "status: Connection error";
+                pictureBox1.BackColor = Color.Red;
+                MessageBox.Show("connection error");
             }
         }
 
@@ -110,7 +126,7 @@ namespace creative_web_Develop
             Properties.Settings.Default.host = textBox1.Text;
             Properties.Settings.Default.username = textBox2.Text;
             Properties.Settings.Default.password = textBox3.Text;
-            Properties.Settings.Default.port = numericUpDown1.Value;
+        
             if (checkBox1.Checked == true)
             {
                 Properties.Settings.Default.darktheme = true;
@@ -134,6 +150,28 @@ namespace creative_web_Develop
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
             this.Close();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            if(pictureBox1.BackColor == Color.Orange)
+            {
+                pictureBox1.BackColor = Color.DarkOrange;
+            }
+            else
+            {
+                pictureBox1.BackColor = Color.Orange;
+            }
+        }
+
+        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            new ftpfilemanager().Show();
         }
     }
 }

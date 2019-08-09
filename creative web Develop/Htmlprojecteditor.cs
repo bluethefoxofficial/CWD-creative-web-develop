@@ -12,11 +12,13 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic;
 using CefSharp.WinForms;
+using System.Net;
 
 namespace creative_web_Develop
 {
     public partial class Htmlprojecteditor : UserControl
     {
+        
         private const MessageBoxButtons oK = MessageBoxButtons.OK;
         public string projectFolder;
         public string currentfile;
@@ -36,11 +38,60 @@ namespace creative_web_Develop
         public Htmlprojecteditor()
         {
             InitializeComponent();
-          
+            
         }
+        private void ftpFileRead(string dir = null)
+        {
+            try
+            {
+                textBox1.Text = dir;
+                listBox1.Items.Add("..");
+                FtpWebRequest Request = (FtpWebRequest)WebRequest.Create("ftp://" + Properties.Settings.Default.host + "/" + dir);
+                Request.Method = WebRequestMethods.Ftp.ListDirectory;
+                Request.Credentials = new NetworkCredential(Properties.Settings.Default.username, Properties.Settings.Default.password);
+                FtpWebResponse Response = (FtpWebResponse)Request.GetResponse();
+                Stream ResponseStream = Response.GetResponseStream();
+                StreamReader Reader = new StreamReader(ResponseStream);
 
+                while (!Reader.EndOfStream)//Read file name   
+                {
+                    if (Reader.ReadLine() == "..")
+                    {
+                    }
+                    else if (Reader.ReadLine() == ".")
+                    {
+                    }
+                    else
+                    {
+
+                        listBox1.Items.Add(Reader.ReadLine().ToString());
+
+                    }
+                }
+                Response.Close();
+                ResponseStream.Close();
+                Reader.Close();
+            }
+            catch
+            {
+
+            }
+        }
         private void Htmlprojecteditor_Load(object sender, EventArgs e)
         {
+            try
+            {
+                ftpFileRead();
+            }
+            catch
+            {
+                splitContainer3.Panel2.Hide();
+            }
+
+
+
+
+
             richTextBox1.AutoCompleteBrackets = true;
            
         
@@ -502,7 +553,9 @@ namespace creative_web_Develop
         {
             if(e.KeyCode == Keys.Control && e.KeyCode == Keys.S)
             {
+                Savingl.Visible = true;
                 File.WriteAllText(currentfile, richTextBox1.Text);
+                Savingl.Visible = false;
             }
             else
             {
@@ -580,6 +633,60 @@ namespace creative_web_Develop
                 FileInfo fi = new FileInfo(item);
                 projectfiles.Add(fi.FullName);
                 listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+            }
+        }
+
+        private void SplitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SplitContainer3_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        progress_dialog uploadd = new progress_dialog();
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            timer1.Start();
+           
+            uploadd.Title = "FTP TEST";
+            uploadd.Show();
+            
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            uploadd.progress = +10;
+        }
+
+        private void ListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                string si = listBox1.SelectedItem.ToString();
+                listBox1.Items.Clear();
+                ftpFileRead(si);
+                
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                listBox1.Items.Clear();
+                ftpFileRead(textBox1.Text);
             }
         }
     }

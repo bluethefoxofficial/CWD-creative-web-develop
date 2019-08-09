@@ -74,6 +74,7 @@
             this.popperjsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Savingl = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -82,9 +83,14 @@
             this.cssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.autocompleteMenu1 = new AutocompleteMenuNS.AutocompleteMenu();
             this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cwdintelauto = new AutocompleteMenuNS.AutocompleteMenu();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -97,6 +103,10 @@
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -123,7 +133,7 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 28);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -131,6 +141,10 @@
             // 
             this.splitContainer2.Panel1.Controls.Add(this.richTextBox1);
             this.splitContainer2.Panel1.Controls.Add(this.documentMap1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer2_Panel2_Paint);
             this.splitContainer2.Size = new System.Drawing.Size(1230, 849);
             this.splitContainer2.SplitterDistance = 640;
             this.splitContainer2.SplitterWidth = 5;
@@ -138,7 +152,6 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.AutoCompleteBrackets = true;
             this.richTextBox1.AutoCompleteBracketsList = new char[] {
         '(',
         ')',
@@ -150,7 +163,7 @@
         '\"',
         '\'',
         '\''};
-            this.autocompleteMenu1.SetAutocompleteMenu(this.richTextBox1, this.autocompleteMenu1);
+            this.cwdintelauto.SetAutocompleteMenu(this.richTextBox1, this.cwdintelauto);
             this.richTextBox1.AutoIndentCharsPatterns = "";
             this.richTextBox1.AutoScrollMinSize = new System.Drawing.Size(31, 18);
             this.richTextBox1.BackBrush = null;
@@ -160,6 +173,7 @@
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.richTextBox1.IsReplaceMode = false;
             this.richTextBox1.Language = FastColoredTextBoxNS.Language.HTML;
             this.richTextBox1.LeftBracket = '<';
@@ -183,7 +197,7 @@
             this.documentMap1.Dock = System.Windows.Forms.DockStyle.Right;
             this.documentMap1.ForeColor = System.Drawing.Color.Maroon;
             this.documentMap1.Location = new System.Drawing.Point(1031, 0);
-            this.documentMap1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.documentMap1.Margin = new System.Windows.Forms.Padding(4);
             this.documentMap1.Name = "documentMap1";
             this.documentMap1.Size = new System.Drawing.Size(199, 640);
             this.documentMap1.TabIndex = 1;
@@ -507,7 +521,8 @@
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel1,
+            this.Savingl});
             this.statusStrip1.Location = new System.Drawing.Point(0, 877);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
@@ -524,10 +539,17 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(78, 20);
             this.toolStripStatusLabel1.Text = "index.html";
             // 
+            // Savingl
+            // 
+            this.Savingl.Name = "Savingl";
+            this.Savingl.Size = new System.Drawing.Size(62, 20);
+            this.Savingl.Text = "Saving...";
+            this.Savingl.Visible = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.splitContainer3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -544,10 +566,10 @@
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.LargeImageList = this.imageList1;
-            this.listView1.Location = new System.Drawing.Point(3, 17);
+            this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(271, 884);
+            this.listView1.Size = new System.Drawing.Size(271, 403);
             this.listView1.SmallImageList = this.imageList1;
             this.listView1.StateImageList = this.imageList1;
             this.listView1.TabIndex = 0;
@@ -565,7 +587,7 @@
             this.deleteToolStripMenuItem,
             this.refreshToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 76);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // newToolStripMenuItem
@@ -575,7 +597,7 @@
             this.cssToolStripMenuItem,
             this.jsToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
             this.newToolStripMenuItem.Text = "new";
             // 
             // htmlToolStripMenuItem
@@ -602,9 +624,16 @@
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // refreshToolStripMenuItem1
+            // 
+            this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
+            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(127, 24);
+            this.refreshToolStripMenuItem1.Text = "&Refresh";
+            this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.RefreshToolStripMenuItem1_Click);
             // 
             // imageList1
             // 
@@ -612,271 +641,200 @@
             this.imageList1.ImageSize = new System.Drawing.Size(21, 21);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // autocompleteMenu1
+            // cwdintelauto
             // 
-            this.autocompleteMenu1.AllowsTabKey = true;
-            this.autocompleteMenu1.AppearInterval = 100;
-            this.autocompleteMenu1.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("autocompleteMenu1.Colors")));
-            this.autocompleteMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.autocompleteMenu1.ImageList = null;
-            this.autocompleteMenu1.Items = new string[] {
-        "<!DOCTYPE>",
-        "<html>",
-        "<head>",
-        "<title>",
-        "<body>",
-        "<h1>",
-        "<h2>",
-        "<h3>",
-        "<h4>",
-        "<h5>",
-        "<h6>",
-        "<p>",
-        "<br>",
-        "<hr>",
-        "<!--",
-        "-->",
-        "<acronym>",
-        "<abbr>",
-        "<address>",
-        "<b>",
-        "<bdi>",
-        "<bdo>",
-        "<big>",
-        "<blockquote>",
-        "<center>",
-        "<cite>",
-        "<code>",
-        "<del>",
-        "<dfn>",
-        "<em>",
-        "<font>",
-        "<i>",
-        "<ins>",
-        "<kbd>",
-        "<mark>",
-        "<meter>",
-        "<pre>",
-        "<progress>",
-        "<q>",
-        "<rp>",
-        "<rt>",
-        "<ruby>",
-        "<s>",
-        "<samp>",
-        "<small>",
-        "<strike>",
-        "<strong>",
-        "<sub>",
-        "<sup>",
-        "<template>",
-        "<time>",
-        "<tt>",
-        "<u>",
-        "<var>",
-        "<wbr>",
-        "<form>",
-        "<input>",
-        "<textarea>",
-        "<button>",
-        "<select>",
-        "<optgroup>",
-        "<option>",
-        "<label>",
-        "<fieldset>",
-        "<legend>",
-        "<datalist>",
-        "<output>",
-        "<frame>",
-        "<frameset>",
-        "<noframes>",
-        "<iframe>",
-        "<img>",
-        "<map>",
-        "<area>",
-        "<canvas>",
-        "<figcaption>",
-        "<figure>",
-        "<picture>",
-        "<svg>",
-        "<audio>",
-        "<source>",
-        "<track>",
-        "<video>",
-        "<a>",
-        "<link>",
-        "<nav>",
-        "<ul>",
-        "<ol>",
-        "<li>",
-        "<dir>",
-        "<dl>",
-        "<dt>",
-        "<dd>",
-        "<table>",
-        "<caption>",
-        "<th>",
-        "<tr>",
-        "<td>",
-        "<thead>",
-        "<tbody>",
-        "<tfoot>",
-        "<col>",
-        "<colgroup>",
-        "<style>",
-        "<div>",
-        "<span>",
-        "<header>",
-        "<footer>",
-        "<main>",
-        "<section>",
-        "<article>",
-        "<aside>",
-        "<details>",
-        "<dialog>",
-        "<summary>",
-        "<data>",
-        "<head>",
-        "<meta>",
-        "<base>",
-        "<basefont>",
-        "<script>",
-        "<noscript>",
-        "<applet>",
-        "<embed>",
-        "<object>",
-        "<param>",
-        "</html>",
-        "</head>",
-        "</title>",
-        "</body>",
-        "</h1>",
-        "</h2>",
-        "</h3>",
-        "</h4>",
-        "</h5>",
-        "</h6>",
-        "</p>",
-        "</br>",
-        "</hr>",
-        "</acronym>",
-        "</abbr>",
-        "</address>",
-        "</b>",
-        "</bdi>",
-        "</bdo>",
-        "</big>",
-        "</blockquote>",
-        "</center>",
-        "</cite>",
-        "</code>",
-        "</del>",
-        "</dfn>",
-        "</em>",
-        "</font>",
-        "</i>",
-        "</ins>",
-        "</kbd>",
-        "</mark>",
-        "</meter>",
-        "</pre>",
-        "</progress>",
-        "</q>",
-        "</rp>",
-        "</rt>",
-        "</ruby>",
-        "</s>",
-        "</samp>",
-        "</small>",
-        "</strike>",
-        "</strong>",
-        "</sub>",
-        "</sup>",
-        "</template>",
-        "</time>",
-        "</tt>",
-        "</u>",
-        "</var>",
-        "</wbr>",
-        "</form>",
-        "</input>",
-        "</textarea>",
-        "</button>",
-        "</select>",
-        "</optgroup>",
-        "</option>",
-        "</label>",
-        "</fieldset>",
-        "</legend>",
-        "</datalist>",
-        "</output>",
-        "</frame>",
-        "</frameset>",
-        "</noframes>",
-        "</iframe>",
-        "</img>",
-        "</map>",
-        "</area>",
-        "</canvas>",
-        "</figcaption>",
-        "</figure>",
-        "</picture>",
-        "</svg>",
-        "</audio>",
-        "</source>",
-        "</track>",
-        "</video>",
-        "</a>",
-        "</link>",
-        "</nav>",
-        "</ul>",
-        "</ol>",
-        "</li>",
-        "</dir>",
-        "</dl>",
-        "</dt>",
-        "</dd>",
-        "</table>",
-        "</caption>",
-        "</th>",
-        "</tr>",
-        "</td>",
-        "</thead>",
-        "</tbody>",
-        "</tfoot>",
-        "</col>",
-        "</colgroup>",
-        "</style>",
-        "</div>",
-        "</span>",
-        "</header>",
-        "</footer>",
-        "</main>",
-        "</section>",
-        "</article>",
-        "</aside>",
-        "</details>",
-        "</dialog>",
-        "</summary>",
-        "</data>",
-        "</head>",
-        "</meta>",
-        "</base>",
-        "</basefont>",
-        "</script>",
-        "</noscript>",
-        "</applet>",
-        "</embed>",
-        "</object>",
-        "</param>"};
-            this.autocompleteMenu1.TargetControlWrapper = null;
+            this.cwdintelauto.AllowsTabKey = true;
+            this.cwdintelauto.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("cwdintelauto.Colors")));
+            this.cwdintelauto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.cwdintelauto.ImageList = null;
+            this.cwdintelauto.Items = new string[] {
+        "!DOCTYPE",
+        "html",
+        "head",
+        "title",
+        "body",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p",
+        "br",
+        "hr",
+        "!--",
+        "--",
+        "acronym",
+        "abbr",
+        "address",
+        "b",
+        "bdi",
+        "bdo",
+        "big",
+        "blockquote",
+        "center",
+        "cite",
+        "code",
+        "del",
+        "dfn",
+        "em",
+        "font",
+        "i",
+        "ins",
+        "kbd",
+        "mark",
+        "meter",
+        "pre",
+        "progress",
+        "q",
+        "rp",
+        "rt",
+        "ruby",
+        "s",
+        "samp",
+        "small",
+        "strike",
+        "strong",
+        "sub",
+        "sup",
+        "template",
+        "time",
+        "tt",
+        "u",
+        "var",
+        "wbr",
+        "form",
+        "input",
+        "textarea",
+        "button",
+        "select",
+        "optgroup",
+        "option",
+        "label",
+        "fieldset",
+        "legend",
+        "datalist",
+        "output",
+        "frame",
+        "frameset",
+        "noframes",
+        "iframe",
+        "img",
+        "map",
+        "area",
+        "canvas",
+        "figcaption",
+        "figure",
+        "picture",
+        "svg",
+        "audio",
+        "source",
+        "track",
+        "video",
+        "a",
+        "link",
+        "nav",
+        "ul",
+        "ol",
+        "li",
+        "dir",
+        "dl",
+        "dt",
+        "dd",
+        "table",
+        "caption",
+        "th",
+        "tr",
+        "td",
+        "thead",
+        "tbody",
+        "tfoot",
+        "col",
+        "colgroup",
+        "style",
+        "div",
+        "span",
+        "header",
+        "footer",
+        "main",
+        "section",
+        "article",
+        "aside",
+        "details",
+        "dialog",
+        "summary",
+        "data",
+        "head",
+        "meta",
+        "base",
+        "basefont",
+        "script",
+        "noscript",
+        "applet",
+        "embed",
+        "object",
+        "param"};
+            this.cwdintelauto.MaximumSize = new System.Drawing.Size(200, 300);
+            this.cwdintelauto.MinFragmentLength = 70;
+            this.cwdintelauto.TargetControlWrapper = null;
             // 
-            // refreshToolStripMenuItem1
+            // splitContainer3
             // 
-            this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
-            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
-            this.refreshToolStripMenuItem1.Text = "&Refresh";
-            this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.RefreshToolStripMenuItem1_Click);
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 17);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.listView1);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.listBox1);
+            this.splitContainer3.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer3.Panel2.Controls.Add(this.button1);
+            this.splitContainer3.Size = new System.Drawing.Size(271, 884);
+            this.splitContainer3.SplitterDistance = 403;
+            this.splitContainer3.TabIndex = 1;
+            this.splitContainer3.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer3_SplitterMoved);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(0, 22);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(271, 415);
+            this.listBox1.TabIndex = 0;
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBox1_MouseDoubleClick);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(0, 437);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(271, 40);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "upload";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // textBox1
+            // 
+            this.cwdintelauto.SetAutocompleteMenu(this.textBox1, null);
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(271, 22);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
             // 
             // Htmlprojecteditor
             // 
@@ -903,6 +861,11 @@
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -949,7 +912,6 @@
         private System.Windows.Forms.ToolStripMenuItem startWithinBrowserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cssToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jsToolStripMenuItem;
-        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu1;
         private System.Windows.Forms.ToolStripMenuItem packagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bootstrap4ToolStripMenuItem;
@@ -964,5 +926,12 @@
         private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem textareaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripStatusLabel Savingl;
+        private AutocompleteMenuNS.AutocompleteMenu cwdintelauto;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
