@@ -56,6 +56,11 @@ namespace creative_web_Develop
         {
             timeEndPeriod(timerAccuracy);
         }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

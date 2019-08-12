@@ -23,6 +23,7 @@ namespace creative_web_Develop
         public string projectFolder;
         public string currentfile;
         public ChromiumWebBrowser chromeBrowser;
+        
         List<string> projectfiles = new List<string>();
         [Description("This is to direct this element to where the project is located."), Category("Data")]
         public string folderlocation
@@ -38,7 +39,14 @@ namespace creative_web_Develop
         public Htmlprojecteditor()
         {
             InitializeComponent();
-            
+            if (Properties.Settings.Default.highdpi == true)
+            {
+                Cef.EnableHighDPISupport();
+            }
+            else
+            {
+
+            }
         }
         private void ftpFileRead(string dir = null)
         {
@@ -125,12 +133,15 @@ namespace creative_web_Develop
                 foreach (string item in Directory.GetFiles(projectFolder))
                 {
                     imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                   smallicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                   largeicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
 
 
 
                     FileInfo fi = new FileInfo(item);
                     projectfiles.Add(fi.FullName);
                     listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+        
                 }
                 richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/index.html");
                 currentfile = projectFolder + "/index.html";
@@ -321,6 +332,16 @@ namespace creative_web_Develop
                         richTextBox1.Enabled = true;
                         toolStripStatusLabel1.Text = "current file: " + currentfile;
                         richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/" + listView1.Items[intselectedindex].Text);
+                    }
+                    else if (fi.Extension == ".ico")
+                    {
+                        richTextBox1.Enabled = false;
+                        debugToolStripMenuItem.Enabled = false;
+                        image_viewer iv = new image_viewer(currentfile);
+                        richTextBox1.Text = "please select a new file to open";
+                        toolStripStatusLabel1.Text = "current file: " + currentfile;
+                        iv.ShowDialog();
+
                     }
 
                     else if(fi.Extension == ".html")
@@ -549,20 +570,7 @@ namespace creative_web_Develop
 
         }
 
-        private void richTextBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Control && e.KeyCode == Keys.S)
-            {
-                Savingl.Visible = true;
-                File.WriteAllText(currentfile, richTextBox1.Text);
-                Savingl.Visible = false;
-            }
-            else
-            {
-                
-            }
-            
-        }
+    
 
         private void insertCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -651,20 +659,21 @@ namespace creative_web_Develop
 
         }
         progress_dialog uploadd = new progress_dialog();
-
+ 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            timer1.Start();
-           
-            uploadd.Title = "FTP TEST";
-            uploadd.Show();
+            progress_dialog pd = new progress_dialog();
+            pd.Show();
+            pd.Title = "Uploading files to selected directory of a FTP server";
+            var ftp = new ftpserver(Properties.Settings.Default.username, Properties.Settings.Default.password, Properties.Settings.Default.host + "/" + listBox1.SelectedItem + "//", projectFolder, "//" + listBox1.SelectedItem + "//");
+            ftp.UploadDirectory();
+
             
+            pd.Close();
+
         }
 
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            uploadd.progress = +10;
-        }
+       
 
         private void ListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -692,6 +701,161 @@ namespace creative_web_Develop
 
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        void Copy(string sourceDir, string targetDir)
+        {
+            Directory.CreateDirectory(targetDir);
+
+            foreach (var file in Directory.GetFiles(sourceDir))
+                File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
+
+            foreach (var directory in Directory.GetDirectories(sourceDir))
+                Copy(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
+        }
+        private void ExportAsATemplateFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string x = Interaction.InputBox("New template export", "name of export", "", 10, 10);
+            if (x == "") {  }
+            else
+            {
+
+                toolStripStatusLabel2.Visible = true;
+                Directory.CreateDirectory("corefunctions/Templates/" + x);
+                Copy(projectFolder, "corefunctions/Templates/" + x);
+                toolStripStatusLabel2.Visible = false;
+
+            }
+        }
+
+        private void OpenInExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(projectFolder);
+        }
+
+     
+
+        private void Htmlprojecteditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Control && e.KeyCode == Keys.S)
+            {
+                Savingl.Visible = true;
+                File.WriteAllText(currentfile, richTextBox1.Text);
+                Savingl.Visible = false;
+                
+            }
+        }
+
+        private void MenuStrip1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Control && e.KeyCode == Keys.S)
+            {
+             
+                File.WriteAllText(currentfile, richTextBox1.Text);
+            
+
+            }
+        }
+
+        private void DocumentMap1_MouseDown(object sender, MouseEventArgs e)
+        {
+         
+        }
+
+        private void DocumentMap1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Control && e.KeyCode == Keys.S)
+            {
+        
+                File.WriteAllText(currentfile, richTextBox1.Text);
+      
+
+            }
+        }
+
+        private void RichTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Control && e.KeyCode == Keys.S)
+            {
+           
+                File.WriteAllText(currentfile, richTextBox1.Text);
+  
+
+            }
+        }
+
+        private void RichTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+  
+        }
+
+        private void RichTextBox1_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.Control | Keys.S))
+            {
+
+                File.WriteAllText(currentfile, richTextBox1.Text);
+
+
+            }
+            else
+            {
+               
+            }
+        }
+
+        private void RichTextBox1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ContextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void RefreshToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            ftpFileRead(textBox1.Text);
+        }
+
+        private void OpenAPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int intselectedindex = listView1.SelectedIndices[0];
+                textpreview tp = new textpreview(projectFolder + "/" + listView1.Items[intselectedindex].Text);
+                tp.Show();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void ListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.List;
+        }
+
+        private void SmallIconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.SmallIcon;
+        }
+
+        private void LargeIconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.LargeIcon;
+        }
+
+        private void TileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.Tile;
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

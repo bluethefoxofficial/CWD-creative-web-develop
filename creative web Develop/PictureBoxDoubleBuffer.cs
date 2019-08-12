@@ -10,6 +10,7 @@ namespace creative_web_Develop
             set { base.DoubleBuffered = value; }
         }
 
+
         public PictureBoxDoubleBuffer()
         {
             base.DoubleBuffered = true;

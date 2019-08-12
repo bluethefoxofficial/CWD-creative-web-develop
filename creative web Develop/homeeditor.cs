@@ -27,6 +27,14 @@ namespace creative_web_Develop
         }
         private void homeeditor_Load(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.highdpi == true)
+            {
+                Cef.EnableHighDPISupport();
+            }
+            else
+            {
+
+            }
             CefSettings settings = new CefSettings();
             // Initialize cef with the provided settings
             Cef.Initialize(settings);
@@ -49,17 +57,18 @@ namespace creative_web_Develop
             }
             groupBox1.Hide();
             groupBox2.Hide();
-            if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/"))
+            if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\"))
             {
-                System.Diagnostics.Debug.WriteLine("directory exist " + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/");
+                System.Diagnostics.Debug.WriteLine("directory exist " + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\");
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("directory does not exist " + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/");
-                DirectoryInfo di = Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/");
+                System.Diagnostics.Debug.WriteLine("directory does not exist " + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\");
+                DirectoryInfo di = Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\");
 
 
             }
+            KeyPreview = true;
         }
 
         private void groupBox1_MouseHover(object sender, EventArgs e)
@@ -83,7 +92,7 @@ namespace creative_web_Develop
             groupBox1.Show();
 
             listView1.Items.Clear();
-            foreach (string item in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/"))
+            foreach (string item in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects"))
             {
 
                 FileInfo fi = new FileInfo(item);
@@ -118,11 +127,11 @@ namespace creative_web_Develop
         {
             
             int intselectedindex = listView1.SelectedIndices[0];
-            string text = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + listView1.Items[intselectedindex].Text);
+            string text = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text);
             TabPage tp = new TabPage();
       
             Htmlprojecteditor hpe = new Htmlprojecteditor();
-            hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + listView1.Items[intselectedindex].Text + "_files";
+            hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text + "_files";
             
             tp.Controls.Add(hpe);
             tp.Text = "project - " + listView1.Items[intselectedindex].Text;
@@ -147,16 +156,16 @@ namespace creative_web_Develop
                 {
 
                     int intselectedindex = listView2.SelectedIndices[0];
-                    System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text, "{'folder':'" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + textBox1.Text + "_files" + "','type':'" + listView2.Items[intselectedindex].Text + "'}");
+                    System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text, "{'folder':'" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\" + textBox1.Text + "_files" + "','type':'" + listView2.Items[intselectedindex].Text + "'}");
                    
-                    System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text + "_files");
+                    System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files");
                     if(listView2.Items[intselectedindex].Text == "HTML")
                     {
-                        System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text + "_files/" + "index.html", "<!DOCTYPE html>\n <html>\n    <head>\n    </head> \n </html>");
+                        System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "index.html", "<!DOCTYPE html>\n <html>\n    <head>\n    <\\head> \n <\\html>");
                     }
                     TabPage tp = new TabPage();
                     Htmlprojecteditor hpe = new Htmlprojecteditor();
-                    hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents" + "/creative web projects/" + textBox1.Text + "_files";
+                    hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files";
                     tp.Controls.Add(hpe);
                     tp.Text = "project - " + textBox1.Text;
                     hpe.Dock = DockStyle.Fill;
@@ -236,9 +245,9 @@ namespace creative_web_Develop
             {
 
                 int intselectedindex = listView1.SelectedIndices[0];
-                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + listView1.Items[intselectedindex].Text);
+                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text);
                 listView1.Items.Clear();
-                foreach (string item in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/"))
+                foreach (string item in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\"))
                 {
 
                     FileInfo fi = new FileInfo(item);
@@ -273,6 +282,20 @@ namespace creative_web_Develop
             {
 
             }
+        }
+
+        private void Homeeditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to close CWD?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+            {
+
+            }
+            else { e.Cancel = true; }
+        }
+
+        private void CxFlatButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

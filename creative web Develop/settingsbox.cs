@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CefSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,29 +35,12 @@ namespace creative_web_Develop
         }
         private void settingsbox_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.darktheme == true)
-            {
-                checkBox1.BackColor = Color.Transparent;
-                checkBox2.BackColor = Color.Transparent;
-                checkBox1.ForeColor = Color.White;
-                checkBox2.ForeColor = Color.White;
-                groupBox1.BackColor = Color.Black;
-                groupBox2.BackColor = Color.Black;
-                groupBox3.BackColor = Color.Black;
-                groupBox1.ForeColor = Color.White;
-                groupBox2.ForeColor = Color.White;
-                groupBox3.ForeColor = Color.White;
-                BackColor = Color.Black;
-                ForeColor = Color.White;
-                label1.ForeColor = Color.White;
-                label2.ForeColor = Color.White;
-                label3.ForeColor = Color.White;
-            }
+          
             textBox1.Text = Properties.Settings.Default.host;
             textBox2.Text = Properties.Settings.Default.username;
             textBox3.Text = Properties.Settings.Default.password;
-            
-            if(Properties.Settings.Default.splashscreen == true)
+
+            if (Properties.Settings.Default.splashscreen == true)
             {
                 checkBox2.Checked = true;
             }
@@ -64,14 +48,23 @@ namespace creative_web_Develop
             {
                 checkBox2.Checked = false;
             }
-            if (Properties.Settings.Default.darktheme == true)
+            if (Properties.Settings.Default.highdpi == true)
             {
-                checkBox1.Checked = true;
+                checkBox4.Checked = true;
             }
             else
             {
-                checkBox1.Checked = false;
+                checkBox4.Checked = false;
             }
+            if (Properties.Settings.Default.darktheme == true)
+            {
+              
+            }
+            else
+            {
+               
+            }
+
             
         }
         private void Form1_HelpButtonClicked(Object sender, CancelEventArgs e)
@@ -128,14 +121,7 @@ namespace creative_web_Develop
             Properties.Settings.Default.username = textBox2.Text;
             Properties.Settings.Default.password = textBox3.Text;
         
-            if (checkBox1.Checked == true)
-            {
-                Properties.Settings.Default.darktheme = true;
-            }
-            else
-            {
-                Properties.Settings.Default.darktheme = false;
-            }
+         
             if (checkBox2.Checked == true)
             {
                 Properties.Settings.Default.splashscreen = true;
@@ -144,12 +130,28 @@ namespace creative_web_Develop
             {
                 Properties.Settings.Default.splashscreen = false;
             }
-            if(checkBox3.Checked == true)
+            if (checkBox4.Checked == true)
+            {
+                Properties.Settings.Default.highdpi = true;
+            }
+            else
+            {
+                Properties.Settings.Default.highdpi = false;
+            }
+            if (checkBox3.Checked == true)
             {
                 Application.Restart();
-            }
+            }  
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
+            if (Properties.Settings.Default.highdpi == true)
+            {
+                Cef.EnableHighDPISupport();
+            }
+            else
+            {
+                
+            }
             this.Close();
         }
 

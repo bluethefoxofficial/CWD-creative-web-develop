@@ -82,11 +82,14 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutocompleteMenu, Version=1.3.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutocompleteMenu.1.3.4.0\lib\net40\AutocompleteMenu.dll</HintPath>
+    <Reference Include="AutocompleteMenu, Version=1.3.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutocompleteMenu.1.3.5.0\lib\net40\AutocompleteMenu.dll</HintPath>
     </Reference>
     <Reference Include="CarouselView.FormsPlugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TabStrip.1.0.0.109\lib\netstandard2.0\CarouselView.FormsPlugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="CxFlatUI, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CxFlatUI.1.0.0.3\lib\net45\CxFlatUI.dll</HintPath>
     </Reference>
     <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
       <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
@@ -131,6 +134,7 @@
     <Compile Include="ftpfilemanager.Designer.cs">
       <DependentUpon>ftpfilemanager.cs</DependentUpon>
     </Compile>
+    <Compile Include="ftpserver.cs" />
     <Compile Include="homeeditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +146,12 @@
     </Compile>
     <Compile Include="Htmlprojecteditor.Designer.cs">
       <DependentUpon>Htmlprojecteditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="htmltemplatelist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="htmltemplatelist.Designer.cs">
+      <DependentUpon>htmltemplatelist.cs</DependentUpon>
     </Compile>
     <Compile Include="image viewer.cs">
       <SubType>Form</SubType>
@@ -184,6 +194,12 @@
     <Compile Include="shhh.Designer.cs">
       <DependentUpon>shhh.cs</DependentUpon>
     </Compile>
+    <Compile Include="textpreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="textpreview.Designer.cs">
+      <DependentUpon>textpreview.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="about.resx">
       <DependentUpon>about.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +215,9 @@
     <EmbeddedResource Include="Htmlprojecteditor.resx">
       <DependentUpon>Htmlprojecteditor.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="htmltemplatelist.resx">
+      <DependentUpon>htmltemplatelist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="image viewer.resx">
       <DependentUpon>image viewer.cs</DependentUpon>
@@ -224,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="shhh.resx">
       <DependentUpon>shhh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="textpreview.resx">
+      <DependentUpon>textpreview.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

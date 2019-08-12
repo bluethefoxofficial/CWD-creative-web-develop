@@ -30,6 +30,7 @@ namespace creative_web_Develop
             this.Close();
         }
 
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             BackgroundImage = Bitmap.FromHicon(SystemIcons.Exclamation.Handle);

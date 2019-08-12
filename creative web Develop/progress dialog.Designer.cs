@@ -37,7 +37,9 @@
             this.progressBar1.Location = new System.Drawing.Point(90, 95);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(571, 28);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 0;
+            this.progressBar1.Value = 4;
             // 
             // progress_dialog
             // 
