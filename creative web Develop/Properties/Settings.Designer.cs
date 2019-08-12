@@ -118,5 +118,17 @@ namespace creative_web_Develop.Properties {
                 this["highdpi"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string safemode {
+            get {
+                return ((string)(this["safemode"]));
+            }
+            set {
+                this["safemode"] = value;
+            }
+        }
     }
 }

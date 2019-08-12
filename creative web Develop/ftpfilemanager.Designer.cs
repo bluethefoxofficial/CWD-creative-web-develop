@@ -35,9 +35,9 @@
             // 
             this.ListBox1.FormattingEnabled = true;
             this.ListBox1.ItemHeight = 16;
-            this.ListBox1.Location = new System.Drawing.Point(12, 12);
+            this.ListBox1.Location = new System.Drawing.Point(160, 55);
             this.ListBox1.Name = "ListBox1";
-            this.ListBox1.Size = new System.Drawing.Size(708, 324);
+            this.ListBox1.Size = new System.Drawing.Size(454, 324);
             this.ListBox1.TabIndex = 0;
             this.ListBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBox1_MouseDoubleClick);
             // 

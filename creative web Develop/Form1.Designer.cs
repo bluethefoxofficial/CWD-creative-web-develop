@@ -38,10 +38,9 @@
             this.lblversion.AutoSize = true;
             this.lblversion.BackColor = System.Drawing.Color.Transparent;
             this.lblversion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblversion.Location = new System.Drawing.Point(416, 318);
-            this.lblversion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblversion.Location = new System.Drawing.Point(543, 383);
             this.lblversion.Name = "lblversion";
-            this.lblversion.Size = new System.Drawing.Size(40, 13);
+            this.lblversion.Size = new System.Drawing.Size(52, 17);
             this.lblversion.TabIndex = 0;
             this.lblversion.Text = "0.0.0.0";
             // 
@@ -52,14 +51,14 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::creative_web_Develop.Properties.Resources.cwd_splash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(455, 332);
+            this.ClientSize = new System.Drawing.Size(607, 409);
             this.Controls.Add(this.lblversion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
