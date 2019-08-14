@@ -116,10 +116,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="about.cs">
+    <Compile Include="dialogs\about.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="about.Designer.cs">
+    <Compile Include="dialogs\about.Designer.cs">
       <DependentUpon>about.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -128,104 +128,104 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ftpfilemanager.cs">
+    <Compile Include="dialogs\ftpfilemanager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ftpfilemanager.Designer.cs">
+    <Compile Include="dialogs\ftpfilemanager.Designer.cs">
       <DependentUpon>ftpfilemanager.cs</DependentUpon>
     </Compile>
-    <Compile Include="ftpserver.cs" />
+    <Compile Include="classes\ftpserver.cs" />
     <Compile Include="homeeditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="homeeditor.Designer.cs">
       <DependentUpon>homeeditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Htmlprojecteditor.cs">
+    <Compile Include="tab elements\Htmlprojecteditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Htmlprojecteditor.Designer.cs">
+    <Compile Include="tab elements\Htmlprojecteditor.Designer.cs">
       <DependentUpon>Htmlprojecteditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="htmltemplatelist.cs">
+    <Compile Include="dialogs\htmltemplatelist.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="htmltemplatelist.Designer.cs">
+    <Compile Include="dialogs\htmltemplatelist.Designer.cs">
       <DependentUpon>htmltemplatelist.cs</DependentUpon>
     </Compile>
-    <Compile Include="image viewer.cs">
+    <Compile Include="dialogs\image viewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="image viewer.Designer.cs">
+    <Compile Include="dialogs\image viewer.Designer.cs">
       <DependentUpon>image viewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="imagepreview.cs">
+    <Compile Include="dialogs\imagepreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="imagepreview.Designer.cs">
+    <Compile Include="dialogs\imagepreview.Designer.cs">
       <DependentUpon>imagepreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="newhtml.cs">
+    <Compile Include="dialogs\newhtml.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newhtml.Designer.cs">
+    <Compile Include="dialogs\newhtml.Designer.cs">
       <DependentUpon>newhtml.cs</DependentUpon>
     </Compile>
-    <Compile Include="PictureBoxDoubleBuffer.cs">
+    <Compile Include="elements\PictureBoxDoubleBuffer.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="progress dialog.cs">
+    <Compile Include="dialogs\progress dialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="progress dialog.Designer.cs">
+    <Compile Include="dialogs\progress dialog.Designer.cs">
       <DependentUpon>progress dialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="settingsbox.cs">
+    <Compile Include="dialogs\settingsbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="settingsbox.Designer.cs">
+    <Compile Include="dialogs\settingsbox.Designer.cs">
       <DependentUpon>settingsbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="shhh.cs">
+    <Compile Include="dialogs\shhh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="shhh.Designer.cs">
+    <Compile Include="dialogs\shhh.Designer.cs">
       <DependentUpon>shhh.cs</DependentUpon>
     </Compile>
-    <Compile Include="textpreview.cs">
+    <Compile Include="dialogs\textpreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="textpreview.Designer.cs">
+    <Compile Include="dialogs\textpreview.Designer.cs">
       <DependentUpon>textpreview.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="about.resx">
+    <EmbeddedResource Include="dialogs\about.resx">
       <DependentUpon>about.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ftpfilemanager.resx">
+    <EmbeddedResource Include="dialogs\ftpfilemanager.resx">
       <DependentUpon>ftpfilemanager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="homeeditor.resx">
       <DependentUpon>homeeditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Htmlprojecteditor.resx">
+    <EmbeddedResource Include="tab elements\Htmlprojecteditor.resx">
       <DependentUpon>Htmlprojecteditor.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="htmltemplatelist.resx">
+    <EmbeddedResource Include="dialogs\htmltemplatelist.resx">
       <DependentUpon>htmltemplatelist.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="image viewer.resx">
+    <EmbeddedResource Include="dialogs\image viewer.resx">
       <DependentUpon>image viewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newhtml.resx">
+    <EmbeddedResource Include="dialogs\newhtml.resx">
       <DependentUpon>newhtml.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="progress dialog.resx">
+    <EmbeddedResource Include="dialogs\progress dialog.resx">
       <DependentUpon>progress dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -238,13 +238,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="settingsbox.resx">
+    <EmbeddedResource Include="dialogs\settingsbox.resx">
       <DependentUpon>settingsbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="shhh.resx">
+    <EmbeddedResource Include="dialogs\shhh.resx">
       <DependentUpon>shhh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="textpreview.resx">
+    <EmbeddedResource Include="dialogs\textpreview.resx">
       <DependentUpon>textpreview.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

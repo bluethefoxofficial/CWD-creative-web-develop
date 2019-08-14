@@ -77,30 +77,37 @@ namespace creative_web_Develop
 
         private void TestFTPconnectionbtn_Click(object sender, EventArgs e)
         {
-            Uri uri = new Uri("ftp://" + textBox1.Text);
-            Status.Text = "status: Connecting";
-            pictureBox1.BackColor = Color.Orange;
-            timer1.Start();
-            FtpWebRequest requestDir = (FtpWebRequest)FtpWebRequest.Create(uri);
-            requestDir.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
-            requestDir.Credentials = new NetworkCredential(textBox2.Text, textBox3.Text);
             try
             {
-                timer1.Stop();
-                WebResponse response = requestDir.GetResponse();
-                Status.Text = "status: Connection successfull";
-                pictureBox1.BackColor = Color.Green;
-                MessageBox.Show("connection established");
+                Uri uri = new Uri("ftp://" + textBox1.Text);
+                Status.Text = "status: Connecting";
+                pictureBox1.BackColor = Color.Orange;
+                timer1.Start();
+                FtpWebRequest requestDir = (FtpWebRequest)FtpWebRequest.Create(uri);
+                requestDir.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+                requestDir.Credentials = new NetworkCredential(textBox2.Text, textBox3.Text);
+                try
+                {
+                    timer1.Stop();
+                    WebResponse response = requestDir.GetResponse();
+                    Status.Text = "status: Connection successfull";
+                    pictureBox1.BackColor = Color.Green;
+                    MessageBox.Show("connection established");
 
 
+                }
+                catch (WebException ex)
+                {
+                    timer1.Stop();
+
+                    Status.Text = "status: Connection error";
+                    pictureBox1.BackColor = Color.Red;
+                    MessageBox.Show("connection error");
+                }
             }
-            catch (WebException ex)
+            catch
             {
-                timer1.Stop();
-
-                Status.Text = "status: Connection error";
-                pictureBox1.BackColor = Color.Red;
-                MessageBox.Show("connection error");
+                MessageBox.Show("check host input");
             }
         }
 
