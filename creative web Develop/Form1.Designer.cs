@@ -37,10 +37,12 @@
             // 
             this.lblversion.AutoSize = true;
             this.lblversion.BackColor = System.Drawing.Color.Transparent;
+            this.lblversion.Font = new System.Drawing.Font("Alef", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblversion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblversion.Location = new System.Drawing.Point(543, 383);
+            this.lblversion.Location = new System.Drawing.Point(416, 318);
+            this.lblversion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblversion.Name = "lblversion";
-            this.lblversion.Size = new System.Drawing.Size(52, 17);
+            this.lblversion.Size = new System.Drawing.Size(40, 13);
             this.lblversion.TabIndex = 0;
             this.lblversion.Text = "0.0.0.0";
             // 
