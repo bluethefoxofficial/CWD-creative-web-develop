@@ -60,7 +60,6 @@
             this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fastColoredTextBox1.IsReplaceMode = false;
             this.fastColoredTextBox1.Location = new System.Drawing.Point(0, 28);
             this.fastColoredTextBox1.Name = "fastColoredTextBox1";
@@ -71,6 +70,9 @@
             this.fastColoredTextBox1.TabIndex = 0;
             this.fastColoredTextBox1.Text = "fastColoredTextBox1";
             this.fastColoredTextBox1.Zoom = 100;
+            this.fastColoredTextBox1.KeyPressed += new System.Windows.Forms.KeyPressEventHandler(this.FastColoredTextBox1_KeyPressed);
+            this.fastColoredTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FastColoredTextBox1_KeyDown);
+            this.fastColoredTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FastColoredTextBox1_KeyPress);
             // 
             // menuStrip1
             // 
@@ -96,21 +98,21 @@
             // htmlToolStripMenuItem
             // 
             this.htmlToolStripMenuItem.Name = "htmlToolStripMenuItem";
-            this.htmlToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.htmlToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.htmlToolStripMenuItem.Text = "Html";
             this.htmlToolStripMenuItem.Click += new System.EventHandler(this.HtmlToolStripMenuItem_Click);
             // 
             // jsToolStripMenuItem
             // 
             this.jsToolStripMenuItem.Name = "jsToolStripMenuItem";
-            this.jsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jsToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.jsToolStripMenuItem.Text = "Js";
             this.jsToolStripMenuItem.Click += new System.EventHandler(this.JsToolStripMenuItem_Click);
             // 
             // plaintextToolStripMenuItem
             // 
             this.plaintextToolStripMenuItem.Name = "plaintextToolStripMenuItem";
-            this.plaintextToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.plaintextToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.plaintextToolStripMenuItem.Text = "Plaintext";
             this.plaintextToolStripMenuItem.Click += new System.EventHandler(this.PlaintextToolStripMenuItem_Click);
             // 

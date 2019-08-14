@@ -50,5 +50,20 @@ namespace creative_web_Develop
         {
 
         }
+
+        private void FastColoredTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void FastColoredTextBox1_KeyPressed(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void FastColoredTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
     }
 }

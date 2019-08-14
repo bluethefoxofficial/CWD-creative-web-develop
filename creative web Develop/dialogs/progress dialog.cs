@@ -35,5 +35,10 @@ namespace creative_web_Develop
         {
 
         }
+
+        private void CxFlatProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
