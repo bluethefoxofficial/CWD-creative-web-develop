@@ -98,7 +98,7 @@ namespace creative_web_Develop
 
 
 
-
+            richTextBox1.CaretColor = Color.Black;
 
             richTextBox1.AutoCompleteBrackets = true;
            

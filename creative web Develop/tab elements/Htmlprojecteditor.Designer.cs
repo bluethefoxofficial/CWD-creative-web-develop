@@ -105,6 +105,7 @@
             this.autocompleteMenu1 = new AutocompleteMenuNS.AutocompleteMenu();
             this.smallicons = new System.Windows.Forms.ImageList(this.components);
             this.cxFlatContextMenuStrip1 = new CxFlatUI.CxFlatContextMenuStrip();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -167,6 +168,8 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.AllowSeveralTextStyleDrawing = true;
+            this.richTextBox1.AutoCompleteBrackets = true;
             this.richTextBox1.AutoCompleteBracketsList = new char[] {
         '(',
         ')',
@@ -182,6 +185,9 @@
             this.richTextBox1.AutoIndentCharsPatterns = "";
             this.richTextBox1.AutoScrollMinSize = new System.Drawing.Size(221, 18);
             this.richTextBox1.BackBrush = null;
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.richTextBox1.BookmarkColor = System.Drawing.Color.Gray;
+            this.richTextBox1.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.richTextBox1.CharHeight = 18;
             this.richTextBox1.CharWidth = 10;
             this.richTextBox1.CommentPrefix = null;
@@ -189,6 +195,7 @@
             this.richTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Font = new System.Drawing.Font("Courier New", 10F);
+            this.richTextBox1.IndentBackColor = System.Drawing.Color.Black;
             this.richTextBox1.IsReplaceMode = false;
             this.richTextBox1.Language = FastColoredTextBoxNS.Language.HTML;
             this.richTextBox1.LeftBracket = '<';
@@ -200,6 +207,7 @@
             this.richTextBox1.RightBracket2 = ')';
             this.richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.richTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("richTextBox1.ServiceColors")));
+            this.richTextBox1.ServiceLinesColor = System.Drawing.Color.Black;
             this.richTextBox1.Size = new System.Drawing.Size(1031, 640);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "fastColoredTextBox1";
@@ -620,6 +628,7 @@
             // 
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.HideSelection = false;
             this.listView1.LargeImageList = this.largeicons;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1213,5 +1222,6 @@
         private System.Windows.Forms.ImageList smallicons;
         private System.Windows.Forms.ImageList largeicons;
         private CxFlatUI.CxFlatContextMenuStrip cxFlatContextMenuStrip1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
