@@ -185,7 +185,7 @@
             this.richTextBox1.AutoIndentCharsPatterns = "";
             this.richTextBox1.AutoScrollMinSize = new System.Drawing.Size(221, 18);
             this.richTextBox1.BackBrush = null;
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.richTextBox1.BackColor = System.Drawing.Color.Gray;
             this.richTextBox1.BookmarkColor = System.Drawing.Color.Gray;
             this.richTextBox1.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.richTextBox1.CharHeight = 18;
