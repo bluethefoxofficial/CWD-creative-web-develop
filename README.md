@@ -1,4 +1,4 @@
-# CWD
+# CWD (creative web develop)
 creative web develop is a IDE designed for website designers and programmers.
 
 
