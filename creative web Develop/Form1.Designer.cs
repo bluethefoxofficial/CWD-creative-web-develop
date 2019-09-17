@@ -39,10 +39,10 @@
             this.lblversion.BackColor = System.Drawing.Color.Transparent;
             this.lblversion.Font = new System.Drawing.Font("Alef", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblversion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblversion.Location = new System.Drawing.Point(416, 318);
+            this.lblversion.Location = new System.Drawing.Point(539, 381);
             this.lblversion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblversion.Name = "lblversion";
-            this.lblversion.Size = new System.Drawing.Size(40, 13);
+            this.lblversion.Size = new System.Drawing.Size(57, 19);
             this.lblversion.TabIndex = 0;
             this.lblversion.Text = "0.0.0.0";
             // 
@@ -55,7 +55,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::creative_web_Develop.Properties.Resources.cwd_splash;
+            this.BackgroundImage = global::creative_web_Develop.Properties.Resources.cwdsplash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(607, 409);
             this.Controls.Add(this.lblversion);
@@ -66,6 +66,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CDEVWEB";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(238)))));
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

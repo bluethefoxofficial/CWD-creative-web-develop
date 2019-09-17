@@ -99,6 +99,7 @@
     <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -122,6 +123,12 @@
     <Compile Include="dialogs\about.Designer.cs">
       <DependentUpon>about.cs</DependentUpon>
     </Compile>
+    <Compile Include="dialogs\formgen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dialogs\formgen.Designer.cs">
+      <DependentUpon>formgen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +147,12 @@
     </Compile>
     <Compile Include="homeeditor.Designer.cs">
       <DependentUpon>homeeditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pleasewait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pleasewait.Designer.cs">
+      <DependentUpon>pleasewait.cs</DependentUpon>
     </Compile>
     <Compile Include="tab elements\Htmlprojecteditor.cs">
       <SubType>UserControl</SubType>
@@ -200,8 +213,17 @@
     <Compile Include="dialogs\textpreview.Designer.cs">
       <DependentUpon>textpreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="tab elements\phpprojecteditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="tab elements\phpprojecteditor.Designer.cs">
+      <DependentUpon>phpprojecteditor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dialogs\about.resx">
       <DependentUpon>about.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\formgen.resx">
+      <DependentUpon>formgen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -211,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="homeeditor.resx">
       <DependentUpon>homeeditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pleasewait.resx">
+      <DependentUpon>pleasewait.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tab elements\Htmlprojecteditor.resx">
       <DependentUpon>Htmlprojecteditor.cs</DependentUpon>
@@ -247,6 +272,9 @@
     <EmbeddedResource Include="dialogs\textpreview.resx">
       <DependentUpon>textpreview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="tab elements\phpprojecteditor.resx">
+      <DependentUpon>phpprojecteditor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -270,6 +298,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="Resources\css.png" />
+    <None Include="Resources\cwdsplash.png" />
     <Content Include="Resources\html.png" />
     <Content Include="Resources\js.png" />
     <Content Include="Resources\php.png" />

@@ -2,10 +2,6 @@
 {
     partial class Htmlprojecteditor
     {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -26,7 +22,7 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Htmlprojecteditor));
@@ -73,6 +69,8 @@
             this.jqueryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.w3cssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.popperjsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Savingl = new System.Windows.Forms.ToolStripStatusLabel();
@@ -183,10 +181,8 @@
         '\''};
             this.autocompleteMenu1.SetAutocompleteMenu(this.richTextBox1, this.autocompleteMenu1);
             this.richTextBox1.AutoIndentCharsPatterns = "";
-            this.richTextBox1.AutoScrollMinSize = new System.Drawing.Size(221, 18);
+            this.richTextBox1.AutoScrollMinSize = new System.Drawing.Size(31, 18);
             this.richTextBox1.BackBrush = null;
-            this.richTextBox1.BackColor = System.Drawing.Color.Gray;
-            this.richTextBox1.BookmarkColor = System.Drawing.Color.Gray;
             this.richTextBox1.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.richTextBox1.CharHeight = 18;
             this.richTextBox1.CharWidth = 10;
@@ -195,7 +191,6 @@
             this.richTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Font = new System.Drawing.Font("Courier New", 10F);
-            this.richTextBox1.IndentBackColor = System.Drawing.Color.Black;
             this.richTextBox1.IsReplaceMode = false;
             this.richTextBox1.Language = FastColoredTextBoxNS.Language.HTML;
             this.richTextBox1.LeftBracket = '<';
@@ -207,10 +202,8 @@
             this.richTextBox1.RightBracket2 = ')';
             this.richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.richTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("richTextBox1.ServiceColors")));
-            this.richTextBox1.ServiceLinesColor = System.Drawing.Color.Black;
             this.richTextBox1.Size = new System.Drawing.Size(1031, 640);
             this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "fastColoredTextBox1";
             this.richTextBox1.Zoom = 100;
             this.richTextBox1.Load += new System.EventHandler(this.RichTextBox1_Load_1);
             this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox1_KeyDown_1);
@@ -242,7 +235,8 @@
             this.debugToolStripMenuItem,
             this.documentmapToolStripMenuItem,
             this.insertCodeToolStripMenuItem,
-            this.packagesToolStripMenuItem});
+            this.packagesToolStripMenuItem,
+            this.generateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -549,6 +543,21 @@
             this.popperjsToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.popperjsToolStripMenuItem.Text = "popper.js";
             this.popperjsToolStripMenuItem.Click += new System.EventHandler(this.popperjsToolStripMenuItem_Click);
+            // 
+            // generateToolStripMenuItem
+            // 
+            this.generateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formToolStripMenuItem1});
+            this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
+            this.generateToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.generateToolStripMenuItem.Text = "generate";
+            // 
+            // formToolStripMenuItem1
+            // 
+            this.formToolStripMenuItem1.Name = "formToolStripMenuItem1";
+            this.formToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.formToolStripMenuItem1.Text = "Form";
+            this.formToolStripMenuItem1.Click += new System.EventHandler(this.FormToolStripMenuItem1_Click);
             // 
             // statusStrip1
             // 
@@ -1146,82 +1155,85 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private CxFlatUI.CxFlatContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem htmlToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem projectExplorerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startWithoutDevToolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private FastColoredTextBoxNS.DocumentMap documentMap1;
-        private System.Windows.Forms.ToolStripMenuItem documentmapToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertCodeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem htmlToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem htmlToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem headToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bodyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imgToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem brToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem scriptToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem divToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startWithinBrowserToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cssToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem jsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem packagesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bootstrap4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem jqueryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem w3cssToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem popperjsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formcontrolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem submitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buttonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem passwordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textareaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripStatusLabel Savingl;
-        private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.ListBox listBox1;
-        private CxFlatUI.CxFlatSimpleButton button1;
+        public System.Windows.Forms.SplitContainer splitContainer1;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ImageList imageList1;
+        public System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        public CxFlatUI.CxFlatContextMenuStrip contextMenuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem htmlToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem projectExplorerToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        public System.Windows.Forms.StatusStrip statusStrip1;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        public System.Windows.Forms.SplitContainer splitContainer2;
+        public System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem startWithoutDevToolsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        public FastColoredTextBoxNS.DocumentMap documentMap1;
+        public System.Windows.Forms.ToolStripMenuItem documentmapToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem insertCodeToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem htmlToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem htmlToolStripMenuItem2;
+        public System.Windows.Forms.ToolStripMenuItem headToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem bodyToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem pToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem imgToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem formToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem brToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem scriptToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem divToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem startWithinBrowserToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem cssToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem jsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem packagesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem bootstrap4ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem jqueryToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem w3cssToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem popperjsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem formcontrolsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem submitToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem buttonToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem passwordToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem textareaToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripStatusLabel Savingl;
+        public System.Windows.Forms.SplitContainer splitContainer3;
+        public System.Windows.Forms.ListBox listBox1;
+        public CxFlatUI.CxFlatSimpleButton button1;
         
-        private System.Windows.Forms.Timer timer1;
-        private CxFlatUI.CxFlatTextBox textBox1;
-        private System.Windows.Forms.ToolStripMenuItem exportAsATemplateFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripMenuItem openInExplorerToolStripMenuItem;
-        private FastColoredTextBoxNS.FastColoredTextBox richTextBox1;
-        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu1;
-        private CxFlatUI.CxFlatContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem openAPreviewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem smallIconsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem largeIconsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tileToolStripMenuItem;
-        private System.Windows.Forms.ImageList smallicons;
-        private System.Windows.Forms.ImageList largeicons;
-        private CxFlatUI.CxFlatContextMenuStrip cxFlatContextMenuStrip1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
+        public System.Windows.Forms.Timer timer1;
+        public CxFlatUI.CxFlatTextBox textBox1;
+        public System.Windows.Forms.ToolStripMenuItem exportAsATemplateFileToolStripMenuItem;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        public System.Windows.Forms.ToolStripMenuItem openInExplorerToolStripMenuItem;
+        public FastColoredTextBoxNS.FastColoredTextBox richTextBox1;
+        public AutocompleteMenuNS.AutocompleteMenu autocompleteMenu1;
+        public CxFlatUI.CxFlatContextMenuStrip contextMenuStrip2;
+        public System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem2;
+        public System.Windows.Forms.ToolStripMenuItem openAPreviewToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem smallIconsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem largeIconsToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem tileToolStripMenuItem;
+        public System.Windows.Forms.ImageList smallicons;
+        public System.Windows.Forms.ImageList largeicons;
+        public CxFlatUI.CxFlatContextMenuStrip cxFlatContextMenuStrip1;
+        public System.Windows.Forms.ColorDialog colorDialog1;
+        private System.ComponentModel.IContainer components;
+        private System.Windows.Forms.ToolStripMenuItem generateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formToolStripMenuItem1;
     }
 }

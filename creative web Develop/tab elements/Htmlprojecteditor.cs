@@ -144,7 +144,9 @@ namespace creative_web_Develop
         
                 }
                 richTextBox1.Text = System.IO.File.ReadAllText(projectFolder + "/index.html");
-                currentfile = projectFolder + "/index.html";
+         
+                    currentfile = projectFolder + "/index.html";
+                
                 toolStripStatusLabel1.Text = "current file: " + currentfile;
             }
             catch
@@ -858,6 +860,20 @@ namespace creative_web_Develop
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formgen fg = new formgen();
+            fg.ShowDialog();
+            if(fg.generatedcode == "")
+            {
+                MessageBox.Show("No output");
+            }
+            else
+            {
+                richTextBox1.SelectedText += fg.generatedcode;
+            }
         }
     }
 }

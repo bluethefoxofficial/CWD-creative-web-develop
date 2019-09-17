@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace creative_web_Develop
@@ -125,14 +126,20 @@ namespace creative_web_Develop
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            
+            pleasewait pw = new pleasewait();
+            pw.TopMost = true;
+            pw.Show();
             int intselectedindex = listView1.SelectedIndices[0];
             string text = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text);
+            JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
+            dynamic dobj = jsonSerializer.Deserialize<dynamic>(text);
+            string projecttype = dobj["type"].ToString();
+            if (projecttype == "HTML") { 
             TabPage tp = new TabPage();
-      
+
             Htmlprojecteditor hpe = new Htmlprojecteditor();
             hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text + "_files";
-            
+
             tp.Controls.Add(hpe);
             tp.Text = "project - " + listView1.Items[intselectedindex].Text;
             hpe.Dock = DockStyle.Fill;
@@ -140,7 +147,13 @@ namespace creative_web_Develop
             hpe.Show();
             tabControl1.TabPages.Add(tp);
             tabControl1.SelectedTab = tp;
-
+                pw.Close();
+        }else if (projecttype == "PHP")
+            {
+                pw.Close();
+                MessageBox.Show("PHP support being implimented soon.");
+            }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -154,25 +167,40 @@ namespace creative_web_Develop
             {
                 if (textBox1.Text != "")
                 {
-
+                    this.ForeColor = Color.Black;
                     int intselectedindex = listView2.SelectedIndices[0];
-                    System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text, "{'folder':'" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\" + textBox1.Text + "_files" + "','type':'" + listView2.Items[intselectedindex].Text + "'}");
+                    System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text, "{'folder':'" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + textBox1.Text + "_files" + "','type':'" + listView2.Items[intselectedindex].Text + "'}");
                    
                     System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files");
                     if(listView2.Items[intselectedindex].Text == "HTML")
                     {
-                        System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "index.html", "<!DOCTYPE html>\n <html>\n    <head>\n    <\\head> \n <\\html>");
+                        System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "index.html", "<!DOCTYPE html>\n <html>\n    <head>\n    </head> \n </html>");
+                        TabPage tp = new TabPage();
+                        Htmlprojecteditor hpe = new Htmlprojecteditor();
+                        hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files";
+                        tp.Controls.Add(hpe);
+                        tp.Text = "project - " + textBox1.Text;
+                        hpe.Dock = DockStyle.Fill;
+                        hpe.Visible = true;
+                        hpe.textBox1.ForeColor = Color.Black;
+
+                        hpe.Show();
+                        tp.ForeColor = Color.Black;
+                        tp.UseVisualStyleBackColor = true;
+                        tabControl1.TabPages.Add(tp);
+
+                        tabControl1.SelectedTab = tp;
+                    }else if(listView2.Items[intselectedindex].Text == "PHP")
+                    {
+                        System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "index.php", "<?php \n //Starter project \n \n echo \"hello world\";");
+                        MessageBox.Show("php development is currently is beta so please be patient while we work on it");
                     }
-                    TabPage tp = new TabPage();
-                    Htmlprojecteditor hpe = new Htmlprojecteditor();
-                    hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files";
-                    tp.Controls.Add(hpe);
-                    tp.Text = "project - " + textBox1.Text;
-                    hpe.Dock = DockStyle.Fill;
-                    hpe.Visible = true;
-                    hpe.Show();
-                    tabControl1.TabPages.Add(tp);
-                    tabControl1.SelectedTab = tp;
+                    else
+                    {
+
+                        MessageBox.Show("Not supported by CWD");
+                    }
+                
                 }
                 else
                 {
