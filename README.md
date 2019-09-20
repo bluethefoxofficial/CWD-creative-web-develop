@@ -21,3 +21,7 @@ creative web develop is a IDE designed for website designers and programmers.
 
 # Screenshots
 ![Screenshot ](CWD_screenshot_1.PNG)
+![Screenshot ](CWD_screenshot_2.PNG)
+![Screenshot ](CWD_screenshot_3.PNG)
+![Screenshot ](CWD_screenshot_4.PNG)
+
