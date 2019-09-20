@@ -555,7 +555,7 @@
             // formToolStripMenuItem1
             // 
             this.formToolStripMenuItem1.Name = "formToolStripMenuItem1";
-            this.formToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.formToolStripMenuItem1.Size = new System.Drawing.Size(126, 26);
             this.formToolStripMenuItem1.Text = "Form";
             this.formToolStripMenuItem1.Click += new System.EventHandler(this.FormToolStripMenuItem1_Click);
             // 
@@ -655,6 +655,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.BackColor = System.Drawing.Color.White;
+            this.contextMenuStrip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
@@ -664,7 +665,7 @@
             this.openAPreviewToolStripMenuItem,
             this.viewToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(190, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 176);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // newToolStripMenuItem
@@ -708,8 +709,8 @@
             // refreshToolStripMenuItem1
             // 
             this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
-            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(189, 24);
-            this.refreshToolStripMenuItem1.Text = "&Refresh";
+            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.refreshToolStripMenuItem1.Text = "Refresh";
             this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.RefreshToolStripMenuItem1_Click);
             // 
             // openInExplorerToolStripMenuItem

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -38,6 +39,8 @@ namespace creative_web_Develop
           
             textBox1.Text = Properties.Settings.Default.host;
             textBox2.Text = Properties.Settings.Default.username;
+            phpcmd.Text = Properties.Settings.Default.phpexe;
+            libdir.Text = Properties.Settings.Default.libdirectory;
             textBox3.Text = Properties.Settings.Default.password;
 
             if (Properties.Settings.Default.splashscreen == true)
@@ -125,6 +128,8 @@ namespace creative_web_Develop
         private void Applysettings_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.host = textBox1.Text;
+            Properties.Settings.Default.libdirectory = libdir.Text;
+            Properties.Settings.Default.phpexe = phpcmd.Text;
             Properties.Settings.Default.username = textBox2.Text;
             Properties.Settings.Default.password = textBox3.Text;
         
@@ -182,6 +187,16 @@ namespace creative_web_Develop
         private void Button1_Click(object sender, EventArgs e)
         {
             new ftpfilemanager().Show();
+        }
+
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.php.net/downloads.php");
+        }
+
+        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Help \n this helps debug php when your running a php project. \n the %filename% is used for when you want to use the current file, \n is required for debugging to work properly.");
         }
     }
 }

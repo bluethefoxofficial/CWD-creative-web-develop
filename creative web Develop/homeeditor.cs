@@ -3,8 +3,11 @@ using CefSharp;
 using CefSharp.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
@@ -28,9 +31,19 @@ namespace creative_web_Develop
         }
         private void homeeditor_Load(object sender, EventArgs e)
         {
+         
+            cxFlatRoundProgressBar1.ValueNumber = Properties.Settings.Default.progress;
+            label5.Text = Properties.Settings.Default.level;
             if (Properties.Settings.Default.highdpi == true)
             {
-                Cef.EnableHighDPISupport();
+                try
+                {
+                    Cef.EnableHighDPISupport();
+                }
+                catch
+                {
+
+                }
             }
             else
             {
@@ -38,24 +51,15 @@ namespace creative_web_Develop
             }
             CefSettings settings = new CefSettings();
             // Initialize cef with the provided settings
-            Cef.Initialize(settings);
-            if (Properties.Settings.Default.darktheme == true)
+            try
             {
-                BackColor = Color.Black;
-                ForeColor = Color.White;
-                tabPage1.BackColor = Color.Black;
-                listView1.BackColor = Color.DarkGray;
-                listView1.ForeColor = Color.White;
-                listView2.BackColor = Color.DarkGray;
-                listView2.ForeColor = Color.White;
-                menuStrip1.BackColor = Color.Black;
-                menuStrip2.BackColor = Color.Black;
-                menuStrip2.ForeColor = Color.White;
-                menuStrip1.ForeColor = Color.White;
-                groupBox1.ForeColor = Color.White;
-                groupBox2.ForeColor = Color.White;
+                Cef.Initialize(settings);
+            }
+            catch
+            {
 
             }
+          
             groupBox1.Hide();
             groupBox2.Hide();
             if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\"))
@@ -150,8 +154,20 @@ namespace creative_web_Develop
                 pw.Close();
         }else if (projecttype == "PHP")
             {
+                TabPage tp = new TabPage();
+
+                tab_elements.phpprojecteditor ppe = new tab_elements.phpprojecteditor();
+                ppe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text + "_files";
+
+                tp.Controls.Add(ppe);
+                tp.Text = "project - " + listView1.Items[intselectedindex].Text;
+                ppe.Dock = DockStyle.Fill;
+                ppe.Visible = true;
+                ppe.Show();
+                tabControl1.TabPages.Add(tp);
+                tabControl1.SelectedTab = tp;
                 pw.Close();
-                MessageBox.Show("PHP support being implimented soon.");
+           
             }
            
         }
@@ -159,6 +175,7 @@ namespace creative_web_Develop
         private void button3_Click(object sender, EventArgs e)
         {
             createpro();
+            
         }
         public void createpro()
         {
@@ -169,7 +186,8 @@ namespace creative_web_Develop
                 {
                     this.ForeColor = Color.Black;
                     int intselectedindex = listView2.SelectedIndices[0];
-                    System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text, "{'folder':'" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/" + "/creative web projects/" + textBox1.Text + "_files" + "','type':'" + listView2.Items[intselectedindex].Text + "'}");
+                    string repairedenviromentusertext = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                    System.IO.File.WriteAllText(repairedenviromentusertext.Replace("\\", "/") + "/Documents" + "/creative web projects/" + textBox1.Text, "{'folder':'" + repairedenviromentusertext.Replace("\\", "/") + "/Documents/" + "/creative web projects/" + textBox1.Text + "_files" + "','type':'" + listView2.Items[intselectedindex].Text + "'}");
                    
                     System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files");
                     if(listView2.Items[intselectedindex].Text == "HTML")
@@ -190,15 +208,19 @@ namespace creative_web_Develop
                         tabControl1.TabPages.Add(tp);
 
                         tabControl1.SelectedTab = tp;
-                    }else if(listView2.Items[intselectedindex].Text == "PHP")
+                        cxFlatRoundProgressBar1.ValueNumber += 1;
+                    }
+                    else if(listView2.Items[intselectedindex].Text == "PHP")
                     {
                         System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "index.php", "<?php \n //Starter project \n \n echo \"hello world\";");
-                        MessageBox.Show("php development is currently is beta so please be patient while we work on it");
+                        cxFlatRoundProgressBar1.ValueNumber += 1;
                     }
                     else
                     {
 
                         MessageBox.Show("Not supported by CWD");
+
+                        cxFlatRoundProgressBar1.ValueNumber -= 1;
                     }
                 
                 }
@@ -228,8 +250,19 @@ namespace creative_web_Develop
 
         private void closeProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab.Controls.Clear();
-            tabControl1.TabPages.Remove(tabControl1.SelectedTab);
+            if (tabControl1.SelectedTab.Text == "Initaltp")
+            {
+
+            }
+            else
+            {
+                tabControl1.SelectedTab.Controls.Clear();
+                tabControl1.TabPages.Remove(tabControl1.SelectedTab);
+                foreach (var process in Process.GetProcessesByName("php"))
+                {
+                    process.Kill();
+                }
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,10 +285,7 @@ namespace creative_web_Develop
             }
         }
 
-        private void debugAndPreviewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
+     
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -293,7 +323,7 @@ namespace creative_web_Develop
             {
                 BackColor = Color.Black;
                 ForeColor = Color.White;
-                tabPage1.BackColor = Color.Black;
+                Initaltp.BackColor = Color.Black;
                 listView1.BackColor = Color.DarkGray;
                 listView1.ForeColor = Color.White;
                 listView2.BackColor = Color.DarkGray;
@@ -316,7 +346,10 @@ namespace creative_web_Develop
         {
             if (MessageBox.Show("Are you sure you want to close CWD?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
             {
-
+                foreach (var process in Process.GetProcessesByName("php"))
+                {
+                    process.Kill();
+                }
             }
             else { e.Cancel = true; }
         }
@@ -324,6 +357,45 @@ namespace creative_web_Develop
         private void CxFlatButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ListView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FeedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://docs.google.com/forms/d/e/1FAIpQLSeXeBS8GOeqLs3sZ6yWNWsKWaH8uFrVunwSZl5HI6u8WnmleQ/viewform");
+        }
+
+        private void ProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CxFlatPictureBox1_Click(object sender, EventArgs e)
+        {
+            if(panel1.Visible == false)
+            {
+                panel1.Visible = true;
+            }
+            else
+            {
+                panel1.Visible = false;
+            }
+        }
+
+        private void Homeeditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            Properties.Settings.Default.level = label5.Text.ToString();
+            Properties.Settings.Default.progress = cxFlatRoundProgressBar1.ValueNumber;
+            Properties.Settings.Default.Save();
+        }
+
+        private void PluginsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Environment.CurrentDirectory + "/plugins/");
         }
     }
 }

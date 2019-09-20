@@ -29,5 +29,17 @@
     <Setting Name="safemode" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="phpexe" Type="System.String" Scope="User">
+      <Value Profile="(Default)">php/php.exe</Value>
+    </Setting>
+    <Setting Name="libdirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/lib/</Value>
+    </Setting>
+    <Setting Name="level" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="progress" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

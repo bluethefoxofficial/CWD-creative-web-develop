@@ -210,10 +210,11 @@ namespace creative_web_Develop
             // 
             // button
             // 
+            this.button.AutoSize = true;
             this.button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button.Location = new System.Drawing.Point(76, 65);
+            this.button.Location = new System.Drawing.Point(93, 65);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(111, 20);
+            this.button.Size = new System.Drawing.Size(94, 22);
             this.button.TabIndex = 0;
             this.button.Text = "button tag";
             this.button.UseVisualStyleBackColor = true;

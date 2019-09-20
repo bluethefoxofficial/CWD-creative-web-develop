@@ -43,7 +43,7 @@ namespace creative_web_Develop
 
         private void label7_Click(object sender, EventArgs e)
         {
-            label7.ForeColor = Color.Purple;
+            //label7.ForeColor = Color.Purple;
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -53,12 +53,12 @@ namespace creative_web_Develop
 
         private void label6_Click(object sender, EventArgs e)
         {
-            label6.ForeColor = Color.Aqua;
+            //label6.ForeColor = Color.Aqua;
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            label3.ForeColor = Color.Purple;
+     
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

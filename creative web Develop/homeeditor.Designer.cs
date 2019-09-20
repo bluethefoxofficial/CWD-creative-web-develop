@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("HTML");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("PHP");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("HTML");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("PHP");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(homeeditor));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Initaltp = new System.Windows.Forms.TabPage();
             this.button4 = new CxFlatUI.Controls.CxFlatButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView2 = new System.Windows.Forms.ListView();
@@ -59,46 +59,58 @@
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pluginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cxFlatRoundProgressBar1 = new CxFlatUI.CxFlatRoundProgressBar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cxFlatPictureBox1 = new CxFlatUI.CxFlatPictureBox();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.Initaltp.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cxFlatPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.Initaltp);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Arial", 7F);
             this.tabControl1.ItemSize = new System.Drawing.Size(120, 40);
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
+            this.tabControl1.Location = new System.Drawing.Point(0, 30);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1924, 955);
+            this.tabControl1.Size = new System.Drawing.Size(1924, 953);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // Initaltp
             // 
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.menuStrip1);
-            this.tabPage1.ForeColor = System.Drawing.Color.Black;
-            this.tabPage1.Location = new System.Drawing.Point(4, 44);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1916, 907);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "CWD - Home";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.Initaltp.Controls.Add(this.panel1);
+            this.Initaltp.Controls.Add(this.cxFlatPictureBox1);
+            this.Initaltp.Controls.Add(this.button4);
+            this.Initaltp.Controls.Add(this.groupBox2);
+            this.Initaltp.Controls.Add(this.groupBox1);
+            this.Initaltp.Controls.Add(this.button2);
+            this.Initaltp.Controls.Add(this.button1);
+            this.Initaltp.Controls.Add(this.menuStrip1);
+            this.Initaltp.ForeColor = System.Drawing.Color.Black;
+            this.Initaltp.Location = new System.Drawing.Point(4, 44);
+            this.Initaltp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Initaltp.Name = "Initaltp";
+            this.Initaltp.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Initaltp.Size = new System.Drawing.Size(1916, 905);
+            this.Initaltp.TabIndex = 0;
+            this.Initaltp.Text = "CWD - Home";
+            this.Initaltp.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // button4
             // 
@@ -108,7 +120,7 @@
             this.button4.Location = new System.Drawing.Point(310, 43);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 33);
+            this.button4.Size = new System.Drawing.Size(132, 33);
             this.button4.TabIndex = 5;
             this.button4.Text = "settings";
             this.button4.TextColor = System.Drawing.Color.White;
@@ -144,12 +156,12 @@
             this.listView2.HideSelection = false;
             this.listView2.HotTracking = true;
             this.listView2.HoverSelection = true;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem4.Checked = true;
-            listViewItem4.StateImageIndex = 4;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.Checked = true;
+            listViewItem2.StateImageIndex = 4;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
+            listViewItem1,
+            listViewItem2});
             this.listView2.Location = new System.Drawing.Point(5, 21);
             this.listView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView2.MultiSelect = false;
@@ -159,6 +171,7 @@
             this.listView2.StateImageList = this.imageList1;
             this.listView2.TabIndex = 3;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.ListView2_SelectedIndexChanged);
             // 
             // imageList1
             // 
@@ -360,10 +373,11 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectToolStripMenuItem,
-            this.pluginsToolStripMenuItem});
+            this.pluginsToolStripMenuItem,
+            this.feedbackToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1924, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(1924, 30);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -372,8 +386,9 @@
             this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeProjectToolStripMenuItem});
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
-            this.projectToolStripMenuItem.Text = "project";
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
+            this.projectToolStripMenuItem.Text = "Project";
+            this.projectToolStripMenuItem.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
             // 
             // closeProjectToolStripMenuItem
             // 
@@ -385,8 +400,92 @@
             // pluginsToolStripMenuItem
             // 
             this.pluginsToolStripMenuItem.Name = "pluginsToolStripMenuItem";
-            this.pluginsToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.pluginsToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
             this.pluginsToolStripMenuItem.Text = "Plugins";
+            this.pluginsToolStripMenuItem.Click += new System.EventHandler(this.PluginsToolStripMenuItem_Click);
+            // 
+            // feedbackToolStripMenuItem
+            // 
+            this.feedbackToolStripMenuItem.Name = "feedbackToolStripMenuItem";
+            this.feedbackToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
+            this.feedbackToolStripMenuItem.Text = "Feedback";
+            this.feedbackToolStripMenuItem.Click += new System.EventHandler(this.FeedbackToolStripMenuItem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.cxFlatRoundProgressBar1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(1538, 33);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(319, 97);
+            this.panel1.TabIndex = 8;
+            this.panel1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 8F);
+            this.label2.Location = new System.Drawing.Point(7, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Username";
+            // 
+            // cxFlatRoundProgressBar1
+            // 
+            this.cxFlatRoundProgressBar1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.cxFlatRoundProgressBar1.IsError = false;
+            this.cxFlatRoundProgressBar1.Location = new System.Drawing.Point(214, 4);
+            this.cxFlatRoundProgressBar1.Name = "cxFlatRoundProgressBar1";
+            this.cxFlatRoundProgressBar1.Size = new System.Drawing.Size(84, 84);
+            this.cxFlatRoundProgressBar1.TabIndex = 1;
+            this.cxFlatRoundProgressBar1.Text = "cxFlatRoundProgressBar1";
+            this.cxFlatRoundProgressBar1.ValueNumber = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 8F);
+            this.label3.Location = new System.Drawing.Point(111, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Your progress";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 8F);
+            this.label4.Location = new System.Drawing.Point(7, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Your level";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 8F);
+            this.label5.Location = new System.Drawing.Point(83, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 16);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "0";
+            // 
+            // cxFlatPictureBox1
+            // 
+            this.cxFlatPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cxFlatPictureBox1.Location = new System.Drawing.Point(1863, 33);
+            this.cxFlatPictureBox1.Name = "cxFlatPictureBox1";
+            this.cxFlatPictureBox1.Size = new System.Drawing.Size(45, 45);
+            this.cxFlatPictureBox1.TabIndex = 7;
+            this.cxFlatPictureBox1.TabStop = false;
+            this.cxFlatPictureBox1.Click += new System.EventHandler(this.CxFlatPictureBox1_Click);
             // 
             // homeeditor
             // 
@@ -405,10 +504,11 @@
             this.Text = "Home";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Homeeditor_FormClosing);
             this.Load += new System.EventHandler(this.homeeditor_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Homeeditor_KeyDown);
             this.MouseEnter += new System.EventHandler(this.homeeditor_MouseEnter);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.Initaltp.ResumeLayout(false);
+            this.Initaltp.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -417,6 +517,9 @@
             this.menuStrip1.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cxFlatPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,7 +528,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage Initaltp;
         private CxFlatUI.Controls.CxFlatButton button1;
         private CxFlatUI.Controls.CxFlatButton button2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -451,5 +554,13 @@
         private System.Windows.Forms.ToolStripMenuItem softDeleteToolStripMenuItem;
         private CxFlatUI.Controls.CxFlatButton button4;
         private System.Windows.Forms.ToolStripMenuItem pluginsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feedbackToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private CxFlatUI.CxFlatPictureBox cxFlatPictureBox1;
+        private System.Windows.Forms.Label label3;
+        private CxFlatUI.CxFlatRoundProgressBar cxFlatRoundProgressBar1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

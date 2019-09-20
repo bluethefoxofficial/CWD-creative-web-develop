@@ -130,5 +130,53 @@ namespace creative_web_Develop.Properties {
                 this["safemode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("php/php.exe")]
+        public string phpexe {
+            get {
+                return ((string)(this["phpexe"]));
+            }
+            set {
+                this["phpexe"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/lib/")]
+        public string libdirectory {
+            get {
+                return ((string)(this["libdirectory"]));
+            }
+            set {
+                this["libdirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string level {
+            get {
+                return ((string)(this["level"]));
+            }
+            set {
+                this["level"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int progress {
+            get {
+                return ((int)(this["progress"]));
+            }
+            set {
+                this["progress"] = value;
+            }
+        }
     }
 }

@@ -108,24 +108,7 @@ namespace creative_web_Develop
             splitContainer2.Panel2.Controls.Add(chromeBrowser);
             chromeBrowser.Show();
             listView1.Items.Clear();
-            //dark theme
-            if (Properties.Settings.Default.darktheme == true)
-            {
-                BackColor = Color.Black;
-                groupBox1.BackColor = Color.Black;
-                groupBox1.ForeColor = Color.White;
-                richTextBox1.BackColor = Color.Black;
-                richTextBox1.ForeColor = Color.White;
-                menuStrip1.BackColor = Color.LightSlateGray;
-                menuStrip1.ForeColor = Color.White;
-                chromeBrowser.BackColor = Color.Black;
-                chromeBrowser.ForeColor = Color.Black; 
-                listView1.BackColor = Color.Black;
-                listView1.ForeColor = Color.White;
-                splitContainer1.BackColor = Color.Black;
-                splitContainer2.BackColor = Color.Black;
-
-            }
+       
             //loads project files in the project explorer
             try
             {
@@ -236,8 +219,12 @@ namespace creative_web_Develop
         {
 
             string x = Interaction.InputBox("new html document", "name of file", "", 10, 10);
+            if (x == "")
+            { }
+            else { 
                 File.WriteAllText(projectFolder + "/" + x + ".html", " < !DOCTYPE html >\n < html >\n < head >\n </ head > \n </ html > ");
-            listView1.Items.Clear();
+            }
+                listView1.Items.Clear();
             foreach (string item in Directory.GetFiles(projectFolder))
                 {
                 
@@ -502,7 +489,12 @@ namespace creative_web_Develop
         private void cssToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string x = Interaction.InputBox("new css file", "name of file", "", 10, 10);
-            File.WriteAllText(projectFolder + "/" + x + ".css", "");
+            if (x == "")
+            { }
+            else
+            {
+                File.WriteAllText(projectFolder + "/" + x + ".css", "");
+            }
             listView1.Items.Clear();
             foreach (string item in Directory.GetFiles(projectFolder))
             {
@@ -520,7 +512,12 @@ namespace creative_web_Develop
         private void jsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string x = Interaction.InputBox("new javascript file", "name of file", "", 10, 10);
-            File.WriteAllText(projectFolder + "/" + x + ".js", "");
+            if (x == "")
+            { }
+            else
+            {
+                File.WriteAllText(projectFolder + "/" + x + ".js", "");
+            }
             listView1.Items.Clear();
             foreach (string item in Directory.GetFiles(projectFolder))
             {

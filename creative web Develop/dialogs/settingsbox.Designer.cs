@@ -43,6 +43,12 @@
             this.textBox2 = new CxFlatUI.CxFlatTextBox();
             this.textBox1 = new CxFlatUI.CxFlatTextBox();
             this.groupBox3 = new CxFlatUI.CxFlatGroupBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.libdir = new CxFlatUI.CxFlatTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.phpcmd = new CxFlatUI.CxFlatTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBox4 = new CxFlatUI.CxFlatSwitch();
@@ -61,7 +67,7 @@
             // 
             this.Applysettings.ButtonType = CxFlatUI.ButtonType.Primary;
             this.Applysettings.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Applysettings.Location = new System.Drawing.Point(645, 478);
+            this.Applysettings.Location = new System.Drawing.Point(746, 589);
             this.Applysettings.Name = "Applysettings";
             this.Applysettings.Size = new System.Drawing.Size(102, 32);
             this.Applysettings.TabIndex = 0;
@@ -84,7 +90,7 @@
             this.groupBox1.Location = new System.Drawing.Point(24, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.ShowText = false;
-            this.groupBox1.Size = new System.Drawing.Size(375, 417);
+            this.groupBox1.Size = new System.Drawing.Size(373, 417);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "FTP";
@@ -216,21 +222,104 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.linkLabel2);
+            this.groupBox3.Controls.Add(this.libdir);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.linkLabel1);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.phpcmd);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.checkBox4);
             this.groupBox3.Controls.Add(this.checkBox2);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.groupBox3.Location = new System.Drawing.Point(426, 51);
+            this.groupBox3.Location = new System.Drawing.Point(403, 51);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.ShowText = false;
-            this.groupBox3.Size = new System.Drawing.Size(321, 417);
+            this.groupBox3.Size = new System.Drawing.Size(445, 417);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "general";
             this.groupBox3.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(416, 186);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(21, 28);
+            this.linkLabel2.TabIndex = 11;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "?";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
+            // 
+            // libdir
+            // 
+            this.libdir.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.libdir.Hint = "";
+            this.libdir.Location = new System.Drawing.Point(133, 276);
+            this.libdir.MaxLength = 32767;
+            this.libdir.Multiline = false;
+            this.libdir.Name = "libdir";
+            this.libdir.PasswordChar = '\0';
+            this.libdir.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.libdir.SelectedText = "";
+            this.libdir.SelectionLength = 0;
+            this.libdir.SelectionStart = 0;
+            this.libdir.Size = new System.Drawing.Size(306, 43);
+            this.libdir.TabIndex = 10;
+            this.libdir.TabStop = false;
+            this.libdir.Text = "lib";
+            this.libdir.UseSystemPasswordChar = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 276);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 28);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "LIB directory";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(6, 232);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(141, 28);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "download PHP";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 186);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 28);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "PHP CMD";
+            // 
+            // phpcmd
+            // 
+            this.phpcmd.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.phpcmd.Hint = "";
+            this.phpcmd.Location = new System.Drawing.Point(109, 183);
+            this.phpcmd.MaxLength = 32767;
+            this.phpcmd.Multiline = false;
+            this.phpcmd.Name = "phpcmd";
+            this.phpcmd.PasswordChar = '\0';
+            this.phpcmd.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.phpcmd.SelectedText = "";
+            this.phpcmd.SelectionLength = 0;
+            this.phpcmd.SelectionStart = 0;
+            this.phpcmd.Size = new System.Drawing.Size(301, 43);
+            this.phpcmd.TabIndex = 7;
+            this.phpcmd.TabStop = false;
+            this.phpcmd.UseSystemPasswordChar = false;
             // 
             // label5
             // 
@@ -276,7 +365,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(18, 486);
+            this.checkBox3.Location = new System.Drawing.Point(14, 602);
             this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(40, 20);
@@ -296,7 +385,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label6.Location = new System.Drawing.Point(65, 486);
+            this.label6.Location = new System.Drawing.Point(57, 602);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(176, 19);
             this.label6.TabIndex = 6;
@@ -306,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 525);
+            this.ClientSize = new System.Drawing.Size(860, 633);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.groupBox3);
@@ -356,5 +445,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label7;
+        private CxFlatUI.CxFlatTextBox phpcmd;
+        private CxFlatUI.CxFlatTextBox libdir;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }

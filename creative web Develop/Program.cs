@@ -14,16 +14,9 @@ namespace creative_web_Develop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
        
-            if (Properties.Settings.Default.splashscreen == true)
-            {
+       
                 Application.Run(new Form1());
-            }
-            else
-            {
-
-                Application.Run(new homeeditor());
-            }
-           
+       
         }
     }
 }
