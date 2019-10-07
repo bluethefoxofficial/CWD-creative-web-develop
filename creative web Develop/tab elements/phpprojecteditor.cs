@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using Microsoft.VisualBasic;
+using System.IO.Compression;
 
 namespace creative_web_Develop.tab_elements
 {
@@ -62,16 +59,27 @@ namespace creative_web_Develop.tab_elements
                 smallicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
                 largeicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
 
-
+                
 
                 FileInfo fi = new FileInfo(item);
                 projectfiles.Add(fi.FullName);
                 listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+                
 
             }
-            richTextBox1.Text = System.IO.File.ReadAllText(folderlocation + "/index.php");
+            try
+            {
+                richTextBox1.Text = System.IO.File.ReadAllText(folderlocation + "/index.php");
+                currentfile = folderlocation + "/index.php";
+            }
+            catch
+            {
 
-            currentfile = folderlocation + "/index.php";
+                currentfile = folderlocation + "               NO FILE                ";
+                MessageBox.Show("index.php is missing index.php is required create a new index.php file");
+            }
+            
+          
 
             toolStripStatusLabel1.Text = "current file: " + currentfile;
             //MessageBox.Show(Environment.CurrentDirectory + Properties.Settings.Default.libdirectory + Properties.Settings.Default.phpexe);
@@ -306,18 +314,26 @@ namespace creative_web_Develop.tab_elements
 
         private void RefreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            foreach (string item in Directory.GetFiles(projectFolder))
-            {
+            imageList1.Images.Clear();
+            smallicons.Images.Clear();
+            largeicons.Images.Clear();
 
+            listView1.Items.Clear();
+            foreach (string item in Directory.GetFiles(folderlocation))
+            {
                 imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                smallicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                largeicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
 
 
 
                 FileInfo fi = new FileInfo(item);
                 projectfiles.Add(fi.FullName);
                 listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+
+
             }
+         
         }
 
         private void OpenAPreviewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -412,17 +428,24 @@ namespace creative_web_Develop.tab_elements
         {
             string x = Interaction.InputBox("new PHP file", "name of file", "", 10, 10);
             File.WriteAllText(projectFolder + "/" + x + ".php", "");
-            listView1.Items.Clear();
-            foreach (string item in Directory.GetFiles(projectFolder))
-            {
+            imageList1.Images.Clear();
+            smallicons.Images.Clear();
+            largeicons.Images.Clear();
 
+            listView1.Items.Clear();
+            foreach (string item in Directory.GetFiles(folderlocation))
+            {
                 imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                smallicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                largeicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
 
 
 
                 FileInfo fi = new FileInfo(item);
                 projectfiles.Add(fi.FullName);
                 listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+
+
             }
         }
 
@@ -433,17 +456,93 @@ namespace creative_web_Develop.tab_elements
             {
                 File.WriteAllText(projectFolder + "/" + x + ".html", " < !DOCTYPE html >\n < html >\n < head >\n </ head > \n </ html > ");
             }
-            listView1.Items.Clear();
-            foreach (string item in Directory.GetFiles(projectFolder))
-            {
+            imageList1.Images.Clear();
+            smallicons.Images.Clear();
+            largeicons.Images.Clear();
 
+            listView1.Items.Clear();
+            foreach (string item in Directory.GetFiles(folderlocation))
+            {
                 imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                smallicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
+                largeicons.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(item));
 
 
 
                 FileInfo fi = new FileInfo(item);
                 projectfiles.Add(fi.FullName);
                 listView1.Items.Add(fi.Name, imageList1.Images.Count - 1);
+
+
+            }
+        }
+
+        private void LargeIconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.LargeIcon;
+        }
+
+        private void SmallIconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.SmallIcon;
+        }
+
+        private void ListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.List;
+        }
+
+        private void DetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.Details;
+        }
+
+        private void SaveAsTemplateFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CWD template file |*.CWDTF |ZIP File|*.zip|ALPHA FILE |*.AF";
+            if(sfd.ShowDialog() == DialogResult.OK)
+            {
+
+                ZipFile.CreateFromDirectory(projectFolder, sfd.FileName);
+            }
+            else
+            {
+               
+            }
+        }
+
+        private void OpenTemplateFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("!!!!WARNING!!!! \n THIS WILL OVERWRITE ANY FILES IN THE DIRECTORY");
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ofd.Filter = "CWD template file |*.CWDTF | ZIP File|*.zip | ALPHA FILE |*.AF";
+                    Directory.CreateDirectory(projectFolder + "/temp_zip");
+                    ZipFile.ExtractToDirectory(ofd.FileName, projectFolder + "/temp_zip");
+                    System.IO.DirectoryInfo di = new DirectoryInfo("YourPath");
+
+                    foreach (FileInfo file in di.GetFiles())
+                    {
+                        file.Delete();
+                    }
+                    foreach (DirectoryInfo dir in di.GetDirectories())
+                    {
+                        if (dir.Name == "temp_zip") { }
+                        else
+                        {
+
+                            dir.Delete(true);
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

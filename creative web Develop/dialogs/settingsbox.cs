@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -197,6 +198,15 @@ namespace creative_web_Develop
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Help \n this helps debug php when your running a php project. \n the %filename% is used for when you want to use the current file, \n is required for debugging to work properly.");
+        }
+
+        private void CxFlatButton1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("this will reset cwd by resetting all settings \n are you sure you wanna do this?", "FINAL WARNING!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+                Properties.Settings.Default.Reset();
+                Application.Restart();
+            }
         }
     }
 }

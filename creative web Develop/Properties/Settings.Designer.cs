@@ -178,5 +178,17 @@ namespace creative_web_Develop.Properties {
                 this["progress"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool onethree {
+            get {
+                return ((bool)(this["onethree"]));
+            }
+            set {
+                this["onethree"] = value;
+            }
+        }
     }
 }

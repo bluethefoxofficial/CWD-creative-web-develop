@@ -43,6 +43,7 @@
             this.textBox2 = new CxFlatUI.CxFlatTextBox();
             this.textBox1 = new CxFlatUI.CxFlatTextBox();
             this.groupBox3 = new CxFlatUI.CxFlatGroupBox();
+            this.cxFlatButton1 = new CxFlatUI.Controls.CxFlatButton();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.libdir = new CxFlatUI.CxFlatTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -222,6 +223,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cxFlatButton1);
             this.groupBox3.Controls.Add(this.linkLabel2);
             this.groupBox3.Controls.Add(this.libdir);
             this.groupBox3.Controls.Add(this.label8);
@@ -243,6 +245,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "general";
             this.groupBox3.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            // 
+            // cxFlatButton1
+            // 
+            this.cxFlatButton1.ButtonType = CxFlatUI.ButtonType.Primary;
+            this.cxFlatButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cxFlatButton1.Location = new System.Drawing.Point(9, 367);
+            this.cxFlatButton1.Name = "cxFlatButton1";
+            this.cxFlatButton1.Size = new System.Drawing.Size(186, 33);
+            this.cxFlatButton1.TabIndex = 7;
+            this.cxFlatButton1.Text = "Reset all of CWD";
+            this.cxFlatButton1.TextColor = System.Drawing.Color.White;
+            this.cxFlatButton1.Click += new System.EventHandler(this.CxFlatButton1_Click);
             // 
             // linkLabel2
             // 
@@ -451,5 +465,6 @@
         private CxFlatUI.CxFlatTextBox libdir;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private CxFlatUI.Controls.CxFlatButton cxFlatButton1;
     }
 }

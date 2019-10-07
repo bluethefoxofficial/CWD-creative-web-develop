@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("File Name", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(phpprojecteditor));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.richTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
@@ -39,6 +41,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsTemplateFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openInCmdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,18 +54,25 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.listView1 = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openAPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openInExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.largeicons = new System.Windows.Forms.ImageList(this.components);
-            this.smallicons = new System.Windows.Forms.ImageList(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pHPToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.hTMLToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.largeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.smallIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.largeicons = new System.Windows.Forms.ImageList(this.components);
+            this.smallicons = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.autocompleteMenu1 = new AutocompleteMenuNS.AutocompleteMenu();
+            this.openTemplateFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -108,6 +118,7 @@
         '\"',
         '\'',
         '\''};
+            this.autocompleteMenu1.SetAutocompleteMenu(this.richTextBox1, this.autocompleteMenu1);
             this.richTextBox1.AutoIndentCharsPatterns = "\r\n^\\s*\\$[\\w\\.\\[\\]\\\'\\\"]+\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n";
             this.richTextBox1.AutoScrollMinSize = new System.Drawing.Size(31, 18);
             this.richTextBox1.BackBrush = null;
@@ -182,7 +193,9 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.saveAsTemplateFileToolStripMenuItem,
+            this.openTemplateFileToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
@@ -190,9 +203,16 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
             this.saveToolStripMenuItem.Text = "save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            // 
+            // saveAsTemplateFileToolStripMenuItem
+            // 
+            this.saveAsTemplateFileToolStripMenuItem.Name = "saveAsTemplateFileToolStripMenuItem";
+            this.saveAsTemplateFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.saveAsTemplateFileToolStripMenuItem.Text = "Save as template file";
+            this.saveAsTemplateFileToolStripMenuItem.Click += new System.EventHandler(this.SaveAsTemplateFileToolStripMenuItem_Click);
             // 
             // pHPToolStripMenuItem
             // 
@@ -281,6 +301,13 @@
             // 
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            listViewGroup3.Header = "File Name";
+            listViewGroup3.Name = "Name";
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "listViewGroup1";
+            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup3,
+            listViewGroup4});
             this.listView1.HideSelection = false;
             this.listView1.LargeImageList = this.largeicons;
             this.listView1.Location = new System.Drawing.Point(0, 0);
@@ -290,7 +317,7 @@
             this.listView1.StateImageList = this.imageList1;
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.View = System.Windows.Forms.View.SmallIcon;
             this.listView1.DoubleClick += new System.EventHandler(this.ListView1_DoubleClick);
             // 
             // contextMenuStrip1
@@ -302,38 +329,107 @@
             this.openAPreviewToolStripMenuItem,
             this.openInExplorerToolStripMenuItem,
             this.deleteToolStripMenuItem,
-            this.newToolStripMenuItem1});
+            this.newToolStripMenuItem1,
+            this.viewToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 152);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(190, 172);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.newToolStripMenuItem.Text = "Delete";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItem_Click);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.newToolStripMenuItem.Text = "Delete";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItem_Click);
             // 
             // openAPreviewToolStripMenuItem
             // 
             this.openAPreviewToolStripMenuItem.Name = "openAPreviewToolStripMenuItem";
-            this.openAPreviewToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.openAPreviewToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.openAPreviewToolStripMenuItem.Text = "Open a preview";
             this.openAPreviewToolStripMenuItem.Click += new System.EventHandler(this.OpenAPreviewToolStripMenuItem_Click);
             // 
             // openInExplorerToolStripMenuItem
             // 
             this.openInExplorerToolStripMenuItem.Name = "openInExplorerToolStripMenuItem";
-            this.openInExplorerToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.openInExplorerToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.openInExplorerToolStripMenuItem.Text = "Open in explorer";
             this.openInExplorerToolStripMenuItem.Click += new System.EventHandler(this.OpenInExplorerToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // newToolStripMenuItem1
+            // 
+            this.newToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pHPToolStripMenuItem2,
+            this.hTMLToolStripMenuItem1});
+            this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(189, 24);
+            this.newToolStripMenuItem1.Text = "New";
+            // 
+            // pHPToolStripMenuItem2
+            // 
+            this.pHPToolStripMenuItem2.Name = "pHPToolStripMenuItem2";
+            this.pHPToolStripMenuItem2.Size = new System.Drawing.Size(131, 26);
+            this.pHPToolStripMenuItem2.Text = "PHP";
+            this.pHPToolStripMenuItem2.Click += new System.EventHandler(this.PHPToolStripMenuItem2_Click);
+            // 
+            // hTMLToolStripMenuItem1
+            // 
+            this.hTMLToolStripMenuItem1.Name = "hTMLToolStripMenuItem1";
+            this.hTMLToolStripMenuItem1.Size = new System.Drawing.Size(131, 26);
+            this.hTMLToolStripMenuItem1.Text = "HTML";
+            this.hTMLToolStripMenuItem1.Click += new System.EventHandler(this.HTMLToolStripMenuItem1_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.largeIconsToolStripMenuItem,
+            this.smallIconsToolStripMenuItem,
+            this.listToolStripMenuItem,
+            this.detailToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // largeIconsToolStripMenuItem
+            // 
+            this.largeIconsToolStripMenuItem.Name = "largeIconsToolStripMenuItem";
+            this.largeIconsToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.largeIconsToolStripMenuItem.Text = "Large icons";
+            this.largeIconsToolStripMenuItem.Click += new System.EventHandler(this.LargeIconsToolStripMenuItem_Click);
+            // 
+            // smallIconsToolStripMenuItem
+            // 
+            this.smallIconsToolStripMenuItem.Name = "smallIconsToolStripMenuItem";
+            this.smallIconsToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.smallIconsToolStripMenuItem.Text = "Small icons";
+            this.smallIconsToolStripMenuItem.Click += new System.EventHandler(this.SmallIconsToolStripMenuItem_Click);
+            // 
+            // listToolStripMenuItem
+            // 
+            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.listToolStripMenuItem.Text = "List";
+            this.listToolStripMenuItem.Click += new System.EventHandler(this.ListToolStripMenuItem_Click);
+            // 
+            // detailToolStripMenuItem
+            // 
+            this.detailToolStripMenuItem.Name = "detailToolStripMenuItem";
+            this.detailToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.detailToolStripMenuItem.Text = "Detail";
+            this.detailToolStripMenuItem.Click += new System.EventHandler(this.DetailToolStripMenuItem_Click);
             // 
             // largeicons
             // 
@@ -354,39 +450,50 @@
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(32, 32);
+            this.imageList1.ImageSize = new System.Drawing.Size(64, 64);
             this.imageList1.Tag = "file:///C:/Users/Owner/Documents/creative%20web%20projects/Hello%20World_files/in" +
     "dex.html";
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // deleteToolStripMenuItem
+            // autocompleteMenu1
             // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.autocompleteMenu1.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("autocompleteMenu1.Colors")));
+            this.autocompleteMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.autocompleteMenu1.ImageList = null;
+            this.autocompleteMenu1.Items = new string[] {
+        "ceil",
+        "count",
+        "die",
+        "echo",
+        "empty",
+        "exit",
+        "file_get_contents",
+        "file_put_contents",
+        "getenv",
+        "header",
+        "htmlentities",
+        "include",
+        "ini_set",
+        "isset",
+        "mail",
+        "md5",
+        "mkdir",
+        "phpinfo",
+        "preg_match",
+        "print_r",
+        "rand",
+        "require",
+        "str_replace",
+        "str_len",
+        "trim"};
+            this.autocompleteMenu1.TargetControlWrapper = null;
             // 
-            // newToolStripMenuItem1
+            // openTemplateFileToolStripMenuItem
             // 
-            this.newToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pHPToolStripMenuItem2,
-            this.hTMLToolStripMenuItem1});
-            this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
-            this.newToolStripMenuItem1.Text = "New";
-            // 
-            // pHPToolStripMenuItem2
-            // 
-            this.pHPToolStripMenuItem2.Name = "pHPToolStripMenuItem2";
-            this.pHPToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
-            this.pHPToolStripMenuItem2.Text = "PHP";
-            this.pHPToolStripMenuItem2.Click += new System.EventHandler(this.PHPToolStripMenuItem2_Click);
-            // 
-            // hTMLToolStripMenuItem1
-            // 
-            this.hTMLToolStripMenuItem1.Name = "hTMLToolStripMenuItem1";
-            this.hTMLToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.hTMLToolStripMenuItem1.Text = "HTML";
-            this.hTMLToolStripMenuItem1.Click += new System.EventHandler(this.HTMLToolStripMenuItem1_Click);
+            this.openTemplateFileToolStripMenuItem.Name = "openTemplateFileToolStripMenuItem";
+            this.openTemplateFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.openTemplateFileToolStripMenuItem.Text = "Open template file";
+            this.openTemplateFileToolStripMenuItem.Click += new System.EventHandler(this.OpenTemplateFileToolStripMenuItem_Click);
             // 
             // phpprojecteditor
             // 
@@ -449,5 +556,13 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pHPToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem hTMLToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem largeIconsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smallIconsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsTemplateFileToolStripMenuItem;
+        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu1;
+        private System.Windows.Forms.ToolStripMenuItem openTemplateFileToolStripMenuItem;
     }
 }

@@ -3,11 +3,9 @@ using CefSharp;
 using CefSharp.WinForms;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Reflection;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
@@ -39,6 +37,7 @@ namespace creative_web_Develop
                 try
                 {
                     Cef.EnableHighDPISupport();
+                    
                 }
                 catch
                 {
@@ -399,3 +398,8 @@ namespace creative_web_Develop
         }
     }
 }
+
+
+
+
+//not found
