@@ -156,6 +156,12 @@
     <Compile Include="homeeditor.Designer.cs">
       <DependentUpon>homeeditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
     <Compile Include="pleasewait.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,7 @@
     <Compile Include="plugins.Designer.cs">
       <DependentUpon>plugins.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="tab elements\Htmlprojecteditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -250,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="homeeditor.resx">
       <DependentUpon>homeeditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pleasewait.resx">
       <DependentUpon>pleasewait.cs</DependentUpon>

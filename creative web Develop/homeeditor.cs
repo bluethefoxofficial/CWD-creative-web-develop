@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace creative_web_Develop
@@ -29,7 +30,7 @@ namespace creative_web_Develop
         }
         private void homeeditor_Load(object sender, EventArgs e)
         {
-         
+
             cxFlatRoundProgressBar1.ValueNumber = Properties.Settings.Default.progress;
             label5.Text = Properties.Settings.Default.level;
             if (Properties.Settings.Default.highdpi == true)
@@ -37,7 +38,7 @@ namespace creative_web_Develop
                 try
                 {
                     Cef.EnableHighDPISupport();
-                    
+
                 }
                 catch
                 {
@@ -58,7 +59,7 @@ namespace creative_web_Develop
             {
 
             }
-          
+
             groupBox1.Hide();
             groupBox2.Hide();
             if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents\\" + "\\creative web projects\\"))
@@ -106,20 +107,14 @@ namespace creative_web_Develop
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-      
-        }
+
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new settingsbox().ShowDialog();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
 
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -129,47 +124,110 @@ namespace creative_web_Develop
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            pleasewait pw = new pleasewait();
-            pw.TopMost = true;
-            pw.Show();
+
             int intselectedindex = listView1.SelectedIndices[0];
             string text = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text);
             JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
             dynamic dobj = jsonSerializer.Deserialize<dynamic>(text);
             string projecttype = dobj["type"].ToString();
-            if (projecttype == "HTML") { 
+            if (projecttype == "HTML")
+            {
+                htmlprojectloaderinit();
+
+            }
+            else if (projecttype == "PHP")
+            {
+                phpprojectloaderinit();
+
+            }
+
+        }
+        private async void phpprojectloaderinit()
+        {
+            pleasewait pw = new pleasewait();
+            pw.TopMost = true;
+            pw.Show();
+            await Task.Run(() => PHPPROJECTLOADER());
+            pw.Close();
+        }
+        public delegate void fivenine();
+        private void PHPPROJECTLOADER()
+        {
+
+
+
+            tab_elements.phpprojecteditor ppe = new tab_elements.phpprojecteditor();
+
+
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new fivenine(PHPPROJECTLOADER));
+                return;
+            }
+
+            ppe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.SelectedItems[0].Text + "_files";
+
+
+            ppe.Dock = DockStyle.Fill;
+            ppe.Visible = true;
+            ppe.Show();
+
             TabPage tp = new TabPage();
 
+
+            tp.Controls.Add(ppe);
+            tp.Text = "project - " + listView1.SelectedItems[0].Text;
+            tabControl1.TabPages.Add(tp);
+            tabControl1.SelectedTab = tp;
+
+
+
+        }
+        private async void htmlprojectloaderinit()
+        {
+            pleasewait pw = new pleasewait();
+            pw.TopMost = true;
+            pw.Show();
+            await Task.Run(() => HTMLPROJECTLOADER());
+            pw.Close();
+        }
+    
+        private void HTMLPROJECTLOADER()
+        {
+
+
+
             Htmlprojecteditor hpe = new Htmlprojecteditor();
-            hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text + "_files";
+
+
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new fivenine(HTMLPROJECTLOADER));
+                return;
+            }
+
+            TabPage tp = new TabPage();
+
+       
+            hpe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.SelectedItems[0].Text + "_files";
 
             tp.Controls.Add(hpe);
-            tp.Text = "project - " + listView1.Items[intselectedindex].Text;
+            tp.Text = "project - " + listView1.SelectedItems[0].Text;
             hpe.Dock = DockStyle.Fill;
             hpe.Visible = true;
             hpe.Show();
             tabControl1.TabPages.Add(tp);
             tabControl1.SelectedTab = tp;
-                pw.Close();
-        }else if (projecttype == "PHP")
-            {
-                TabPage tp = new TabPage();
 
-                tab_elements.phpprojecteditor ppe = new tab_elements.phpprojecteditor();
-                ppe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.Items[intselectedindex].Text + "_files";
 
-                tp.Controls.Add(ppe);
-                tp.Text = "project - " + listView1.Items[intselectedindex].Text;
-                ppe.Dock = DockStyle.Fill;
-                ppe.Visible = true;
-                ppe.Show();
-                tabControl1.TabPages.Add(tp);
-                tabControl1.SelectedTab = tp;
-                pw.Close();
-           
-            }
-           
         }
+
+
+
+
+
+
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -318,31 +376,13 @@ namespace creative_web_Develop
 
         private void homeeditor_MouseEnter(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.darktheme == true)
-            {
-                BackColor = Color.Black;
-                ForeColor = Color.White;
-                Initaltp.BackColor = Color.Black;
-                listView1.BackColor = Color.DarkGray;
-                listView1.ForeColor = Color.White;
-                listView2.BackColor = Color.DarkGray;
-                listView2.ForeColor = Color.White;
-                menuStrip1.BackColor = Color.Black;
-                menuStrip2.BackColor = Color.Black;
-                menuStrip2.ForeColor = Color.White;
-                menuStrip1.ForeColor = Color.White;
-                groupBox1.ForeColor = Color.White;
-                groupBox2.ForeColor = Color.White;
-
-            }
-            else
-            {
-
-            }
+            
         }
 
         private void Homeeditor_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //not found
+            //the closing dialogue
             if (MessageBox.Show("Are you sure you want to close CWD?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
             {
                 foreach (var process in Process.GetProcessesByName("php"))
@@ -375,13 +415,20 @@ namespace creative_web_Develop
 
         private void CxFlatPictureBox1_Click(object sender, EventArgs e)
         {
-            if(panel1.Visible == false)
+            if (Properties.Settings.Default.username == "")
             {
-                panel1.Visible = true;
+
             }
             else
             {
-                panel1.Visible = false;
+                if (panel1.Visible == false)
+                {
+                    panel1.Visible = true;
+                }
+                else
+                {
+                    panel1.Visible = false;
+                }
             }
         }
 
@@ -394,6 +441,11 @@ namespace creative_web_Develop
 
         private void PluginsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(!Directory.Exists(Environment.CurrentDirectory + "/plugins/"))
+            {
+                Directory.CreateDirectory(Environment.CurrentDirectory + "/plugins/");
+            }
+            
             Process.Start(Environment.CurrentDirectory + "/plugins/");
         }
     }
@@ -402,4 +454,3 @@ namespace creative_web_Develop
 
 
 
-//not found

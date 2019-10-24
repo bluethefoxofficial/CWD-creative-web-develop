@@ -190,5 +190,17 @@ namespace creative_web_Develop.Properties {
                 this["onethree"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string errorlist {
+            get {
+                return ((string)(this["errorlist"]));
+            }
+            set {
+                this["errorlist"] = value;
+            }
+        }
     }
 }
