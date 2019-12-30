@@ -1,6 +1,6 @@
-﻿namespace creative_web_Develop
+﻿namespace creative_web_Develop.dialogs
 {
-    partial class imagepreview
+    partial class project_settings
     {
         /// <summary>
         /// Required designer variable.
@@ -20,7 +20,6 @@
             base.Dispose(disposing);
         }
 
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -29,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(project_settings));
             this.SuspendLayout();
             // 
-            // imagepreview
+            // project_settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 305);
-            this.Name = "imagepreview";
-            this.Text = "imagepreview";
+            this.ClientSize = new System.Drawing.Size(759, 638);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1920, 1042);
+            this.Name = "project_settings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "project settings";
             this.ResumeLayout(false);
 
         }

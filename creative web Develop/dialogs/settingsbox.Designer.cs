@@ -59,6 +59,8 @@
             this.textBox3 = new CxFlatUI.CxFlatTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.cxFlatButton1 = new CxFlatUI.Controls.CxFlatButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -66,6 +68,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // Applysettings
@@ -83,7 +86,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(566, 161);
+            this.linkLabel2.Location = new System.Drawing.Point(567, 82);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(16, 18);
             this.linkLabel2.TabIndex = 11;
@@ -95,7 +98,7 @@
             // 
             this.libdir.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.libdir.Hint = "";
-            this.libdir.Location = new System.Drawing.Point(283, 247);
+            this.libdir.Location = new System.Drawing.Point(284, 168);
             this.libdir.MaxLength = 32767;
             this.libdir.Multiline = false;
             this.libdir.Name = "libdir";
@@ -113,7 +116,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(156, 247);
+            this.label8.Location = new System.Drawing.Point(157, 168);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 18);
             this.label8.TabIndex = 9;
@@ -122,7 +125,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(156, 207);
+            this.linkLabel1.Location = new System.Drawing.Point(157, 128);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(107, 18);
             this.linkLabel1.TabIndex = 8;
@@ -133,7 +136,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(156, 161);
+            this.label7.Location = new System.Drawing.Point(157, 82);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 18);
             this.label7.TabIndex = 7;
@@ -143,7 +146,7 @@
             // 
             this.phpcmd.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.phpcmd.Hint = "";
-            this.phpcmd.Location = new System.Drawing.Point(259, 158);
+            this.phpcmd.Location = new System.Drawing.Point(260, 79);
             this.phpcmd.MaxLength = 32767;
             this.phpcmd.Multiline = false;
             this.phpcmd.Name = "phpcmd";
@@ -232,10 +235,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(21, 35);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(811, 522);
+            this.tabControl1.Size = new System.Drawing.Size(827, 548);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -247,7 +251,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(803, 491);
+            this.tabPage1.Size = new System.Drawing.Size(819, 517);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General settings";
             // 
@@ -265,14 +269,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(803, 491);
+            this.tabPage2.Size = new System.Drawing.Size(819, 517);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "FTP settings";
             // 
             // Status
             // 
             this.Status.AutoSize = true;
-            this.Status.Location = new System.Drawing.Point(195, 224);
+            this.Status.Location = new System.Drawing.Point(324, 356);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(113, 18);
             this.Status.TabIndex = 2;
@@ -281,7 +285,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(140, 18);
+            this.label1.Location = new System.Drawing.Point(234, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 0;
@@ -291,7 +295,7 @@
             // 
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.groupBox2.Location = new System.Drawing.Point(140, 180);
+            this.groupBox2.Location = new System.Drawing.Point(269, 312);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.ShowText = false;
             this.groupBox2.Size = new System.Drawing.Size(33, 33);
@@ -302,9 +306,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(12, 12);
+            this.pictureBox1.Size = new System.Drawing.Size(21, 18);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -312,7 +316,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.textBox1.Hint = "";
-            this.textBox1.Location = new System.Drawing.Point(252, 12);
+            this.textBox1.Location = new System.Drawing.Point(330, 125);
             this.textBox1.MaxLength = 32767;
             this.textBox1.Multiline = false;
             this.textBox1.Name = "textBox1";
@@ -321,7 +325,7 @@
             this.textBox1.SelectedText = "";
             this.textBox1.SelectionLength = 0;
             this.textBox1.SelectionStart = 0;
-            this.textBox1.Size = new System.Drawing.Size(237, 43);
+            this.textBox1.Size = new System.Drawing.Size(253, 43);
             this.textBox1.TabIndex = 2;
             this.textBox1.TabStop = false;
             this.textBox1.UseSystemPasswordChar = false;
@@ -330,7 +334,7 @@
             // 
             this.TestFTPconnectionbtn.ButtonType = CxFlatUI.ButtonType.Primary;
             this.TestFTPconnectionbtn.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.TestFTPconnectionbtn.Location = new System.Drawing.Point(179, 180);
+            this.TestFTPconnectionbtn.Location = new System.Drawing.Point(308, 312);
             this.TestFTPconnectionbtn.Name = "TestFTPconnectionbtn";
             this.TestFTPconnectionbtn.Size = new System.Drawing.Size(186, 33);
             this.TestFTPconnectionbtn.TabIndex = 0;
@@ -342,7 +346,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.textBox2.Hint = "";
-            this.textBox2.Location = new System.Drawing.Point(236, 74);
+            this.textBox2.Location = new System.Drawing.Point(330, 187);
             this.textBox2.MaxLength = 32767;
             this.textBox2.Multiline = false;
             this.textBox2.Name = "textBox2";
@@ -359,7 +363,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(140, 134);
+            this.label3.Location = new System.Drawing.Point(234, 247);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 18);
             this.label3.TabIndex = 6;
@@ -369,7 +373,7 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.textBox3.Hint = "";
-            this.textBox3.Location = new System.Drawing.Point(236, 131);
+            this.textBox3.Location = new System.Drawing.Point(330, 244);
             this.textBox3.MaxLength = 32767;
             this.textBox3.Multiline = false;
             this.textBox3.Name = "textBox3";
@@ -386,7 +390,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(140, 80);
+            this.label2.Location = new System.Drawing.Point(234, 193);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 18);
             this.label2.TabIndex = 5;
@@ -403,9 +407,32 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 27);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(803, 491);
+            this.tabPage4.Size = new System.Drawing.Size(819, 517);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "LIB Settings";
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage5.Controls.Add(this.cxFlatButton1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 27);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(819, 517);
+            this.tabPage5.TabIndex = 3;
+            this.tabPage5.Text = "IDE settings";
+            // 
+            // cxFlatButton1
+            // 
+            this.cxFlatButton1.ButtonType = CxFlatUI.ButtonType.Primary;
+            this.cxFlatButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cxFlatButton1.Location = new System.Drawing.Point(36, 35);
+            this.cxFlatButton1.Name = "cxFlatButton1";
+            this.cxFlatButton1.Size = new System.Drawing.Size(289, 34);
+            this.cxFlatButton1.TabIndex = 0;
+            this.cxFlatButton1.Text = "open application directory";
+            this.cxFlatButton1.TextColor = System.Drawing.Color.White;
+            this.cxFlatButton1.Click += new System.EventHandler(this.CxFlatButton1_Click_1);
             // 
             // tabPage3
             // 
@@ -443,6 +470,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,5 +508,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private CxFlatUI.Controls.CxFlatButton cxFlatButton1;
     }
 }

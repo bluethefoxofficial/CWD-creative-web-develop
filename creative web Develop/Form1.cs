@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CefSharp;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -15,15 +16,34 @@ namespace creative_web_Develop
 {
     public partial class Form1 : Form
     {
+        private bool mouseDown;
+        private Point lastLocation;
         public Form1()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch(Exception e)
+            {
+                pictureBoxDoubleBuffer1.Visible = true;
+                cxFlatAlertBox1.Visible = true;
+                cxFlatAlertBox1.Text = e.Message;
+                Console.WriteLine(e.Message);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
-            lblversion.Text = ProductVersion;
+            try
+            {
+                lblversion.Text = ProductVersion;
+            }catch(Exception exec)
+            {
+                pictureBoxDoubleBuffer1.Visible = true;
+                cxFlatAlertBox1.Visible = true;
+                cxFlatAlertBox1.Text = exec.Message;
+            }
             try
             {
                 string[] files = Directory.GetFiles(Environment.CurrentDirectory + "/plugins/", "*.*", SearchOption.AllDirectories);
@@ -38,31 +58,76 @@ namespace creative_web_Develop
                     }
                 }
             }
+
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            if (Properties.Settings.Default.highdpi == true)
+            {
+                try
+                {
+                    Cef.EnableHighDPISupport();
 
-          
-               
-            this.WindowState = FormWindowState.Minimized;
-           
+                }
+                catch(Exception exe)
+                {
+                    pictureBoxDoubleBuffer1.Visible = true;
+                    cxFlatAlertBox1.Visible = true;
+                    cxFlatAlertBox1.Text = exe.Message;
+                    Console.WriteLine(exe.Message);
+                }
+            }
+
             this.Hide();
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.Show();
+
+
 
             timer1.Start();
-            var Maineditor = new homeeditor();
-            Maineditor.Closed += (s, args) => this.Close();
-            Maineditor.Show();
+           
+
+       
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {    
-                timer1.Stop();
+        {
 
+            var Maineditor = new homeeditor();
             this.Hide();
-       
+            Maineditor.Closed += (s, args) => this.Close();
+            Maineditor.Show();
 
+            timer1.Stop();
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
         }
     }
 }

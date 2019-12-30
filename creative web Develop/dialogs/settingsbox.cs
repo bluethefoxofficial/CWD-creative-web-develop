@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -207,6 +207,24 @@ namespace creative_web_Develop
                 Properties.Settings.Default.Reset();
                 Application.Restart();
             }
+        }
+
+        private void CxFlatRoundButton1_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("You are about to enable console mode in console mode GUI interfaces dont work. type disableconsole to disable console mode") == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+        
+        private void CxFlatButton1_Click_1(object sender, EventArgs e)
+        {
+            Process.Start(Environment.CurrentDirectory);
         }
     }
 }

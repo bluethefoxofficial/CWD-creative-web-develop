@@ -202,5 +202,17 @@ namespace creative_web_Develop.Properties {
                 this["errorlist"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool licenced {
+            get {
+                return ((bool)(this["licenced"]));
+            }
+            set {
+                this["licenced"] = value;
+            }
+        }
     }
 }

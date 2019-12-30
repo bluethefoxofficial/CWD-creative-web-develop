@@ -30,7 +30,10 @@ namespace creative_web_Develop
         }
         private void homeeditor_Load(object sender, EventArgs e)
         {
-
+            if(Properties.Settings.Default.licenced == false)
+            {
+                this.Text = "Home ( Unlicended :( )";
+            }
             cxFlatRoundProgressBar1.ValueNumber = Properties.Settings.Default.progress;
             label5.Text = Properties.Settings.Default.level;
             if (Properties.Settings.Default.highdpi == true)
@@ -307,18 +310,25 @@ namespace creative_web_Develop
 
         private void closeProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab.Text == "Initaltp")
+            try
             {
-
-            }
-            else
-            {
-                tabControl1.SelectedTab.Controls.Clear();
-                tabControl1.TabPages.Remove(tabControl1.SelectedTab);
-                foreach (var process in Process.GetProcessesByName("php"))
+                if (tabControl1.SelectedTab.Name == "Initaltp")
                 {
-                    process.Kill();
+                    MessageBox.Show("You cant close the Main Menu.");
                 }
+                else
+                {
+                    tabControl1.SelectedTab.Controls.Clear();
+                    tabControl1.TabPages.Remove(tabControl1.SelectedTab);
+                    foreach (var process in Process.GetProcessesByName("php"))
+                    {
+                        process.Kill();
+                    }
+                }
+            }
+            catch
+            {
+                Application.Exit();
             }
         }
 
@@ -447,6 +457,11 @@ namespace creative_web_Develop
             }
             
             Process.Start(Environment.CurrentDirectory + "/plugins/");
+        }
+
+        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

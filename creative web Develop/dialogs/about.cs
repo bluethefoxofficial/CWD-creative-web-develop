@@ -13,64 +13,36 @@ namespace creative_web_Develop
     public partial class about : Form
     {
         public bool drag = false;
-  
+        private Timer tmr;
+        private int scrll { get; set; }
+        private int limit = 40;
         public about()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            label2.ForeColor = Color.Purple;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            label1.ForeColor = Color.Azure;
-        }
+ 
 
        
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            label5.ForeColor = Color.Blue;
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-            label9.ForeColor = Color.Blue;
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-            //label7.ForeColor = Color.Purple;
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-            label8.ForeColor = Color.Red;
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-            //label6.ForeColor = Color.Aqua;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-     
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void about_Load(object sender, EventArgs e)
         {
-            
+            ScrollLabel();
+            timer1.Start();
         }
+        private void ScrollLabel()
+        {
+            string strString = "       \n This is the people that made CWD                      \n[---developers---]   \nkessan robertson \nNexite \nT3K  \n[---beta testers---] \nSam \n [---CWD graphic designers---]    \n[the background and splash screen] \n Kessan Robertson \n [the icon] \n Nexite                                                ";
 
+            scrll = scrll + 1;
+            int iLmt = strString.Length - scrll;
+            if (iLmt < limit)
+            {
+                scrll = 0;
+            }
+            string str = strString.Substring(scrll, limit);
+            label1.Text = str;
+        }
         private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
         {
 
@@ -94,6 +66,16 @@ namespace creative_web_Develop
         private void label4_Click(object sender, EventArgs e)
         {
             new shhh().ShowDialog();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            ScrollLabel();
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

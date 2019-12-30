@@ -4,28 +4,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace creative_web_Develop
 {
+
+
     static class Program
     {
         [STAThread]
-        static void Main()
+        public static void Main()
         {
-            
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            if (Properties.Settings.Default.onethree == true)
+            try
             {
+                string[] passedargs = Environment.GetCommandLineArgs();
 
-                //no
-                Application.Exit();
-                //no
-            }
-            else
-            {
+                if (passedargs.Contains("/a") || passedargs.Contains("/A")) { Console.WriteLine("[CWD] Activated."); Properties.Settings.Default.licenced = true; Properties.Settings.Default.Save(); }
+                Application.EnableVisualStyles();
+                try
+                {
+                    Application.SetCompatibleTextRenderingDefault(false);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Application.Exit();
+                }
+
                 Application.Run(new Form1());
+
             }
-        }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        } 
+     }
     }
-}
+

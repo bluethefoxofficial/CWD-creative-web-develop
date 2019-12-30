@@ -8,6 +8,7 @@ using System.IO;
 using Microsoft.VisualBasic;
 using CefSharp.WinForms;
 using System.Net;
+using System.IO.Compression;
 
 namespace creative_web_Develop
 {
@@ -710,15 +711,15 @@ namespace creative_web_Develop
         }
         private void ExportAsATemplateFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string x = Interaction.InputBox("New template export", "name of export", "", 10, 10);
-            if (x == "") {  }
-            else
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CWD template file |*.CWDTF |ZIP File|*.zip|ALPHA FILE |*.AF";
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
 
-                toolStripStatusLabel2.Visible = true;
-                Directory.CreateDirectory("corefunctions/Templates/" + x);
-                Copy(projectFolder, "corefunctions/Templates/" + x);
-                toolStripStatusLabel2.Visible = false;
+                ZipFile.CreateFromDirectory(projectFolder, sfd.FileName);
+            }
+            else
+            {
 
             }
         }

@@ -31,7 +31,6 @@ namespace creative_web_Develop.dialogs
         ChromiumWebBrowser chromeBrowser = new ChromiumWebBrowser("localhost:8000");
         private void Debugwindow_Load(object sender, EventArgs e)
         {
-            
             this.Controls.Add(chromeBrowser);
             chromeBrowser.Dock = DockStyle.Fill;
             chromeBrowser.Show();
@@ -39,6 +38,7 @@ namespace creative_web_Develop.dialogs
             chromeBrowser.Load("about:blank");
             chromeBrowser.Load("localhost:8000");
         }
+    
 
         private void Debugwindow_KeyDown(object sender, KeyEventArgs e)
         {

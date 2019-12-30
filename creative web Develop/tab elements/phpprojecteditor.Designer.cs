@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("File Name", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("File Name", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(phpprojecteditor));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.richTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
@@ -42,6 +42,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsTemplateFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openTemplateFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openInCmdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,6 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.autocompleteMenu1 = new AutocompleteMenuNS.AutocompleteMenu();
-            this.openTemplateFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -107,6 +107,7 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.AutoCompleteBrackets = true;
             this.richTextBox1.AutoCompleteBracketsList = new char[] {
         '(',
         ')',
@@ -122,16 +123,21 @@
             this.richTextBox1.AutoIndentCharsPatterns = "\r\n^\\s*\\$[\\w\\.\\[\\]\\\'\\\"]+\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n";
             this.richTextBox1.AutoScrollMinSize = new System.Drawing.Size(31, 18);
             this.richTextBox1.BackBrush = null;
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.richTextBox1.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.richTextBox1.CharHeight = 18;
             this.richTextBox1.CharWidth = 10;
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
+            this.richTextBox1.ForeColor = System.Drawing.Color.White;
+            this.richTextBox1.IndentBackColor = System.Drawing.Color.Transparent;
             this.richTextBox1.IsReplaceMode = false;
             this.richTextBox1.Language = FastColoredTextBoxNS.Language.PHP;
             this.richTextBox1.LeftBracket = '(';
             this.richTextBox1.LeftBracket2 = '{';
+            this.richTextBox1.LineNumberColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.richTextBox1.Location = new System.Drawing.Point(0, 28);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Paddings = new System.Windows.Forms.Padding(0);
@@ -139,6 +145,7 @@
             this.richTextBox1.RightBracket2 = '}';
             this.richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.richTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("richTextBox1.ServiceColors")));
+            this.richTextBox1.ServiceLinesColor = System.Drawing.Color.White;
             this.richTextBox1.Size = new System.Drawing.Size(1163, 660);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Zoom = 100;
@@ -179,6 +186,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -196,6 +204,7 @@
             this.saveToolStripMenuItem,
             this.saveAsTemplateFileToolStripMenuItem,
             this.openTemplateFileToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
@@ -214,11 +223,19 @@
             this.saveAsTemplateFileToolStripMenuItem.Text = "Save as template file";
             this.saveAsTemplateFileToolStripMenuItem.Click += new System.EventHandler(this.SaveAsTemplateFileToolStripMenuItem_Click);
             // 
+            // openTemplateFileToolStripMenuItem
+            // 
+            this.openTemplateFileToolStripMenuItem.Name = "openTemplateFileToolStripMenuItem";
+            this.openTemplateFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.openTemplateFileToolStripMenuItem.Text = "Open template file";
+            this.openTemplateFileToolStripMenuItem.Click += new System.EventHandler(this.OpenTemplateFileToolStripMenuItem_Click);
+            // 
             // pHPToolStripMenuItem
             // 
             this.pHPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openInCmdToolStripMenuItem,
             this.serverToolStripMenuItem});
+            this.pHPToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pHPToolStripMenuItem.Name = "pHPToolStripMenuItem";
             this.pHPToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.pHPToolStripMenuItem.Text = "PHP";
@@ -226,7 +243,7 @@
             // openInCmdToolStripMenuItem
             // 
             this.openInCmdToolStripMenuItem.Name = "openInCmdToolStripMenuItem";
-            this.openInCmdToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
+            this.openInCmdToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openInCmdToolStripMenuItem.Text = "open in cmd";
             this.openInCmdToolStripMenuItem.Click += new System.EventHandler(this.OpenInCmdToolStripMenuItem_Click);
             // 
@@ -238,7 +255,7 @@
             this.restartToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-            this.serverToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
+            this.serverToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.serverToolStripMenuItem.Text = "server";
             // 
             // startToolStripMenuItem
@@ -272,6 +289,7 @@
             // 
             this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.debugToolStripMenuItem1});
+            this.debugToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
             this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.debugToolStripMenuItem.Text = "Debug";
@@ -279,7 +297,7 @@
             // debugToolStripMenuItem1
             // 
             this.debugToolStripMenuItem1.Name = "debugToolStripMenuItem1";
-            this.debugToolStripMenuItem1.Size = new System.Drawing.Size(137, 26);
+            this.debugToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.debugToolStripMenuItem1.Text = "Debug";
             this.debugToolStripMenuItem1.Click += new System.EventHandler(this.DebugToolStripMenuItem1_Click);
             // 
@@ -299,15 +317,16 @@
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup3.Header = "File Name";
-            listViewGroup3.Name = "Name";
-            listViewGroup4.Header = "ListViewGroup";
-            listViewGroup4.Name = "listViewGroup1";
+            listViewGroup1.Header = "File Name";
+            listViewGroup1.Name = "Name";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup1,
+            listViewGroup2});
             this.listView1.HideSelection = false;
             this.listView1.LargeImageList = this.largeicons;
             this.listView1.Location = new System.Drawing.Point(0, 0);
@@ -487,13 +506,6 @@
         "str_len",
         "trim"};
             this.autocompleteMenu1.TargetControlWrapper = null;
-            // 
-            // openTemplateFileToolStripMenuItem
-            // 
-            this.openTemplateFileToolStripMenuItem.Name = "openTemplateFileToolStripMenuItem";
-            this.openTemplateFileToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
-            this.openTemplateFileToolStripMenuItem.Text = "Open template file";
-            this.openTemplateFileToolStripMenuItem.Click += new System.EventHandler(this.OpenTemplateFileToolStripMenuItem_Click);
             // 
             // phpprojecteditor
             // 

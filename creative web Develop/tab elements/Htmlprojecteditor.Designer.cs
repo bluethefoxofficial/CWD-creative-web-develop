@@ -140,7 +140,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(1511, 903);
-            this.splitContainer1.SplitterDistance = 1230;
+            this.splitContainer1.SplitterDistance = 1297;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -159,8 +159,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.SplitContainer2_Panel2_Paint);
-            this.splitContainer2.Size = new System.Drawing.Size(1230, 849);
-            this.splitContainer2.SplitterDistance = 640;
+            this.splitContainer2.Size = new System.Drawing.Size(1297, 849);
+            this.splitContainer2.SplitterDistance = 639;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 3;
             // 
@@ -183,6 +183,7 @@
             this.richTextBox1.AutoIndentCharsPatterns = "";
             this.richTextBox1.AutoScrollMinSize = new System.Drawing.Size(31, 18);
             this.richTextBox1.BackBrush = null;
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.richTextBox1.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.richTextBox1.CharHeight = 18;
             this.richTextBox1.CharWidth = 10;
@@ -190,11 +191,15 @@
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.FoldingIndicatorColor = System.Drawing.Color.LawnGreen;
             this.richTextBox1.Font = new System.Drawing.Font("Courier New", 10F);
+            this.richTextBox1.ForeColor = System.Drawing.Color.White;
+            this.richTextBox1.IndentBackColor = System.Drawing.Color.Transparent;
             this.richTextBox1.IsReplaceMode = false;
             this.richTextBox1.Language = FastColoredTextBoxNS.Language.HTML;
             this.richTextBox1.LeftBracket = '<';
             this.richTextBox1.LeftBracket2 = '(';
+            this.richTextBox1.LineNumberColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Paddings = new System.Windows.Forms.Padding(0);
@@ -202,7 +207,7 @@
             this.richTextBox1.RightBracket2 = ')';
             this.richTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.richTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("richTextBox1.ServiceColors")));
-            this.richTextBox1.Size = new System.Drawing.Size(1031, 640);
+            this.richTextBox1.Size = new System.Drawing.Size(1098, 639);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Zoom = 100;
             this.richTextBox1.Load += new System.EventHandler(this.RichTextBox1_Load_1);
@@ -212,10 +217,10 @@
             // 
             this.documentMap1.Dock = System.Windows.Forms.DockStyle.Right;
             this.documentMap1.ForeColor = System.Drawing.Color.Maroon;
-            this.documentMap1.Location = new System.Drawing.Point(1031, 0);
+            this.documentMap1.Location = new System.Drawing.Point(1098, 0);
             this.documentMap1.Margin = new System.Windows.Forms.Padding(4);
             this.documentMap1.Name = "documentMap1";
-            this.documentMap1.Size = new System.Drawing.Size(199, 640);
+            this.documentMap1.Size = new System.Drawing.Size(199, 639);
             this.documentMap1.TabIndex = 1;
             this.documentMap1.Target = null;
             this.documentMap1.Text = "documentMap1";
@@ -226,6 +231,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Black;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -241,7 +247,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(1230, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1297, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_1);
@@ -252,6 +258,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
             this.exportAsATemplateFileToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "&File";
@@ -259,15 +266,15 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click_1);
             // 
             // exportAsATemplateFileToolStripMenuItem
             // 
             this.exportAsATemplateFileToolStripMenuItem.Name = "exportAsATemplateFileToolStripMenuItem";
-            this.exportAsATemplateFileToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.exportAsATemplateFileToolStripMenuItem.Text = "Export as a template file";
+            this.exportAsATemplateFileToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.exportAsATemplateFileToolStripMenuItem.Text = "Save as a template file";
             this.exportAsATemplateFileToolStripMenuItem.Click += new System.EventHandler(this.ExportAsATemplateFileToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
@@ -275,6 +282,7 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyToolStripMenuItem,
             this.pasteToolStripMenuItem});
+            this.editToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem.Text = "Edit";
@@ -295,6 +303,7 @@
             // 
             // settingsToolStripMenuItem
             // 
+            this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.settingsToolStripMenuItem.Text = "settings";
@@ -304,6 +313,7 @@
             // 
             this.projectExplorerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refreshToolStripMenuItem});
+            this.projectExplorerToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.projectExplorerToolStripMenuItem.Name = "projectExplorerToolStripMenuItem";
             this.projectExplorerToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
             this.projectExplorerToolStripMenuItem.Text = "project explorer";
@@ -321,6 +331,7 @@
             this.startToolStripMenuItem,
             this.startWithoutDevToolsToolStripMenuItem,
             this.startWithinBrowserToolStripMenuItem});
+            this.debugToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
             this.debugToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.debugToolStripMenuItem.Text = "debug";
@@ -348,6 +359,7 @@
             // 
             // documentmapToolStripMenuItem
             // 
+            this.documentmapToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.documentmapToolStripMenuItem.Name = "documentmapToolStripMenuItem";
             this.documentmapToolStripMenuItem.Size = new System.Drawing.Size(120, 24);
             this.documentmapToolStripMenuItem.Text = "documentmap";
@@ -357,6 +369,7 @@
             // 
             this.insertCodeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.htmlToolStripMenuItem1});
+            this.insertCodeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.insertCodeToolStripMenuItem.Name = "insertCodeToolStripMenuItem";
             this.insertCodeToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
             this.insertCodeToolStripMenuItem.Text = "insert code";
@@ -501,6 +514,7 @@
             // 
             this.packagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importToolStripMenuItem});
+            this.packagesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.packagesToolStripMenuItem.Name = "packagesToolStripMenuItem";
             this.packagesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.packagesToolStripMenuItem.Text = "packages";
@@ -548,6 +562,7 @@
             // 
             this.generateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formToolStripMenuItem1});
+            this.generateToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
             this.generateToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.generateToolStripMenuItem.Text = "generate";
@@ -570,7 +585,8 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 877);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1230, 26);
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.statusStrip1.Size = new System.Drawing.Size(1297, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
@@ -602,11 +618,12 @@
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.splitContainer3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(277, 903);
+            this.groupBox1.Size = new System.Drawing.Size(210, 903);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "project explorer";
@@ -628,21 +645,23 @@
             this.splitContainer3.Panel2.Controls.Add(this.listBox1);
             this.splitContainer3.Panel2.Controls.Add(this.textBox1);
             this.splitContainer3.Panel2.Controls.Add(this.button1);
-            this.splitContainer3.Size = new System.Drawing.Size(271, 884);
+            this.splitContainer3.Size = new System.Drawing.Size(204, 884);
             this.splitContainer3.SplitterDistance = 403;
             this.splitContainer3.TabIndex = 1;
             this.splitContainer3.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer3_SplitterMoved);
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.ForeColor = System.Drawing.Color.White;
             this.listView1.HideSelection = false;
             this.listView1.LargeImageList = this.largeicons;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(271, 403);
+            this.listView1.Size = new System.Drawing.Size(204, 403);
             this.listView1.SmallImageList = this.imageList1;
             this.listView1.StateImageList = this.imageList1;
             this.listView1.TabIndex = 0;
@@ -665,7 +684,7 @@
             this.openAPreviewToolStripMenuItem,
             this.viewToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 176);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(190, 148);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // newToolStripMenuItem
@@ -709,7 +728,7 @@
             // refreshToolStripMenuItem1
             // 
             this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
-            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(189, 24);
             this.refreshToolStripMenuItem1.Text = "Refresh";
             this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.RefreshToolStripMenuItem1_Click);
             // 
@@ -784,13 +803,14 @@
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listBox1.ContextMenuStrip = this.contextMenuStrip2;
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(0, 43);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(271, 394);
+            this.listBox1.Size = new System.Drawing.Size(204, 394);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBox1_MouseDoubleClick);
@@ -814,8 +834,10 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.Black;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
             this.textBox1.Hint = "";
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.MaxLength = 32767;
@@ -826,7 +848,7 @@
             this.textBox1.SelectedText = "";
             this.textBox1.SelectionLength = 0;
             this.textBox1.SelectionStart = 0;
-            this.textBox1.Size = new System.Drawing.Size(271, 43);
+            this.textBox1.Size = new System.Drawing.Size(204, 43);
             this.textBox1.TabIndex = 2;
             this.textBox1.TabStop = false;
             this.textBox1.UseSystemPasswordChar = false;
@@ -840,7 +862,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.button1.Location = new System.Drawing.Point(0, 437);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(271, 40);
+            this.button1.Size = new System.Drawing.Size(204, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "upload";
             this.button1.TextColor = System.Drawing.Color.White;
@@ -1123,6 +1145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Htmlprojecteditor";
