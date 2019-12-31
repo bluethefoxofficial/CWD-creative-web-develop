@@ -50,5 +50,45 @@
     <Setting Name="licenced" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="Textboxcolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">64, 64, 64</Value>
+    </Setting>
+    <Setting Name="documentmapbackground" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+    <Setting Name="textboxforecolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="textbosidebarcolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">64, 64, 64</Value>
+    </Setting>
+    <Setting Name="textbosidebarforecolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="documentmapfore" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="activationkeys" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;tdWR1faRz8&lt;/string&gt;
+  &lt;string&gt;xTmZvwiBjx&lt;/string&gt;
+  &lt;string&gt;l8KH3kY5wn&lt;/string&gt;
+  &lt;string&gt;C38lTyN1Ew&lt;/string&gt;
+  &lt;string&gt;Hz4qvDkrjt&lt;/string&gt;
+  &lt;string&gt;EYBET2crdK&lt;/string&gt;
+  &lt;string&gt;3DKR17UtIx&lt;/string&gt;
+  &lt;string&gt;34jZyFmpmA&lt;/string&gt;
+  &lt;string&gt;aLFdHITJCa&lt;/string&gt;
+  &lt;string&gt;YvUF9uSYgs&lt;/string&gt;
+  &lt;string&gt;7bk5unFhpV&lt;/string&gt;
+  &lt;string&gt;carSvGg5hM&lt;/string&gt;
+  &lt;string&gt;LFC6A1KJCv&lt;/string&gt;
+  &lt;string&gt;pG0d2YvcBz&lt;/string&gt;
+  &lt;string&gt;wKY0eZlCJz&lt;/string&gt;
+  &lt;string&gt;3hfHIbnuBs&lt;/string&gt;
+  &lt;string&gt;ODRhCJR3Kz&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

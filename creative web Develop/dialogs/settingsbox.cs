@@ -37,7 +37,33 @@ namespace creative_web_Develop
         }
         private void settingsbox_Load(object sender, EventArgs e)
         {
-          
+            if(Debugger.IsAttached == true)
+            {
+                cxFlatButton5.Show();
+            }
+            else
+            {
+                cxFlatButton5.Hide();
+            }
+            if (Properties.Settings.Default.licenced == false)
+            {
+                groupBox1.Hide();
+                groupBox4.Hide();
+            }
+            else
+            {
+                tabPage6.Hide();
+                groupBox3.Hide();
+                groupBox1.Show();
+            }
+            pictureBox2.BackColor = Properties.Settings.Default.Textboxcolor;
+            label10.BackColor = Properties.Settings.Default.Textboxcolor;
+            label11.BackColor = Properties.Settings.Default.documentmapbackground;
+            pictureBox3.BackColor = Properties.Settings.Default.textbosidebarcolor;
+            pictureBox4.BackColor = Properties.Settings.Default.documentmapbackground;
+            label9.BackColor = Properties.Settings.Default.textbosidebarcolor;
+            label10.ForeColor = Properties.Settings.Default.textboxforecolor;
+            label11.ForeColor = Properties.Settings.Default.documentmapfore;
             textBox1.Text = Properties.Settings.Default.host;
             textBox2.Text = Properties.Settings.Default.username;
             phpcmd.Text = Properties.Settings.Default.phpexe;
@@ -133,8 +159,17 @@ namespace creative_web_Develop
             Properties.Settings.Default.phpexe = phpcmd.Text;
             Properties.Settings.Default.username = textBox2.Text;
             Properties.Settings.Default.password = textBox3.Text;
-        
-         
+
+
+            //themeing engine code (csoftware 2019 30th december)
+
+            Properties.Settings.Default.Textboxcolor = pictureBox2.BackColor;
+           Properties.Settings.Default.textbosidebarcolor = pictureBox3.BackColor;
+           Properties.Settings.Default.documentmapbackground = pictureBox4.BackColor;
+           Properties.Settings.Default.textbosidebarcolor = label9.BackColor;
+            Properties.Settings.Default.textboxforecolor = label10.ForeColor;
+            Properties.Settings.Default.documentmapfore = label11.ForeColor;
+
             if (checkBox2.Checked == true)
             {
                 Properties.Settings.Default.splashscreen = true;
@@ -151,12 +186,13 @@ namespace creative_web_Develop
             {
                 Properties.Settings.Default.highdpi = false;
             }
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
             if (checkBox3.Checked == true)
             {
                 Application.Restart();
             }  
-            Properties.Settings.Default.Save();
-            Properties.Settings.Default.Upgrade();
+           
             if (Properties.Settings.Default.highdpi == true)
             {
                 Cef.EnableHighDPISupport();
@@ -225,6 +261,92 @@ namespace creative_web_Develop
         private void CxFlatButton1_Click_1(object sender, EventArgs e)
         {
             Process.Start(Environment.CurrentDirectory);
+        }
+
+        private void CxFlatButton5_Click(object sender, EventArgs e)
+        {
+            if(colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox4.BackColor = colorDialog1.Color;
+                label11.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void CxFlatButton2_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox2.BackColor = colorDialog1.Color;
+                label10.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void CxFlatButton3_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox3.BackColor = colorDialog1.Color;
+                label9.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void CxFlatButton4_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+              
+                label9.ForeColor = colorDialog1.Color;
+            }
+        }
+
+        private void CxFlatButton6_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                label11.ForeColor = colorDialog1.Color;
+            }
+        }
+
+        private void CxFlatButton7_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                label10.ForeColor = colorDialog1.Color;
+            }
+        }
+
+        private void CxFlatButton8_Click(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.activationkeys.Contains(cxFlatTextBox1.Text))
+            {
+                Properties.Settings.Default.licenced = true;
+                Properties.Settings.Default.Save();
+                MessageBox.Show("Activated. Restarting");
+                Application.Restart();
+            }
+           
+        }
+
+        private void CxFlatButton9_Click(object sender, EventArgs e)
+        {
+           new dialogs.terminal().ShowDialog();
+        }
+
+        private void CxFlatButton10_Click(object sender, EventArgs e)
+        {
+
+
+            Properties.Settings.Default.Textboxcolor = Color.FromArgb(64, 64, 64);
+            Properties.Settings.Default.textbosidebarcolor = Color.White;
+            Properties.Settings.Default.documentmapbackground = Color.Black;
+            Properties.Settings.Default.textbosidebarcolor = Color.FromArgb(64,64,64);
+            Properties.Settings.Default.textboxforecolor = Color.White;
+            Properties.Settings.Default.documentmapfore = Color.White;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Restored to default settings for themes.");
+            this.Close();
         }
     }
 }

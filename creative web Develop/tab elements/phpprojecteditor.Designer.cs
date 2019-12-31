@@ -131,6 +131,7 @@
             this.richTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.FindEndOfFoldingBlockStrategy = FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy.Strategy2;
+            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.richTextBox1.ForeColor = System.Drawing.Color.White;
             this.richTextBox1.IndentBackColor = System.Drawing.Color.Transparent;
             this.richTextBox1.IsReplaceMode = false;
@@ -151,6 +152,7 @@
             this.richTextBox1.Zoom = 100;
             this.richTextBox1.Load += new System.EventHandler(this.RichTextBox1_Load);
             this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox1_KeyDown);
+            this.richTextBox1.MouseEnter += new System.EventHandler(this.RichTextBox1_MouseEnter);
             // 
             // statusStrip1
             // 
@@ -197,6 +199,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1163, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -243,7 +246,7 @@
             // openInCmdToolStripMenuItem
             // 
             this.openInCmdToolStripMenuItem.Name = "openInCmdToolStripMenuItem";
-            this.openInCmdToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openInCmdToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.openInCmdToolStripMenuItem.Text = "open in cmd";
             this.openInCmdToolStripMenuItem.Click += new System.EventHandler(this.OpenInCmdToolStripMenuItem_Click);
             // 
@@ -255,7 +258,7 @@
             this.restartToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-            this.serverToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.serverToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.serverToolStripMenuItem.Text = "server";
             // 
             // startToolStripMenuItem
@@ -297,7 +300,7 @@
             // debugToolStripMenuItem1
             // 
             this.debugToolStripMenuItem1.Name = "debugToolStripMenuItem1";
-            this.debugToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.debugToolStripMenuItem1.Size = new System.Drawing.Size(137, 26);
             this.debugToolStripMenuItem1.Text = "Debug";
             this.debugToolStripMenuItem1.Click += new System.EventHandler(this.DebugToolStripMenuItem1_Click);
             // 

@@ -473,8 +473,15 @@ namespace creative_web_Develop
 
         private void startWithinBrowserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            File.WriteAllText(currentfile, richTextBox1.Text);
-            System.Diagnostics.Process.Start(currentfile);
+            if (Properties.Settings.Default.licenced == false)
+            {
+                MessageBox.Show("This feature is only usable by activated users.");
+            }
+            else
+            {
+                File.WriteAllText(currentfile, richTextBox1.Text);
+                System.Diagnostics.Process.Start(currentfile);
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -802,7 +809,12 @@ namespace creative_web_Develop
 
         private void RichTextBox1_Load_1(object sender, EventArgs e)
         {
-
+            richTextBox1.BackColor = Properties.Settings.Default.Textboxcolor;
+            richTextBox1.IndentBackColor = Properties.Settings.Default.textbosidebarcolor;
+            richTextBox1.ForeColor = Properties.Settings.Default.textboxforecolor;
+            richTextBox1.LineNumberColor = Properties.Settings.Default.textbosidebarforecolor;
+            documentMap1.BackColor = Properties.Settings.Default.documentmapbackground;
+            documentMap1.ForeColor = Properties.Settings.Default.documentmapfore;
         }
 
         private void ContextMenuStrip2_Opening(object sender, CancelEventArgs e)
@@ -866,6 +878,27 @@ namespace creative_web_Develop
             else
             {
                 richTextBox1.SelectedText += fg.generatedcode;
+            }
+        }
+
+        private void RichTextBox1_MouseEnter(object sender, EventArgs e)
+        {
+            richTextBox1.BackColor = Properties.Settings.Default.Textboxcolor;
+            richTextBox1.IndentBackColor = Properties.Settings.Default.textbosidebarcolor;
+            richTextBox1.ForeColor = Properties.Settings.Default.textboxforecolor;
+            richTextBox1.LineNumberColor = Properties.Settings.Default.textbosidebarforecolor;
+            documentMap1.BackColor = Properties.Settings.Default.documentmapbackground;
+            documentMap1.ForeColor = Properties.Settings.Default.documentmapfore;
+        }
+
+        private void InsertCodeToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            if(Properties.Settings.Default.licenced == false)
+            {
+                MessageBox.Show("This feature is only usable by activated users.");
+                insertCodeToolStripMenuItem.HideDropDown();
+                insertCodeToolStripMenuItem.Visible = false;
+                htmlToolStripMenuItem.HideDropDown();
             }
         }
     }

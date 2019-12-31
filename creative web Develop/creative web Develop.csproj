@@ -171,6 +171,12 @@
     <Compile Include="dialogs\project settings.Designer.cs">
       <DependentUpon>project settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="dialogs\terminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dialogs\terminal.Designer.cs">
+      <DependentUpon>terminal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dialogs\project settings.resx">
       <DependentUpon>project settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\terminal.resx">
+      <DependentUpon>terminal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

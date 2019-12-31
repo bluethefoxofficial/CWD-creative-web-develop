@@ -214,5 +214,108 @@ namespace creative_web_Develop.Properties {
                 this["licenced"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("64, 64, 64")]
+        public global::System.Drawing.Color Textboxcolor {
+            get {
+                return ((global::System.Drawing.Color)(this["Textboxcolor"]));
+            }
+            set {
+                this["Textboxcolor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color documentmapbackground {
+            get {
+                return ((global::System.Drawing.Color)(this["documentmapbackground"]));
+            }
+            set {
+                this["documentmapbackground"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color textboxforecolor {
+            get {
+                return ((global::System.Drawing.Color)(this["textboxforecolor"]));
+            }
+            set {
+                this["textboxforecolor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("64, 64, 64")]
+        public global::System.Drawing.Color textbosidebarcolor {
+            get {
+                return ((global::System.Drawing.Color)(this["textbosidebarcolor"]));
+            }
+            set {
+                this["textbosidebarcolor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color textbosidebarforecolor {
+            get {
+                return ((global::System.Drawing.Color)(this["textbosidebarforecolor"]));
+            }
+            set {
+                this["textbosidebarforecolor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color documentmapfore {
+            get {
+                return ((global::System.Drawing.Color)(this["documentmapfore"]));
+            }
+            set {
+                this["documentmapfore"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>tdWR1faRz8</string>
+  <string>xTmZvwiBjx</string>
+  <string>l8KH3kY5wn</string>
+  <string>C38lTyN1Ew</string>
+  <string>Hz4qvDkrjt</string>
+  <string>EYBET2crdK</string>
+  <string>3DKR17UtIx</string>
+  <string>34jZyFmpmA</string>
+  <string>aLFdHITJCa</string>
+  <string>YvUF9uSYgs</string>
+  <string>7bk5unFhpV</string>
+  <string>carSvGg5hM</string>
+  <string>LFC6A1KJCv</string>
+  <string>pG0d2YvcBz</string>
+  <string>wKY0eZlCJz</string>
+  <string>3hfHIbnuBs</string>
+  <string>ODRhCJR3Kz</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection activationkeys {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["activationkeys"]));
+            }
+            set {
+                this["activationkeys"] = value;
+            }
+        }
     }
 }

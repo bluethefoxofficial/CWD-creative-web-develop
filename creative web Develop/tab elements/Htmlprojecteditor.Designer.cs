@@ -212,6 +212,7 @@
             this.richTextBox1.Zoom = 100;
             this.richTextBox1.Load += new System.EventHandler(this.RichTextBox1_Load_1);
             this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox1_KeyDown_1);
+            this.richTextBox1.MouseEnter += new System.EventHandler(this.RichTextBox1_MouseEnter);
             // 
             // documentMap1
             // 
@@ -222,7 +223,7 @@
             this.documentMap1.Name = "documentMap1";
             this.documentMap1.Size = new System.Drawing.Size(199, 639);
             this.documentMap1.TabIndex = 1;
-            this.documentMap1.Target = null;
+            this.documentMap1.Target = this.richTextBox1;
             this.documentMap1.Text = "documentMap1";
             this.documentMap1.Visible = false;
             this.documentMap1.Click += new System.EventHandler(this.documentMap1_Click);
@@ -373,6 +374,7 @@
             this.insertCodeToolStripMenuItem.Name = "insertCodeToolStripMenuItem";
             this.insertCodeToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
             this.insertCodeToolStripMenuItem.Text = "insert code";
+            this.insertCodeToolStripMenuItem.DropDownOpening += new System.EventHandler(this.InsertCodeToolStripMenuItem_DropDownOpening);
             this.insertCodeToolStripMenuItem.Click += new System.EventHandler(this.insertCodeToolStripMenuItem_Click);
             // 
             // htmlToolStripMenuItem1

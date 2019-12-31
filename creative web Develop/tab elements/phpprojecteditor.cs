@@ -387,7 +387,10 @@ namespace creative_web_Develop.tab_elements
 
         private void RichTextBox1_Load(object sender, EventArgs e)
         {
-
+            richTextBox1.BackColor = Properties.Settings.Default.Textboxcolor;
+            richTextBox1.IndentBackColor = Properties.Settings.Default.textbosidebarcolor;
+            richTextBox1.ForeColor = Properties.Settings.Default.textboxforecolor;
+            richTextBox1.LineNumberColor = Properties.Settings.Default.textbosidebarforecolor;
         }
 
         private void OpenInExplorerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -544,6 +547,19 @@ namespace creative_web_Develop.tab_elements
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void RichTextBox1_MouseEnter(object sender, EventArgs e)
+        {
+            richTextBox1.BackColor = Properties.Settings.Default.Textboxcolor;
+            richTextBox1.IndentBackColor = Properties.Settings.Default.textbosidebarcolor;
+            richTextBox1.ForeColor = Properties.Settings.Default.textboxforecolor;
+            richTextBox1.LineNumberColor = Properties.Settings.Default.textbosidebarforecolor;
         }
     }
 }
