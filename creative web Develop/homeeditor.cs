@@ -138,7 +138,12 @@ namespace creative_web_Develop
                 htmlprojectloaderinit();
 
             }
-            else if (projecttype == "PHP")
+            if (projecttype == "Electron")
+            {
+                electronprojectloaderinit();
+               
+            }
+            if (projecttype == "PHP")
             {
                 phpprojectloaderinit();
 
@@ -153,7 +158,41 @@ namespace creative_web_Develop
             await Task.Run(() => PHPPROJECTLOADER());
             pw.Close();
         }
+        private async void electronprojectloaderinit()
+        {
+            pleasewait pw = new pleasewait();
+            pw.TopMost = true;
+            pw.Show();
+            await Task.Run(() => electron());
+            pw.Close();
+        }
         public delegate void fivenine();
+        private void electron ()
+        {
+            tab_elements.electronprojecteditor ppe = new tab_elements.electronprojecteditor();
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new fivenine(electron));
+                return;
+            }
+
+            ppe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.SelectedItems[0].Text + "_files";
+
+            ppe.Dock = DockStyle.Fill;
+            ppe.Visible = true;
+            ppe.Show();
+
+            TabPage tp = new TabPage();
+
+
+            tp.Controls.Add(ppe);
+            tp.Text = "project - " + listView1.SelectedItems[0].Text;
+            tabControl1.TabPages.Add(tp);
+            tabControl1.SelectedTab = tp;
+
+
+
+        }
         private void PHPPROJECTLOADER()
         {
 
@@ -170,6 +209,32 @@ namespace creative_web_Develop
 
             ppe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.SelectedItems[0].Text + "_files";
 
+
+            ppe.Dock = DockStyle.Fill;
+            ppe.Visible = true;
+            ppe.Show();
+
+            TabPage tp = new TabPage();
+
+
+            tp.Controls.Add(ppe);
+            tp.Text = "project - " + listView1.SelectedItems[0].Text;
+            tabControl1.TabPages.Add(tp);
+            tabControl1.SelectedTab = tp;
+
+
+
+        }
+        private void ELECTRONPROJECTLOADER()
+        {
+            tab_elements.electronprojecteditor ppe = new tab_elements.electronprojecteditor();
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new fivenine(electron)); ;
+                return;
+            }
+
+            ppe.projectFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + listView1.SelectedItems[0].Text + "_files";
 
             ppe.Dock = DockStyle.Fill;
             ppe.Visible = true;
@@ -221,17 +286,7 @@ namespace creative_web_Develop
             hpe.Show();
             tabControl1.TabPages.Add(tp);
             tabControl1.SelectedTab = tp;
-
-
         }
-
-
-
-
-
-
-
-
         private void button3_Click(object sender, EventArgs e)
         {
             createpro();
@@ -240,8 +295,8 @@ namespace creative_web_Develop
         public void createpro()
         {
 
-            try
-            {
+           // try
+          //  {
                 if (textBox1.Text != "")
                 {
                     this.ForeColor = Color.Black;
@@ -270,10 +325,31 @@ namespace creative_web_Develop
                         tabControl1.SelectedTab = tp;
                         cxFlatRoundProgressBar1.ValueNumber += 1;
                     }
-                    else if(listView2.Items[intselectedindex].Text == "PHP")
+                    else if (listView2.Items[intselectedindex].Text == "PHP")
                     {
                         System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "index.php", "<?php \n //Starter project \n \n echo \"hello world\";");
                         cxFlatRoundProgressBar1.ValueNumber += 1;
+                    }
+                    else if (listView2.Items[intselectedindex].Text == "Electron")
+                    {
+                        System.IO.Directory.CreateDirectory(Environment.SpecialFolder.UserProfile + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\windows\\");
+                        string sc = Properties.Settings.Default.defaultelectronstart;
+                        System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "index.js", sc);
+                        System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "index.html", "<h1>Electron project test: Hello World</h1>");
+                      
+                    string location = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\";
+                    System.IO.File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Documents" + "\\creative web projects\\" + textBox1.Text + "_files\\" + "package.json", Properties.Settings.Default.defaultindexelectron);
+                    Process p = new Process();
+                    p.StartInfo.FileName = "cmd.exe";
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.RedirectStandardInput = true;
+                    p.StartInfo.CreateNoWindow = false;
+                    p.StartInfo.WorkingDirectory = location;
+                    p.Start();
+                    p.StandardInput.WriteLine("npm install electron electron-builder");
+                    
+                    cxFlatRoundProgressBar1.ValueNumber += 1;
                     }
                     else
                     {
@@ -282,17 +358,16 @@ namespace creative_web_Develop
 
                         cxFlatRoundProgressBar1.ValueNumber -= 1;
                     }
-                
                 }
                 else
                 {
                     MessageBox.Show("Please give your project a name.");
                 }
-            }
-            catch
-            {
-                MessageBox.Show("please select the project type");
-            }
+          //  }
+          //  catch(Exception e)
+          //  {
+           //     MessageBox.Show("An error occured when creating the project " + e.Message + " | debug info | " + e.TargetSite + e.StackTrace +e.InnerException ,"CWD error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+          //  }
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -460,6 +535,16 @@ namespace creative_web_Develop
         }
 
         private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

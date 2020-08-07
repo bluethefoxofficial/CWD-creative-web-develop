@@ -31,6 +31,7 @@ namespace creative_web_Develop
             }
             catch (WebException ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             }
             return true;
@@ -132,7 +133,7 @@ namespace creative_web_Develop
 
                     Status.Text = "status: Connection error";
                     pictureBox1.BackColor = Color.Red;
-                    MessageBox.Show("connection error");
+                    MessageBox.Show("connection error: " + ex.Message);
                 }
             }
             catch

@@ -12,7 +12,7 @@ namespace creative_web_Develop.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -205,7 +205,7 @@ namespace creative_web_Develop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool licenced {
             get {
                 return ((bool)(this["licenced"]));
@@ -315,6 +315,65 @@ namespace creative_web_Develop.Properties {
             }
             set {
                 this["activationkeys"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"const { app, BrowserWindow } = require('electron')
+
+function createWindow () {
+  // Create the browser window.
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+
+  // and load the index.html of the app.
+  win.loadFile('index.html')
+}
+
+app.whenReady().then(createWindow)")]
+        public string defaultelectronstart {
+            get {
+                return ((string)(this["defaultelectronstart"]));
+            }
+            set {
+                this["defaultelectronstart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"{
+  ""name"": ""667_files"",
+  ""version"": ""1.0.0"",
+  ""description"": """",
+  ""main"": ""index.js"",
+  ""scripts"": {
+    ""test"": ""electron ."",
+    ""compile"": ""electron-builder -mwl"",
+    ""compilewin"": ""electron-builder --windows"",
+    ""compilemac"": ""electron-builder --mac"",
+    ""compilelinux"": ""electron-builder --linux""
+  },
+  ""keywords"": [],
+  ""author"": """",
+  ""license"": ""ISC"",
+  ""dependencies"": {
+    ""electron"": ""^9.1.2"",
+    ""electron-packager"": ""^15.0.0""
+  }
+}")]
+        public string defaultindexelectron {
+            get {
+                return ((string)(this["defaultindexelectron"]));
+            }
+            set {
+                this["defaultindexelectron"] = value;
             }
         }
     }

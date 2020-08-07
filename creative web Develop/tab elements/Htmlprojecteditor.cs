@@ -136,79 +136,14 @@ namespace creative_web_Develop
         }
     
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void noToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void yesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void closeProjectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cMDToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new settingsbox().ShowDialog();
         }
 
-        private void groupBox1_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             File.WriteAllText(currentfile, richTextBox1.Text);
-        }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
         }
 
         private void htmlToolStripMenuItem_Click(object sender, EventArgs e)
@@ -900,6 +835,11 @@ namespace creative_web_Develop
                 insertCodeToolStripMenuItem.Visible = false;
                 htmlToolStripMenuItem.HideDropDown();
             }
+        }
+
+        private void debugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

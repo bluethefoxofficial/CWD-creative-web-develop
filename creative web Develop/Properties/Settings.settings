@@ -48,7 +48,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="licenced" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="Textboxcolor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">64, 64, 64</Value>
@@ -89,6 +89,47 @@
   &lt;string&gt;3hfHIbnuBs&lt;/string&gt;
   &lt;string&gt;ODRhCJR3Kz&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="defaultelectronstart" Type="System.String" Scope="User">
+      <Value Profile="(Default)">const { app, BrowserWindow } = require('electron')
+
+function createWindow () {
+  // Create the browser window.
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+
+  // and load the index.html of the app.
+  win.loadFile('index.html')
+}
+
+app.whenReady().then(createWindow)</Value>
+    </Setting>
+    <Setting Name="defaultindexelectron" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{
+  "name": "667_files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron .",
+    "compile": "electron-builder -mwl",
+    "compilewin": "electron-builder --windows",
+    "compilemac": "electron-builder --mac",
+    "compilelinux": "electron-builder --linux"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^9.1.2",
+    "electron-packager": "^15.0.0"
+  }
+}</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -131,6 +131,8 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.Compatibility" />
     <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -149,8 +151,10 @@
     <Reference Include="TabStrip.FormsPlugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TabStrip.1.0.0.109\lib\netstandard2.0\TabStrip.FormsPlugin.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Scroll.cs" />
     <Compile Include="dialogs\about.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +217,12 @@
       <DependentUpon>plugins.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="tab elements\electronprojecteditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="tab elements\electronprojecteditor.Designer.cs">
+      <DependentUpon>electronprojecteditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="tab elements\Htmlprojecteditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -311,6 +321,9 @@
     <EmbeddedResource Include="plugins.resx">
       <DependentUpon>plugins.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="tab elements\electronprojecteditor.resx">
+      <DependentUpon>electronprojecteditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tab elements\Htmlprojecteditor.resx">
       <DependentUpon>Htmlprojecteditor.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -372,6 +385,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="Resources\electron.png" />
+    <Content Include="Resources\html.png" />
     <None Include="Resources\WARNING.png" />
     <None Include="Resources\WARNING.jpg" />
     <None Include="Resources\about cwd.png" />
@@ -386,9 +401,6 @@
     <Content Include="Resources\css.png" />
     <None Include="Resources\cwdsplash.png" />
     <None Include="Resources\CWD NEW SPLASH.png" />
-    <Content Include="Resources\html.png" />
-    <Content Include="Resources\js.png" />
-    <Content Include="Resources\php.png" />
     <None Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>

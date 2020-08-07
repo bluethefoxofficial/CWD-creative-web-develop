@@ -13,7 +13,7 @@ namespace creative_web_Develop
     public partial class about : Form
     {
         public bool drag = false;
-        private Timer tmr;
+ 
         private int scrll { get; set; }
         private int limit = 40;
         public about()
