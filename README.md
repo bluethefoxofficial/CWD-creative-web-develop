@@ -20,11 +20,12 @@ creative web develop is a IDE designed for website designers and programmers.
 - backend plugins
 - form generation
 - php debugging
-- user score
 - feedback
+#new features
+- electron support with debugging and preview
 
 
-# Screenshots
+# Screenshots (old needs updating)
 ![Screenshot ](CWD_screenshot_1.PNG)
 ![Screenshot ](CWD_screenshot_2.PNG)
 ![Screenshot ](CWD_screenshot_3.PNG)
